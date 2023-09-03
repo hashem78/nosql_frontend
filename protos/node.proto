@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "me.hashemalayan.nosql.shared";
+option java_outer_classname = "NodeProto";
+
+import "google/protobuf/timestamp.proto";
+
+package node;
+
+service NodeService {
+  rpc GetNodeState(GetNodeStateRequest) returns (GetNodeStateResponse);
+  rpc CreateCollection(CreateCollectionRequest) returns (CollectionMetaData);
+}
+
+message CreateCollectionRequest {
+  string name = 1;
+}
+
+message CollectionMetaData {
+  string id = 1;
+  string name = 2;
+  google.protobuf.Timestamp createdOn = 3;
+}
+
+message GetNodeStateRequest {
+  int32 sender = 1;
+}
+
+message GetNodeStateResponse{
+  int32 port = 1;
+  NodeState nodeState = 2;
+}
+
+enum NodeState{
+  HEAlTHY = 0;
+  WAITING = 1;
+  ERROR = 2;
+}

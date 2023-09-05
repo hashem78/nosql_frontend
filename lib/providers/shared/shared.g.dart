@@ -6,7 +6,25 @@ part of 'shared.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$collectionsHash() => r'039fa04ae95d756c9d71e8c0757f1fd7a2572b1b';
+String _$collectionsHash() => r'4e1d2617720238bb972b6f0e7208be9d6068fbdc';
+
+/// See also [collections].
+@ProviderFor(collections)
+final collectionsProvider =
+    AutoDisposeFutureProvider<GetCollectionsResponse>.internal(
+  collections,
+  name: r'collectionsProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$collectionsHash,
+  dependencies: <ProviderOrFamily>[nodeServiceProvider],
+  allTransitiveDependencies: <ProviderOrFamily>{
+    nodeServiceProvider,
+    ...?nodeServiceProvider.allTransitiveDependencies
+  },
+);
+
+typedef CollectionsRef = AutoDisposeFutureProviderRef<GetCollectionsResponse>;
+String _$documentsHash() => r'7b32bb4fe6e8746fa735ce2b52b0f9a027603a14';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,262 +47,155 @@ class _SystemHash {
   }
 }
 
-/// See also [collections].
-@ProviderFor(collections)
-const collectionsProvider = CollectionsFamily();
+/// See also [documents].
+@ProviderFor(documents)
+const documentsProvider = DocumentsFamily();
 
-/// See also [collections].
-class CollectionsFamily extends Family<AsyncValue<GetCollectionsResponse>> {
-  /// See also [collections].
-  const CollectionsFamily();
+/// See also [documents].
+class DocumentsFamily extends Family<AsyncValue<CollectionDocument>> {
+  /// See also [documents].
+  const DocumentsFamily();
 
-  /// See also [collections].
-  CollectionsProvider call(
-    int port,
+  /// See also [documents].
+  DocumentsProvider call(
+    String collectionName,
   ) {
-    return CollectionsProvider(
-      port,
+    return DocumentsProvider(
+      collectionName,
     );
   }
 
   @override
-  CollectionsProvider getProviderOverride(
-    covariant CollectionsProvider provider,
+  DocumentsProvider getProviderOverride(
+    covariant DocumentsProvider provider,
   ) {
     return call(
-      provider.port,
+      provider.collectionName,
     );
   }
 
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
+  static final Iterable<ProviderOrFamily> _dependencies = <ProviderOrFamily>[
+    nodeServiceProvider
+  ];
 
   @override
   Iterable<ProviderOrFamily>? get dependencies => _dependencies;
 
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+  static final Iterable<ProviderOrFamily> _allTransitiveDependencies =
+      <ProviderOrFamily>{
+    nodeServiceProvider,
+    ...?nodeServiceProvider.allTransitiveDependencies
+  };
 
   @override
   Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'collectionsProvider';
+  String? get name => r'documentsProvider';
 }
 
-/// See also [collections].
-class CollectionsProvider
-    extends AutoDisposeFutureProvider<GetCollectionsResponse> {
-  /// See also [collections].
-  CollectionsProvider(
-    int port,
+/// See also [documents].
+class DocumentsProvider extends AutoDisposeStreamProvider<CollectionDocument> {
+  /// See also [documents].
+  DocumentsProvider(
+    String collectionName,
   ) : this._internal(
-          (ref) => collections(
-            ref as CollectionsRef,
-            port,
+          (ref) => documents(
+            ref as DocumentsRef,
+            collectionName,
           ),
-          from: collectionsProvider,
-          name: r'collectionsProvider',
+          from: documentsProvider,
+          name: r'documentsProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$collectionsHash,
-          dependencies: CollectionsFamily._dependencies,
-          allTransitiveDependencies:
-              CollectionsFamily._allTransitiveDependencies,
-          port: port,
+                  : _$documentsHash,
+          dependencies: DocumentsFamily._dependencies,
+          allTransitiveDependencies: DocumentsFamily._allTransitiveDependencies,
+          collectionName: collectionName,
         );
 
-  CollectionsProvider._internal(
+  DocumentsProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.port,
+    required this.collectionName,
   }) : super.internal();
 
-  final int port;
+  final String collectionName;
 
   @override
   Override overrideWith(
-    FutureOr<GetCollectionsResponse> Function(CollectionsRef provider) create,
+    Stream<CollectionDocument> Function(DocumentsRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: CollectionsProvider._internal(
-        (ref) => create(ref as CollectionsRef),
+      override: DocumentsProvider._internal(
+        (ref) => create(ref as DocumentsRef),
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        port: port,
+        collectionName: collectionName,
       ),
     );
   }
 
   @override
-  AutoDisposeFutureProviderElement<GetCollectionsResponse> createElement() {
-    return _CollectionsProviderElement(this);
+  AutoDisposeStreamProviderElement<CollectionDocument> createElement() {
+    return _DocumentsProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is CollectionsProvider && other.port == port;
+    return other is DocumentsProvider && other.collectionName == collectionName;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, port.hashCode);
+    hash = _SystemHash.combine(hash, collectionName.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
-mixin CollectionsRef on AutoDisposeFutureProviderRef<GetCollectionsResponse> {
-  /// The parameter `port` of this provider.
-  int get port;
+mixin DocumentsRef on AutoDisposeStreamProviderRef<CollectionDocument> {
+  /// The parameter `collectionName` of this provider.
+  String get collectionName;
 }
 
-class _CollectionsProviderElement
-    extends AutoDisposeFutureProviderElement<GetCollectionsResponse>
-    with CollectionsRef {
-  _CollectionsProviderElement(super.provider);
+class _DocumentsProviderElement
+    extends AutoDisposeStreamProviderElement<CollectionDocument>
+    with DocumentsRef {
+  _DocumentsProviderElement(super.provider);
 
   @override
-  int get port => (origin as CollectionsProvider).port;
+  String get collectionName => (origin as DocumentsProvider).collectionName;
 }
 
-String _$nodeServiceHash() => r'3fe98db8fcfc34ad3ce38d3b79a169e774a2299c';
+String _$nodeServiceHash() => r'af324a74e1773c096aab386bfb45d2ba0b48e544';
 
 /// See also [nodeService].
 @ProviderFor(nodeService)
-const nodeServiceProvider = NodeServiceFamily();
+final nodeServiceProvider = AutoDisposeProvider<NodeServiceClient>.internal(
+  nodeService,
+  name: r'nodeServiceProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$nodeServiceHash,
+  dependencies: <ProviderOrFamily>[nodePortProvider],
+  allTransitiveDependencies: <ProviderOrFamily>{
+    nodePortProvider,
+    ...?nodePortProvider.allTransitiveDependencies
+  },
+);
 
-/// See also [nodeService].
-class NodeServiceFamily extends Family<NodeServiceClient> {
-  /// See also [nodeService].
-  const NodeServiceFamily();
-
-  /// See also [nodeService].
-  NodeServiceProvider call(
-    int port,
-  ) {
-    return NodeServiceProvider(
-      port,
-    );
-  }
-
-  @override
-  NodeServiceProvider getProviderOverride(
-    covariant NodeServiceProvider provider,
-  ) {
-    return call(
-      provider.port,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'nodeServiceProvider';
-}
-
-/// See also [nodeService].
-class NodeServiceProvider extends AutoDisposeProvider<NodeServiceClient> {
-  /// See also [nodeService].
-  NodeServiceProvider(
-    int port,
-  ) : this._internal(
-          (ref) => nodeService(
-            ref as NodeServiceRef,
-            port,
-          ),
-          from: nodeServiceProvider,
-          name: r'nodeServiceProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$nodeServiceHash,
-          dependencies: NodeServiceFamily._dependencies,
-          allTransitiveDependencies:
-              NodeServiceFamily._allTransitiveDependencies,
-          port: port,
-        );
-
-  NodeServiceProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.port,
-  }) : super.internal();
-
-  final int port;
-
-  @override
-  Override overrideWith(
-    NodeServiceClient Function(NodeServiceRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: NodeServiceProvider._internal(
-        (ref) => create(ref as NodeServiceRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        port: port,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeProviderElement<NodeServiceClient> createElement() {
-    return _NodeServiceProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is NodeServiceProvider && other.port == port;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, port.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin NodeServiceRef on AutoDisposeProviderRef<NodeServiceClient> {
-  /// The parameter `port` of this provider.
-  int get port;
-}
-
-class _NodeServiceProviderElement
-    extends AutoDisposeProviderElement<NodeServiceClient> with NodeServiceRef {
-  _NodeServiceProviderElement(super.provider);
-
-  @override
-  int get port => (origin as NodeServiceProvider).port;
-}
-
+typedef NodeServiceRef = AutoDisposeProviderRef<NodeServiceClient>;
 String _$signalingHash() => r'cf41fcd765099565fbe8102580c1b93c33e4f2a0';
 
 /// See also [signaling].
@@ -299,7 +210,7 @@ final signalingProvider = AutoDisposeProvider<SignalingServiceClient>.internal(
 );
 
 typedef SignalingRef = AutoDisposeProviderRef<SignalingServiceClient>;
-String _$nodePortFutureHash() => r'838c4e04116b35a13fb7429371200ee3c90760cd';
+String _$nodePortFutureHash() => r'1b2102a602e175ec7b24f2f6f80ef31ba2ff2f98';
 
 /// See also [nodePortFuture].
 @ProviderFor(nodePortFuture)
@@ -314,7 +225,7 @@ final nodePortFutureProvider = AutoDisposeFutureProvider<int>.internal(
 );
 
 typedef NodePortFutureRef = AutoDisposeFutureProviderRef<int>;
-String _$nodePortHash() => r'c4b3c360c690c578d0156810e5a299a8d345dc45';
+String _$nodePortHash() => r'd2e6870eeb001eb289b5ca0c178ded90c4454a8d';
 
 /// See also [nodePort].
 @ProviderFor(nodePort)
@@ -323,8 +234,8 @@ final nodePortProvider = AutoDisposeProvider<int>.internal(
   name: r'nodePortProvider',
   debugGetCreateSourceHash:
       const bool.fromEnvironment('dart.vm.product') ? null : _$nodePortHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
+  dependencies: const <ProviderOrFamily>[],
+  allTransitiveDependencies: const <ProviderOrFamily>{},
 );
 
 typedef NodePortRef = AutoDisposeProviderRef<int>;

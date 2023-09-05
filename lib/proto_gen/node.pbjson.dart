@@ -27,6 +27,47 @@ const NodeState$json = {
 final $typed_data.Uint8List nodeStateDescriptor = $convert.base64Decode(
     'CglOb2RlU3RhdGUSCwoHSEVBbFRIWRAAEgsKB1dBSVRJTkcQARIJCgVFUlJPUhAC');
 
+@$core.Deprecated('Use getCollectionDocumentsRequestDescriptor instead')
+const GetCollectionDocumentsRequest$json = {
+  '1': 'GetCollectionDocumentsRequest',
+  '2': [
+    {'1': 'collection_name', '3': 1, '4': 1, '5': 9, '10': 'collectionName'},
+  ],
+};
+
+/// Descriptor for `GetCollectionDocumentsRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getCollectionDocumentsRequestDescriptor = $convert.base64Decode(
+    'Ch1HZXRDb2xsZWN0aW9uRG9jdW1lbnRzUmVxdWVzdBInCg9jb2xsZWN0aW9uX25hbWUYASABKA'
+    'lSDmNvbGxlY3Rpb25OYW1l');
+
+@$core.Deprecated('Use documentMetaDataDescriptor instead')
+const DocumentMetaData$json = {
+  '1': 'DocumentMetaData',
+  '2': [
+    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {'1': 'created_on', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdOn'},
+  ],
+};
+
+/// Descriptor for `DocumentMetaData`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List documentMetaDataDescriptor = $convert.base64Decode(
+    'ChBEb2N1bWVudE1ldGFEYXRhEg4KAmlkGAEgASgJUgJpZBI5CgpjcmVhdGVkX29uGAIgASgLMh'
+    'ouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJY3JlYXRlZE9u');
+
+@$core.Deprecated('Use collectionDocumentDescriptor instead')
+const CollectionDocument$json = {
+  '1': 'CollectionDocument',
+  '2': [
+    {'1': 'meta_data', '3': 1, '4': 1, '5': 11, '6': '.node.DocumentMetaData', '10': 'metaData'},
+    {'1': 'data', '3': 2, '4': 1, '5': 9, '10': 'data'},
+  ],
+};
+
+/// Descriptor for `CollectionDocument`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List collectionDocumentDescriptor = $convert.base64Decode(
+    'ChJDb2xsZWN0aW9uRG9jdW1lbnQSMwoJbWV0YV9kYXRhGAEgASgLMhYubm9kZS5Eb2N1bWVudE'
+    '1ldGFEYXRhUghtZXRhRGF0YRISCgRkYXRhGAIgASgJUgRkYXRh');
+
 @$core.Deprecated('Use createCollectionRequestDescriptor instead')
 const CreateCollectionRequest$json = {
   '1': 'CreateCollectionRequest',

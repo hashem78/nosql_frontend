@@ -6,14 +6,23 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'shared.g.dart';
 
-@riverpod
-Future<GetCollectionsResponse> collections(CollectionsRef ref, int port) async {
-  final nodeService = ref.read(nodeServiceProvider(port));
+@Riverpod(dependencies: [nodeService])
+Future<GetCollectionsResponse> collections(CollectionsRef ref) async {
+  final nodeService = ref.watch(nodeServiceProvider);
   return await nodeService.getCollections(GetCollectionsRequest());
 }
 
-@riverpod
-NodeServiceClient nodeService(NodeServiceRef ref, int port) {
+@Riverpod(dependencies: [nodeService])
+Stream<CollectionDocument> documents(DocumentsRef ref, String collectionName) {
+  final nodeService = ref.watch(nodeServiceProvider);
+  return nodeService.getCollectionDocuments(
+    GetCollectionDocumentsRequest(collectionName: collectionName),
+  );
+}
+
+@Riverpod(dependencies: [nodePort])
+NodeServiceClient nodeService(NodeServiceRef ref) {
+  final port = ref.watch(nodePortProvider);
   final channel = ClientChannel(
     '127.0.0.1',
     port: port,
@@ -39,7 +48,7 @@ SignalingServiceClient signaling(SignalingRef ref) {
 
 @riverpod
 Future<int> nodePortFuture(NodePortFutureRef ref) async {
-  final signalingClient = ref.read(signalingProvider);
+  final signalingClient = ref.watch(signalingProvider);
   final loadResponse = await signalingClient.discoverLoad(
     LoadDiscoveryRequest(),
   );
@@ -47,7 +56,7 @@ Future<int> nodePortFuture(NodePortFutureRef ref) async {
   return loadResponse.port;
 }
 
-@riverpod
+@Riverpod(dependencies: [])
 int nodePort(NodePortRef ref) {
   throw UnimplementedError("Override the provider first");
 }

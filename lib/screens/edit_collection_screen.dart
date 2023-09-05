@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -163,5 +165,33 @@ class EditCollectionPropertyDialog extends HookWidget {
     );
   }
 }
+
+class Schema {
+  final String type;
+
+  Schema({
+    required this.type,
+  });
+}
+
+class ObjectSchema extends Schema {
+  ObjectSchema()
+      : properties = {},
+        super(type: 'object');
+
+  final Map<String, Schema> properties;
+
+  void addProperty(String propertyName, Schema schema) {
+    properties[propertyName] = schema;
+  }
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'type': type,
+      'properties': properties,
+    };
+  }
+}
+
 
 // final nodeService = ref.watch(nodeServiceProvider);await nodeService.createCollection(CreateCollectionRequest(name: collectionName),);

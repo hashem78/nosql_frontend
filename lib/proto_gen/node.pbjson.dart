@@ -45,15 +45,15 @@ const CollectionMetaData$json = {
   '2': [
     {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
     {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
-    {'1': 'createdOn', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdOn'},
+    {'1': 'created_on', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdOn'},
   ],
 };
 
 /// Descriptor for `CollectionMetaData`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List collectionMetaDataDescriptor = $convert.base64Decode(
     'ChJDb2xsZWN0aW9uTWV0YURhdGESDgoCaWQYASABKAlSAmlkEhIKBG5hbWUYAiABKAlSBG5hbW'
-    'USOAoJY3JlYXRlZE9uGAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJY3JlYXRl'
-    'ZE9u');
+    'USOQoKY3JlYXRlZF9vbhgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0'
+    'ZWRPbg==');
 
 @$core.Deprecated('Use getNodeStateRequestDescriptor instead')
 const GetNodeStateRequest$json = {
@@ -72,12 +72,34 @@ const GetNodeStateResponse$json = {
   '1': 'GetNodeStateResponse',
   '2': [
     {'1': 'port', '3': 1, '4': 1, '5': 5, '10': 'port'},
-    {'1': 'nodeState', '3': 2, '4': 1, '5': 14, '6': '.node.NodeState', '10': 'nodeState'},
+    {'1': 'node_state', '3': 2, '4': 1, '5': 14, '6': '.node.NodeState', '10': 'nodeState'},
   ],
 };
 
 /// Descriptor for `GetNodeStateResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getNodeStateResponseDescriptor = $convert.base64Decode(
-    'ChRHZXROb2RlU3RhdGVSZXNwb25zZRISCgRwb3J0GAEgASgFUgRwb3J0Ei0KCW5vZGVTdGF0ZR'
-    'gCIAEoDjIPLm5vZGUuTm9kZVN0YXRlUglub2RlU3RhdGU=');
+    'ChRHZXROb2RlU3RhdGVSZXNwb25zZRISCgRwb3J0GAEgASgFUgRwb3J0Ei4KCm5vZGVfc3RhdG'
+    'UYAiABKA4yDy5ub2RlLk5vZGVTdGF0ZVIJbm9kZVN0YXRl');
+
+@$core.Deprecated('Use getCollectionsRequestDescriptor instead')
+const GetCollectionsRequest$json = {
+  '1': 'GetCollectionsRequest',
+};
+
+/// Descriptor for `GetCollectionsRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getCollectionsRequestDescriptor = $convert.base64Decode(
+    'ChVHZXRDb2xsZWN0aW9uc1JlcXVlc3Q=');
+
+@$core.Deprecated('Use getCollectionsResponseDescriptor instead')
+const GetCollectionsResponse$json = {
+  '1': 'GetCollectionsResponse',
+  '2': [
+    {'1': 'collections_meta_data', '3': 1, '4': 3, '5': 11, '6': '.node.CollectionMetaData', '10': 'collectionsMetaData'},
+  ],
+};
+
+/// Descriptor for `GetCollectionsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getCollectionsResponseDescriptor = $convert.base64Decode(
+    'ChZHZXRDb2xsZWN0aW9uc1Jlc3BvbnNlEkwKFWNvbGxlY3Rpb25zX21ldGFfZGF0YRgBIAMoCz'
+    'IYLm5vZGUuQ29sbGVjdGlvbk1ldGFEYXRhUhNjb2xsZWN0aW9uc01ldGFEYXRh');
 

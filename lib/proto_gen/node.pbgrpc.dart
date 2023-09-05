@@ -29,6 +29,10 @@ class NodeServiceClient extends $grpc.Client {
       '/node.NodeService/CreateCollection',
       ($0.CreateCollectionRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.CollectionMetaData.fromBuffer(value));
+  static final _$getCollections = $grpc.ClientMethod<$0.GetCollectionsRequest, $0.GetCollectionsResponse>(
+      '/node.NodeService/GetCollections',
+      ($0.GetCollectionsRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.GetCollectionsResponse.fromBuffer(value));
 
   NodeServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -42,6 +46,10 @@ class NodeServiceClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$0.CollectionMetaData> createCollection($0.CreateCollectionRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$createCollection, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.GetCollectionsResponse> getCollections($0.GetCollectionsRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getCollections, request, options: options);
   }
 }
 
@@ -64,6 +72,13 @@ abstract class NodeServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.CreateCollectionRequest.fromBuffer(value),
         ($0.CollectionMetaData value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.GetCollectionsRequest, $0.GetCollectionsResponse>(
+        'GetCollections',
+        getCollections_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.GetCollectionsRequest.fromBuffer(value),
+        ($0.GetCollectionsResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.GetNodeStateResponse> getNodeState_Pre($grpc.ServiceCall call, $async.Future<$0.GetNodeStateRequest> request) async {
@@ -74,6 +89,11 @@ abstract class NodeServiceBase extends $grpc.Service {
     return createCollection(call, await request);
   }
 
+  $async.Future<$0.GetCollectionsResponse> getCollections_Pre($grpc.ServiceCall call, $async.Future<$0.GetCollectionsRequest> request) async {
+    return getCollections(call, await request);
+  }
+
   $async.Future<$0.GetNodeStateResponse> getNodeState($grpc.ServiceCall call, $0.GetNodeStateRequest request);
   $async.Future<$0.CollectionMetaData> createCollection($grpc.ServiceCall call, $0.CreateCollectionRequest request);
+  $async.Future<$0.GetCollectionsResponse> getCollections($grpc.ServiceCall call, $0.GetCollectionsRequest request);
 }

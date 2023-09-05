@@ -11,6 +11,7 @@ package node;
 service NodeService {
   rpc GetNodeState(GetNodeStateRequest) returns (GetNodeStateResponse);
   rpc CreateCollection(CreateCollectionRequest) returns (CollectionMetaData);
+  rpc GetCollections(GetCollectionsRequest) returns (GetCollectionsResponse);
 }
 
 message CreateCollectionRequest {
@@ -20,7 +21,7 @@ message CreateCollectionRequest {
 message CollectionMetaData {
   string id = 1;
   string name = 2;
-  google.protobuf.Timestamp createdOn = 3;
+  google.protobuf.Timestamp created_on = 3;
 }
 
 message GetNodeStateRequest {
@@ -29,7 +30,15 @@ message GetNodeStateRequest {
 
 message GetNodeStateResponse{
   int32 port = 1;
-  NodeState nodeState = 2;
+  NodeState node_state = 2;
+}
+
+message GetCollectionsRequest {
+
+}
+
+message GetCollectionsResponse {
+  repeated CollectionMetaData collections_meta_data = 1;
 }
 
 enum NodeState{

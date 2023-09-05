@@ -6,7 +6,7 @@ part of 'shared.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$nodeServiceHash() => r'3fe98db8fcfc34ad3ce38d3b79a169e774a2299c';
+String _$collectionsHash() => r'039fa04ae95d756c9d71e8c0757f1fd7a2572b1b';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -28,6 +28,136 @@ class _SystemHash {
     return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
   }
 }
+
+/// See also [collections].
+@ProviderFor(collections)
+const collectionsProvider = CollectionsFamily();
+
+/// See also [collections].
+class CollectionsFamily extends Family<AsyncValue<GetCollectionsResponse>> {
+  /// See also [collections].
+  const CollectionsFamily();
+
+  /// See also [collections].
+  CollectionsProvider call(
+    int port,
+  ) {
+    return CollectionsProvider(
+      port,
+    );
+  }
+
+  @override
+  CollectionsProvider getProviderOverride(
+    covariant CollectionsProvider provider,
+  ) {
+    return call(
+      provider.port,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'collectionsProvider';
+}
+
+/// See also [collections].
+class CollectionsProvider
+    extends AutoDisposeFutureProvider<GetCollectionsResponse> {
+  /// See also [collections].
+  CollectionsProvider(
+    int port,
+  ) : this._internal(
+          (ref) => collections(
+            ref as CollectionsRef,
+            port,
+          ),
+          from: collectionsProvider,
+          name: r'collectionsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$collectionsHash,
+          dependencies: CollectionsFamily._dependencies,
+          allTransitiveDependencies:
+              CollectionsFamily._allTransitiveDependencies,
+          port: port,
+        );
+
+  CollectionsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.port,
+  }) : super.internal();
+
+  final int port;
+
+  @override
+  Override overrideWith(
+    FutureOr<GetCollectionsResponse> Function(CollectionsRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: CollectionsProvider._internal(
+        (ref) => create(ref as CollectionsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        port: port,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<GetCollectionsResponse> createElement() {
+    return _CollectionsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is CollectionsProvider && other.port == port;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, port.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin CollectionsRef on AutoDisposeFutureProviderRef<GetCollectionsResponse> {
+  /// The parameter `port` of this provider.
+  int get port;
+}
+
+class _CollectionsProviderElement
+    extends AutoDisposeFutureProviderElement<GetCollectionsResponse>
+    with CollectionsRef {
+  _CollectionsProviderElement(super.provider);
+
+  @override
+  int get port => (origin as CollectionsProvider).port;
+}
+
+String _$nodeServiceHash() => r'3fe98db8fcfc34ad3ce38d3b79a169e774a2299c';
 
 /// See also [nodeService].
 @ProviderFor(nodeService)

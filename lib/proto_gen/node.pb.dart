@@ -93,7 +93,7 @@ class CollectionMetaData extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CollectionMetaData', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'id')
     ..aOS(2, _omitFieldNames ? '' : 'name')
-    ..aOM<$2.Timestamp>(3, _omitFieldNames ? '' : 'createdOn', protoName: 'createdOn', subBuilder: $2.Timestamp.create)
+    ..aOM<$2.Timestamp>(3, _omitFieldNames ? '' : 'createdOn', subBuilder: $2.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -218,7 +218,7 @@ class GetNodeStateResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetNodeStateResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'port', $pb.PbFieldType.O3)
-    ..e<NodeState>(2, _omitFieldNames ? '' : 'nodeState', $pb.PbFieldType.OE, protoName: 'nodeState', defaultOrMaker: NodeState.HEAlTHY, valueOf: NodeState.valueOf, enumValues: NodeState.values)
+    ..e<NodeState>(2, _omitFieldNames ? '' : 'nodeState', $pb.PbFieldType.OE, defaultOrMaker: NodeState.HEAlTHY, valueOf: NodeState.valueOf, enumValues: NodeState.values)
     ..hasRequiredFields = false
   ;
 
@@ -260,6 +260,82 @@ class GetNodeStateResponse extends $pb.GeneratedMessage {
   $core.bool hasNodeState() => $_has(1);
   @$pb.TagNumber(2)
   void clearNodeState() => clearField(2);
+}
+
+class GetCollectionsRequest extends $pb.GeneratedMessage {
+  factory GetCollectionsRequest() => create();
+  GetCollectionsRequest._() : super();
+  factory GetCollectionsRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetCollectionsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetCollectionsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetCollectionsRequest clone() => GetCollectionsRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetCollectionsRequest copyWith(void Function(GetCollectionsRequest) updates) => super.copyWith((message) => updates(message as GetCollectionsRequest)) as GetCollectionsRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetCollectionsRequest create() => GetCollectionsRequest._();
+  GetCollectionsRequest createEmptyInstance() => create();
+  static $pb.PbList<GetCollectionsRequest> createRepeated() => $pb.PbList<GetCollectionsRequest>();
+  @$core.pragma('dart2js:noInline')
+  static GetCollectionsRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetCollectionsRequest>(create);
+  static GetCollectionsRequest? _defaultInstance;
+}
+
+class GetCollectionsResponse extends $pb.GeneratedMessage {
+  factory GetCollectionsResponse({
+    $core.Iterable<CollectionMetaData>? collectionsMetaData,
+  }) {
+    final $result = create();
+    if (collectionsMetaData != null) {
+      $result.collectionsMetaData.addAll(collectionsMetaData);
+    }
+    return $result;
+  }
+  GetCollectionsResponse._() : super();
+  factory GetCollectionsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetCollectionsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetCollectionsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..pc<CollectionMetaData>(1, _omitFieldNames ? '' : 'collectionsMetaData', $pb.PbFieldType.PM, subBuilder: CollectionMetaData.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetCollectionsResponse clone() => GetCollectionsResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetCollectionsResponse copyWith(void Function(GetCollectionsResponse) updates) => super.copyWith((message) => updates(message as GetCollectionsResponse)) as GetCollectionsResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetCollectionsResponse create() => GetCollectionsResponse._();
+  GetCollectionsResponse createEmptyInstance() => create();
+  static $pb.PbList<GetCollectionsResponse> createRepeated() => $pb.PbList<GetCollectionsResponse>();
+  @$core.pragma('dart2js:noInline')
+  static GetCollectionsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetCollectionsResponse>(create);
+  static GetCollectionsResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<CollectionMetaData> get collectionsMetaData => $_getList(0);
 }
 
 

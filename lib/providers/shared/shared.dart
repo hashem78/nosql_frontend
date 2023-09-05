@@ -7,8 +7,13 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'shared.g.dart';
 
 @riverpod
+Future<GetCollectionsResponse> collections(CollectionsRef ref, int port) async {
+  final nodeService = ref.read(nodeServiceProvider(port));
+  return await nodeService.getCollections(GetCollectionsRequest());
+}
+
+@riverpod
 NodeServiceClient nodeService(NodeServiceRef ref, int port) {
-  
   final channel = ClientChannel(
     '127.0.0.1',
     port: port,

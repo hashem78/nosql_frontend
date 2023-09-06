@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:grpc/grpc.dart';
 import 'package:nosql_frontend/proto_gen/node.pbgrpc.dart';
 import 'package:nosql_frontend/proto_gen/signaling.pbgrpc.dart';
@@ -67,3 +68,11 @@ GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey(
 ) {
   return GlobalKey();
 }
+
+@Riverpod(dependencies: [])
+GlobalKey<FormBuilderState> formBuilderKey(
+  FormBuilderKeyRef ref,
+) {
+  return GlobalKey();
+}
+

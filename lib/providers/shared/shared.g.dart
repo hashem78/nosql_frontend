@@ -257,21 +257,5 @@ final scaffoldMessengerKeyProvider =
 
 typedef ScaffoldMessengerKeyRef
     = AutoDisposeProviderRef<GlobalKey<ScaffoldMessengerState>>;
-String _$formBuilderKeyHash() => r'92fa474a86d9c7d386d4b88d03f3d3b6c28e0e95';
-
-/// See also [formBuilderKey].
-@ProviderFor(formBuilderKey)
-final formBuilderKeyProvider =
-    AutoDisposeProvider<GlobalKey<FormBuilderState>>.internal(
-  formBuilderKey,
-  name: r'formBuilderKeyProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$formBuilderKeyHash,
-  dependencies: const <ProviderOrFamily>[],
-  allTransitiveDependencies: const <ProviderOrFamily>{},
-);
-
-typedef FormBuilderKeyRef = AutoDisposeProviderRef<GlobalKey<FormBuilderState>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member

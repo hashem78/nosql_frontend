@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:nosql_frontend/providers/shared/shared.dart';
 import 'package:nosql_frontend/screens/documents_screen.dart';
-import 'package:nosql_frontend/screens/create_collection_screen.dart';
+import 'package:nosql_frontend/screens/create_collection/create_collection_screen.dart';
 
 class CollectionsScreen extends HookConsumerWidget {
   const CollectionsScreen({super.key});
@@ -27,9 +27,9 @@ class CollectionsScreen extends HookConsumerWidget {
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => ProviderScope(
+              builder: (context) => const ProviderScope(
                 overrides: [],
-                child: const CreateCollectionScreen(),
+                child: CreateCollectionScreen(),
               ),
             ),
           );

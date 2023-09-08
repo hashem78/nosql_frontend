@@ -71,14 +71,22 @@ class GetCollectionDocumentsRequest extends $pb.GeneratedMessage {
 class DocumentMetaData extends $pb.GeneratedMessage {
   factory DocumentMetaData({
     $core.String? id,
+    $core.int? affinity,
     $2.Timestamp? createdOn,
+    $2.Timestamp? lastEditedOn,
   }) {
     final $result = create();
     if (id != null) {
       $result.id = id;
     }
+    if (affinity != null) {
+      $result.affinity = affinity;
+    }
     if (createdOn != null) {
       $result.createdOn = createdOn;
+    }
+    if (lastEditedOn != null) {
+      $result.lastEditedOn = lastEditedOn;
     }
     return $result;
   }
@@ -88,7 +96,9 @@ class DocumentMetaData extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DocumentMetaData', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'id')
-    ..aOM<$2.Timestamp>(2, _omitFieldNames ? '' : 'createdOn', subBuilder: $2.Timestamp.create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'affinity', $pb.PbFieldType.O3)
+    ..aOM<$2.Timestamp>(3, _omitFieldNames ? '' : 'createdOn', subBuilder: $2.Timestamp.create)
+    ..aOM<$2.Timestamp>(4, _omitFieldNames ? '' : 'lastEditedOn', subBuilder: $2.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -123,15 +133,35 @@ class DocumentMetaData extends $pb.GeneratedMessage {
   void clearId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $2.Timestamp get createdOn => $_getN(1);
+  $core.int get affinity => $_getIZ(1);
   @$pb.TagNumber(2)
-  set createdOn($2.Timestamp v) { setField(2, v); }
+  set affinity($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasCreatedOn() => $_has(1);
+  $core.bool hasAffinity() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCreatedOn() => clearField(2);
-  @$pb.TagNumber(2)
-  $2.Timestamp ensureCreatedOn() => $_ensure(1);
+  void clearAffinity() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $2.Timestamp get createdOn => $_getN(2);
+  @$pb.TagNumber(3)
+  set createdOn($2.Timestamp v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasCreatedOn() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearCreatedOn() => clearField(3);
+  @$pb.TagNumber(3)
+  $2.Timestamp ensureCreatedOn() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  $2.Timestamp get lastEditedOn => $_getN(3);
+  @$pb.TagNumber(4)
+  set lastEditedOn($2.Timestamp v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasLastEditedOn() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearLastEditedOn() => clearField(4);
+  @$pb.TagNumber(4)
+  $2.Timestamp ensureLastEditedOn() => $_ensure(3);
 }
 
 class CollectionDocument extends $pb.GeneratedMessage {
@@ -203,10 +233,14 @@ class CollectionDocument extends $pb.GeneratedMessage {
 class CreateCollectionRequest extends $pb.GeneratedMessage {
   factory CreateCollectionRequest({
     $core.String? name,
+    $core.String? schema,
   }) {
     final $result = create();
     if (name != null) {
       $result.name = name;
+    }
+    if (schema != null) {
+      $result.schema = schema;
     }
     return $result;
   }
@@ -216,6 +250,7 @@ class CreateCollectionRequest extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateCollectionRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..aOS(2, _omitFieldNames ? '' : 'schema')
     ..hasRequiredFields = false
   ;
 
@@ -248,6 +283,15 @@ class CreateCollectionRequest extends $pb.GeneratedMessage {
   $core.bool hasName() => $_has(0);
   @$pb.TagNumber(1)
   void clearName() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get schema => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set schema($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSchema() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSchema() => clearField(2);
 }
 
 class CollectionMetaData extends $pb.GeneratedMessage {

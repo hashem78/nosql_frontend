@@ -45,14 +45,18 @@ const DocumentMetaData$json = {
   '1': 'DocumentMetaData',
   '2': [
     {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
-    {'1': 'created_on', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdOn'},
+    {'1': 'affinity', '3': 2, '4': 1, '5': 5, '10': 'affinity'},
+    {'1': 'created_on', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdOn'},
+    {'1': 'last_edited_on', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'lastEditedOn'},
   ],
 };
 
 /// Descriptor for `DocumentMetaData`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List documentMetaDataDescriptor = $convert.base64Decode(
-    'ChBEb2N1bWVudE1ldGFEYXRhEg4KAmlkGAEgASgJUgJpZBI5CgpjcmVhdGVkX29uGAIgASgLMh'
-    'ouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJY3JlYXRlZE9u');
+    'ChBEb2N1bWVudE1ldGFEYXRhEg4KAmlkGAEgASgJUgJpZBIaCghhZmZpbml0eRgCIAEoBVIIYW'
+    'ZmaW5pdHkSOQoKY3JlYXRlZF9vbhgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBS'
+    'CWNyZWF0ZWRPbhJACg5sYXN0X2VkaXRlZF9vbhgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW'
+    '1lc3RhbXBSDGxhc3RFZGl0ZWRPbg==');
 
 @$core.Deprecated('Use collectionDocumentDescriptor instead')
 const CollectionDocument$json = {
@@ -73,12 +77,14 @@ const CreateCollectionRequest$json = {
   '1': 'CreateCollectionRequest',
   '2': [
     {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
+    {'1': 'schema', '3': 2, '4': 1, '5': 9, '10': 'schema'},
   ],
 };
 
 /// Descriptor for `CreateCollectionRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createCollectionRequestDescriptor = $convert.base64Decode(
-    'ChdDcmVhdGVDb2xsZWN0aW9uUmVxdWVzdBISCgRuYW1lGAEgASgJUgRuYW1l');
+    'ChdDcmVhdGVDb2xsZWN0aW9uUmVxdWVzdBISCgRuYW1lGAEgASgJUgRuYW1lEhYKBnNjaGVtYR'
+    'gCIAEoCVIGc2NoZW1h');
 
 @$core.Deprecated('Use collectionMetaDataDescriptor instead')
 const CollectionMetaData$json = {

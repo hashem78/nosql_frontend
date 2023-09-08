@@ -41,6 +41,10 @@ class NodeServiceClient extends $grpc.Client {
       '/node.NodeService/EditCollection',
       ($0.EditCollectionRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.EditCollectionResponse.fromBuffer(value));
+  static final _$deleteCollection = $grpc.ClientMethod<$0.DeleteCollectionRequest, $0.DeleteCollectionResponse>(
+      '/node.NodeService/DeleteCollection',
+      ($0.DeleteCollectionRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.DeleteCollectionResponse.fromBuffer(value));
 
   NodeServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -66,6 +70,10 @@ class NodeServiceClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$0.EditCollectionResponse> editCollection($0.EditCollectionRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$editCollection, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.DeleteCollectionResponse> deleteCollection($0.DeleteCollectionRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$deleteCollection, request, options: options);
   }
 }
 
@@ -109,6 +117,13 @@ abstract class NodeServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.EditCollectionRequest.fromBuffer(value),
         ($0.EditCollectionResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.DeleteCollectionRequest, $0.DeleteCollectionResponse>(
+        'DeleteCollection',
+        deleteCollection_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.DeleteCollectionRequest.fromBuffer(value),
+        ($0.DeleteCollectionResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.GetNodeStateResponse> getNodeState_Pre($grpc.ServiceCall call, $async.Future<$0.GetNodeStateRequest> request) async {
@@ -131,9 +146,14 @@ abstract class NodeServiceBase extends $grpc.Service {
     return editCollection(call, await request);
   }
 
+  $async.Future<$0.DeleteCollectionResponse> deleteCollection_Pre($grpc.ServiceCall call, $async.Future<$0.DeleteCollectionRequest> request) async {
+    return deleteCollection(call, await request);
+  }
+
   $async.Future<$0.GetNodeStateResponse> getNodeState($grpc.ServiceCall call, $0.GetNodeStateRequest request);
   $async.Future<$0.CollectionMetaData> createCollection($grpc.ServiceCall call, $0.CreateCollectionRequest request);
   $async.Future<$0.GetCollectionsResponse> getCollections($grpc.ServiceCall call, $0.GetCollectionsRequest request);
   $async.Stream<$0.CollectionDocument> getCollectionDocuments($grpc.ServiceCall call, $0.GetCollectionDocumentsRequest request);
   $async.Future<$0.EditCollectionResponse> editCollection($grpc.ServiceCall call, $0.EditCollectionRequest request);
+  $async.Future<$0.DeleteCollectionResponse> deleteCollection($grpc.ServiceCall call, $0.DeleteCollectionRequest request);
 }

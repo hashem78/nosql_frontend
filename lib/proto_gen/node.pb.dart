@@ -18,6 +18,88 @@ import 'node.pbenum.dart';
 
 export 'node.pbenum.dart';
 
+class DeleteCollectionRequest extends $pb.GeneratedMessage {
+  factory DeleteCollectionRequest({
+    $core.String? collectionId,
+  }) {
+    final $result = create();
+    if (collectionId != null) {
+      $result.collectionId = collectionId;
+    }
+    return $result;
+  }
+  DeleteCollectionRequest._() : super();
+  factory DeleteCollectionRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DeleteCollectionRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteCollectionRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'collectionId')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  DeleteCollectionRequest clone() => DeleteCollectionRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  DeleteCollectionRequest copyWith(void Function(DeleteCollectionRequest) updates) => super.copyWith((message) => updates(message as DeleteCollectionRequest)) as DeleteCollectionRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DeleteCollectionRequest create() => DeleteCollectionRequest._();
+  DeleteCollectionRequest createEmptyInstance() => create();
+  static $pb.PbList<DeleteCollectionRequest> createRepeated() => $pb.PbList<DeleteCollectionRequest>();
+  @$core.pragma('dart2js:noInline')
+  static DeleteCollectionRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeleteCollectionRequest>(create);
+  static DeleteCollectionRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get collectionId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set collectionId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCollectionId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCollectionId() => clearField(1);
+}
+
+class DeleteCollectionResponse extends $pb.GeneratedMessage {
+  factory DeleteCollectionResponse() => create();
+  DeleteCollectionResponse._() : super();
+  factory DeleteCollectionResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DeleteCollectionResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteCollectionResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  DeleteCollectionResponse clone() => DeleteCollectionResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  DeleteCollectionResponse copyWith(void Function(DeleteCollectionResponse) updates) => super.copyWith((message) => updates(message as DeleteCollectionResponse)) as DeleteCollectionResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DeleteCollectionResponse create() => DeleteCollectionResponse._();
+  DeleteCollectionResponse createEmptyInstance() => create();
+  static $pb.PbList<DeleteCollectionResponse> createRepeated() => $pb.PbList<DeleteCollectionResponse>();
+  @$core.pragma('dart2js:noInline')
+  static DeleteCollectionResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeleteCollectionResponse>(create);
+  static DeleteCollectionResponse? _defaultInstance;
+}
+
 class EditCollectionRequest extends $pb.GeneratedMessage {
   factory EditCollectionRequest({
     $core.String? collectionId,
@@ -395,6 +477,7 @@ class CollectionMetaData extends $pb.GeneratedMessage {
     $core.String? id,
     $core.String? name,
     $2.Timestamp? createdOn,
+    $core.bool? deleted,
   }) {
     final $result = create();
     if (id != null) {
@@ -406,6 +489,9 @@ class CollectionMetaData extends $pb.GeneratedMessage {
     if (createdOn != null) {
       $result.createdOn = createdOn;
     }
+    if (deleted != null) {
+      $result.deleted = deleted;
+    }
     return $result;
   }
   CollectionMetaData._() : super();
@@ -416,6 +502,7 @@ class CollectionMetaData extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'id')
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOM<$2.Timestamp>(3, _omitFieldNames ? '' : 'createdOn', subBuilder: $2.Timestamp.create)
+    ..aOB(4, _omitFieldNames ? '' : 'deleted')
     ..hasRequiredFields = false
   ;
 
@@ -468,6 +555,15 @@ class CollectionMetaData extends $pb.GeneratedMessage {
   void clearCreatedOn() => clearField(3);
   @$pb.TagNumber(3)
   $2.Timestamp ensureCreatedOn() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  $core.bool get deleted => $_getBF(3);
+  @$pb.TagNumber(4)
+  set deleted($core.bool v) { $_setBool(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasDeleted() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearDeleted() => clearField(4);
 }
 
 class GetNodeStateRequest extends $pb.GeneratedMessage {

@@ -27,6 +27,28 @@ const NodeState$json = {
 final $typed_data.Uint8List nodeStateDescriptor = $convert.base64Decode(
     'CglOb2RlU3RhdGUSCwoHSEVBbFRIWRAAEgsKB1dBSVRJTkcQARIJCgVFUlJPUhAC');
 
+@$core.Deprecated('Use deleteCollectionRequestDescriptor instead')
+const DeleteCollectionRequest$json = {
+  '1': 'DeleteCollectionRequest',
+  '2': [
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
+  ],
+};
+
+/// Descriptor for `DeleteCollectionRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List deleteCollectionRequestDescriptor = $convert.base64Decode(
+    'ChdEZWxldGVDb2xsZWN0aW9uUmVxdWVzdBIjCg1jb2xsZWN0aW9uX2lkGAEgASgJUgxjb2xsZW'
+    'N0aW9uSWQ=');
+
+@$core.Deprecated('Use deleteCollectionResponseDescriptor instead')
+const DeleteCollectionResponse$json = {
+  '1': 'DeleteCollectionResponse',
+};
+
+/// Descriptor for `DeleteCollectionResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List deleteCollectionResponseDescriptor = $convert.base64Decode(
+    'ChhEZWxldGVDb2xsZWN0aW9uUmVzcG9uc2U=');
+
 @$core.Deprecated('Use editCollectionRequestDescriptor instead')
 const EditCollectionRequest$json = {
   '1': 'EditCollectionRequest',
@@ -116,6 +138,7 @@ const CollectionMetaData$json = {
     {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
     {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
     {'1': 'created_on', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdOn'},
+    {'1': 'deleted', '3': 4, '4': 1, '5': 8, '10': 'deleted'},
   ],
 };
 
@@ -123,7 +146,7 @@ const CollectionMetaData$json = {
 final $typed_data.Uint8List collectionMetaDataDescriptor = $convert.base64Decode(
     'ChJDb2xsZWN0aW9uTWV0YURhdGESDgoCaWQYASABKAlSAmlkEhIKBG5hbWUYAiABKAlSBG5hbW'
     'USOQoKY3JlYXRlZF9vbhgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0'
-    'ZWRPbg==');
+    'ZWRPbhIYCgdkZWxldGVkGAQgASgIUgdkZWxldGVk');
 
 @$core.Deprecated('Use getNodeStateRequestDescriptor instead')
 const GetNodeStateRequest$json = {

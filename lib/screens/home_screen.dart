@@ -98,7 +98,37 @@ class CollectionsScreen extends HookConsumerWidget {
                             }
                           },
                         ),
-                        const PopupMenuItem(child: Text('Delete')),
+                        PopupMenuItem(
+                          child: const Text('Delete'),
+                          onTap: () async {
+                            final nodeService = ref.read(nodeServiceProvider);
+                            final scaffoldMessenger = ref.read(
+                              scaffoldMessengerKeyProvider,
+                            );
+                            try {
+                              await nodeService.deleteCollection(
+                                DeleteCollectionRequest(
+                                  collectionId: metaData.id,
+                                ),
+                              );
+                              scaffoldMessenger.currentState?.showSnackBar(
+                                const SnackBar(
+                                  content:
+                                      Text('Sccuessfully Deleted Collection'),
+                                ),
+                              );
+                              ref.invalidate(collectionsProvider);
+                            } on GrpcError catch (e) {
+                              scaffoldMessenger.currentState?.showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    e.message ?? 'Error Deleting Collection',
+                                  ),
+                                ),
+                              );
+                            }
+                          },
+                        ),
                       ],
                     ),
                     subtitle: Text(

@@ -33,15 +33,13 @@ const EditCollectionRequest$json = {
   '2': [
     {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
     {'1': 'collection_name', '3': 2, '4': 1, '5': 9, '10': 'collectionName'},
-    {'1': 'newSchema', '3': 3, '4': 1, '5': 9, '10': 'newSchema'},
   ],
 };
 
 /// Descriptor for `EditCollectionRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List editCollectionRequestDescriptor = $convert.base64Decode(
     'ChVFZGl0Q29sbGVjdGlvblJlcXVlc3QSIwoNY29sbGVjdGlvbl9pZBgBIAEoCVIMY29sbGVjdG'
-    'lvbklkEicKD2NvbGxlY3Rpb25fbmFtZRgCIAEoCVIOY29sbGVjdGlvbk5hbWUSHAoJbmV3U2No'
-    'ZW1hGAMgASgJUgluZXdTY2hlbWE=');
+    'lvbklkEicKD2NvbGxlY3Rpb25fbmFtZRgCIAEoCVIOY29sbGVjdGlvbk5hbWU=');
 
 @$core.Deprecated('Use editCollectionResponseDescriptor instead')
 const EditCollectionResponse$json = {

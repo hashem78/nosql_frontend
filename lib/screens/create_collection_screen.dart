@@ -37,7 +37,7 @@ class _CreateCollectionScreenState
     final collectionNameNotifier = useValueNotifier("ANewCollection");
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Edit Collection')),
+      appBar: AppBar(title: const Text('Create Collection')),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           final text = _controller.document.toPlainText();

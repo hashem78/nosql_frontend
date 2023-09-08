@@ -22,7 +22,6 @@ class EditCollectionRequest extends $pb.GeneratedMessage {
   factory EditCollectionRequest({
     $core.String? collectionId,
     $core.String? collectionName,
-    $core.String? newSchema,
   }) {
     final $result = create();
     if (collectionId != null) {
@@ -30,9 +29,6 @@ class EditCollectionRequest extends $pb.GeneratedMessage {
     }
     if (collectionName != null) {
       $result.collectionName = collectionName;
-    }
-    if (newSchema != null) {
-      $result.newSchema = newSchema;
     }
     return $result;
   }
@@ -43,7 +39,6 @@ class EditCollectionRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'EditCollectionRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'collectionId')
     ..aOS(2, _omitFieldNames ? '' : 'collectionName')
-    ..aOS(3, _omitFieldNames ? '' : 'newSchema', protoName: 'newSchema')
     ..hasRequiredFields = false
   ;
 
@@ -85,15 +80,6 @@ class EditCollectionRequest extends $pb.GeneratedMessage {
   $core.bool hasCollectionName() => $_has(1);
   @$pb.TagNumber(2)
   void clearCollectionName() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get newSchema => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set newSchema($core.String v) { $_setString(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasNewSchema() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearNewSchema() => clearField(3);
 }
 
 class EditCollectionResponse extends $pb.GeneratedMessage {

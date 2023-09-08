@@ -44,15 +44,22 @@ class _CreateCollectionScreenState
           final scaffoldMessenger = ref.read(scaffoldMessengerKeyProvider);
           final nodeService = ref.read(nodeServiceProvider);
           try {
-            final _ = jsonDecode(text);
-            final metaData = await nodeService.createCollection(
+            jsonDecode(text);
+            await nodeService.createCollection(
               CreateCollectionRequest(
                 name: collectionNameNotifier.value,
                 schema: text,
               ),
             );
-            print(metaData);
-            // if (mounted) Navigator.pop(context);
+
+            scaffoldMessenger.currentState?.showSnackBar(
+              SnackBar(
+                content: Text(
+                  '${collectionNameNotifier.value} was created successfully',
+                ),
+              ),
+            );
+            if (mounted) Navigator.pop(context);
           } on GrpcError catch (e) {
             scaffoldMessenger.currentState?.showSnackBar(
               SnackBar(

@@ -92,7 +92,7 @@ class _CreateCollectionScreenState
           ],
         ),
       ),
-      body: ListView(
+      body: Column(
         children: [
           ListTile(
             title: Text(useValueListenable(collectionNameNotifier)),
@@ -108,10 +108,19 @@ class _CreateCollectionScreenState
               collectionNameNotifier.value = collectionName!;
             },
           ),
-          q.QuillEditor.basic(
-            controller: _controller,
-            padding: const EdgeInsets.only(left: 16.0),
-            readOnly: false, // true for view only mode
+          const ListTile(
+            title: Text('Type your json schema in the box below'),
+          ),
+          Expanded(
+            child: Container(
+              color: Colors.grey.shade200,
+              margin: const EdgeInsets.all(8.0),
+              child: q.QuillEditor.basic(
+                controller: _controller,
+                padding: const EdgeInsets.all(16.0),
+                readOnly: false, // true for view only mode
+              ),
+            ),
           ),
         ],
       ),

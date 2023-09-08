@@ -23,6 +23,7 @@ class _MyAppState extends ConsumerState<MyApp> {
     return MaterialApp(
       title: 'Flutter Demo',
       scaffoldMessengerKey: ref.watch(scaffoldMessengerKeyProvider),
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -31,6 +32,3 @@ class _MyAppState extends ConsumerState<MyApp> {
     );
   }
 }
-
-
-

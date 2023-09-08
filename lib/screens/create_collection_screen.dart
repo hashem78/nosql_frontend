@@ -105,7 +105,9 @@ class _CreateCollectionScreenState
                   initialText: collectionNameNotifier.value,
                 ),
               );
-              collectionNameNotifier.value = collectionName!;
+              if (collectionName != null) {
+                collectionNameNotifier.value = collectionName;
+              }
             },
           ),
           const ListTile(

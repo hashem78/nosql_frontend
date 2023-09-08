@@ -21,6 +21,7 @@ dependencies:
   hooks_riverpod: ^2.3.10
   fixnum: ^1.1.0
   flutter_quill: ^7.4.4
+  json_editor_flutter: ^1.0.1
 
 dev_dependencies:
   flutter_test:

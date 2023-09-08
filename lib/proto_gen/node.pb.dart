@@ -18,6 +18,106 @@ import 'node.pbenum.dart';
 
 export 'node.pbenum.dart';
 
+class GetDocumentSampleRequest extends $pb.GeneratedMessage {
+  factory GetDocumentSampleRequest({
+    $core.String? collectionId,
+  }) {
+    final $result = create();
+    if (collectionId != null) {
+      $result.collectionId = collectionId;
+    }
+    return $result;
+  }
+  GetDocumentSampleRequest._() : super();
+  factory GetDocumentSampleRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetDocumentSampleRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetDocumentSampleRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'collectionId')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetDocumentSampleRequest clone() => GetDocumentSampleRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetDocumentSampleRequest copyWith(void Function(GetDocumentSampleRequest) updates) => super.copyWith((message) => updates(message as GetDocumentSampleRequest)) as GetDocumentSampleRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetDocumentSampleRequest create() => GetDocumentSampleRequest._();
+  GetDocumentSampleRequest createEmptyInstance() => create();
+  static $pb.PbList<GetDocumentSampleRequest> createRepeated() => $pb.PbList<GetDocumentSampleRequest>();
+  @$core.pragma('dart2js:noInline')
+  static GetDocumentSampleRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetDocumentSampleRequest>(create);
+  static GetDocumentSampleRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get collectionId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set collectionId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCollectionId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCollectionId() => clearField(1);
+}
+
+class GetDocumentSampleResponse extends $pb.GeneratedMessage {
+  factory GetDocumentSampleResponse({
+    $core.String? documentSample,
+  }) {
+    final $result = create();
+    if (documentSample != null) {
+      $result.documentSample = documentSample;
+    }
+    return $result;
+  }
+  GetDocumentSampleResponse._() : super();
+  factory GetDocumentSampleResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetDocumentSampleResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetDocumentSampleResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'documentSample')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetDocumentSampleResponse clone() => GetDocumentSampleResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetDocumentSampleResponse copyWith(void Function(GetDocumentSampleResponse) updates) => super.copyWith((message) => updates(message as GetDocumentSampleResponse)) as GetDocumentSampleResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetDocumentSampleResponse create() => GetDocumentSampleResponse._();
+  GetDocumentSampleResponse createEmptyInstance() => create();
+  static $pb.PbList<GetDocumentSampleResponse> createRepeated() => $pb.PbList<GetDocumentSampleResponse>();
+  @$core.pragma('dart2js:noInline')
+  static GetDocumentSampleResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetDocumentSampleResponse>(create);
+  static GetDocumentSampleResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get documentSample => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set documentSample($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasDocumentSample() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDocumentSample() => clearField(1);
+}
+
 class DeleteCollectionRequest extends $pb.GeneratedMessage {
   factory DeleteCollectionRequest({
     $core.String? collectionId,

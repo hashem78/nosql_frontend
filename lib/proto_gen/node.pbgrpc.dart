@@ -45,6 +45,10 @@ class NodeServiceClient extends $grpc.Client {
       '/node.NodeService/DeleteCollection',
       ($0.DeleteCollectionRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.DeleteCollectionResponse.fromBuffer(value));
+  static final _$getDocumentSample = $grpc.ClientMethod<$0.GetDocumentSampleRequest, $0.GetDocumentSampleResponse>(
+      '/node.NodeService/GetDocumentSample',
+      ($0.GetDocumentSampleRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.GetDocumentSampleResponse.fromBuffer(value));
 
   NodeServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -74,6 +78,10 @@ class NodeServiceClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$0.DeleteCollectionResponse> deleteCollection($0.DeleteCollectionRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$deleteCollection, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.GetDocumentSampleResponse> getDocumentSample($0.GetDocumentSampleRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getDocumentSample, request, options: options);
   }
 }
 
@@ -124,6 +132,13 @@ abstract class NodeServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.DeleteCollectionRequest.fromBuffer(value),
         ($0.DeleteCollectionResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.GetDocumentSampleRequest, $0.GetDocumentSampleResponse>(
+        'GetDocumentSample',
+        getDocumentSample_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.GetDocumentSampleRequest.fromBuffer(value),
+        ($0.GetDocumentSampleResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.GetNodeStateResponse> getNodeState_Pre($grpc.ServiceCall call, $async.Future<$0.GetNodeStateRequest> request) async {
@@ -150,10 +165,15 @@ abstract class NodeServiceBase extends $grpc.Service {
     return deleteCollection(call, await request);
   }
 
+  $async.Future<$0.GetDocumentSampleResponse> getDocumentSample_Pre($grpc.ServiceCall call, $async.Future<$0.GetDocumentSampleRequest> request) async {
+    return getDocumentSample(call, await request);
+  }
+
   $async.Future<$0.GetNodeStateResponse> getNodeState($grpc.ServiceCall call, $0.GetNodeStateRequest request);
   $async.Future<$0.CollectionMetaData> createCollection($grpc.ServiceCall call, $0.CreateCollectionRequest request);
   $async.Future<$0.GetCollectionsResponse> getCollections($grpc.ServiceCall call, $0.GetCollectionsRequest request);
   $async.Stream<$0.CollectionDocument> getCollectionDocuments($grpc.ServiceCall call, $0.GetCollectionDocumentsRequest request);
   $async.Future<$0.EditCollectionResponse> editCollection($grpc.ServiceCall call, $0.EditCollectionRequest request);
   $async.Future<$0.DeleteCollectionResponse> deleteCollection($grpc.ServiceCall call, $0.DeleteCollectionRequest request);
+  $async.Future<$0.GetDocumentSampleResponse> getDocumentSample($grpc.ServiceCall call, $0.GetDocumentSampleRequest request);
 }

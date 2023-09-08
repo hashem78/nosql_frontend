@@ -27,6 +27,32 @@ const NodeState$json = {
 final $typed_data.Uint8List nodeStateDescriptor = $convert.base64Decode(
     'CglOb2RlU3RhdGUSCwoHSEVBbFRIWRAAEgsKB1dBSVRJTkcQARIJCgVFUlJPUhAC');
 
+@$core.Deprecated('Use getDocumentSampleRequestDescriptor instead')
+const GetDocumentSampleRequest$json = {
+  '1': 'GetDocumentSampleRequest',
+  '2': [
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
+  ],
+};
+
+/// Descriptor for `GetDocumentSampleRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getDocumentSampleRequestDescriptor = $convert.base64Decode(
+    'ChhHZXREb2N1bWVudFNhbXBsZVJlcXVlc3QSIwoNY29sbGVjdGlvbl9pZBgBIAEoCVIMY29sbG'
+    'VjdGlvbklk');
+
+@$core.Deprecated('Use getDocumentSampleResponseDescriptor instead')
+const GetDocumentSampleResponse$json = {
+  '1': 'GetDocumentSampleResponse',
+  '2': [
+    {'1': 'document_sample', '3': 1, '4': 1, '5': 9, '10': 'documentSample'},
+  ],
+};
+
+/// Descriptor for `GetDocumentSampleResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getDocumentSampleResponseDescriptor = $convert.base64Decode(
+    'ChlHZXREb2N1bWVudFNhbXBsZVJlc3BvbnNlEicKD2RvY3VtZW50X3NhbXBsZRgBIAEoCVIOZG'
+    '9jdW1lbnRTYW1wbGU=');
+
 @$core.Deprecated('Use deleteCollectionRequestDescriptor instead')
 const DeleteCollectionRequest$json = {
   '1': 'DeleteCollectionRequest',

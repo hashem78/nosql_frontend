@@ -24,7 +24,7 @@ final collectionsProvider =
 );
 
 typedef CollectionsRef = AutoDisposeFutureProviderRef<GetCollectionsResponse>;
-String _$documentsHash() => r'7b32bb4fe6e8746fa735ce2b52b0f9a027603a14';
+String _$documentsHash() => r'9a8177a061ccadf45c1742be69587531ac7432ea';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -58,10 +58,10 @@ class DocumentsFamily extends Family<AsyncValue<CollectionDocument>> {
 
   /// See also [documents].
   DocumentsProvider call(
-    String collectionName,
+    String collectionId,
   ) {
     return DocumentsProvider(
-      collectionName,
+      collectionId,
     );
   }
 
@@ -70,7 +70,7 @@ class DocumentsFamily extends Family<AsyncValue<CollectionDocument>> {
     covariant DocumentsProvider provider,
   ) {
     return call(
-      provider.collectionName,
+      provider.collectionId,
     );
   }
 
@@ -99,11 +99,11 @@ class DocumentsFamily extends Family<AsyncValue<CollectionDocument>> {
 class DocumentsProvider extends AutoDisposeStreamProvider<CollectionDocument> {
   /// See also [documents].
   DocumentsProvider(
-    String collectionName,
+    String collectionId,
   ) : this._internal(
           (ref) => documents(
             ref as DocumentsRef,
-            collectionName,
+            collectionId,
           ),
           from: documentsProvider,
           name: r'documentsProvider',
@@ -113,7 +113,7 @@ class DocumentsProvider extends AutoDisposeStreamProvider<CollectionDocument> {
                   : _$documentsHash,
           dependencies: DocumentsFamily._dependencies,
           allTransitiveDependencies: DocumentsFamily._allTransitiveDependencies,
-          collectionName: collectionName,
+          collectionId: collectionId,
         );
 
   DocumentsProvider._internal(
@@ -123,10 +123,10 @@ class DocumentsProvider extends AutoDisposeStreamProvider<CollectionDocument> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.collectionName,
+    required this.collectionId,
   }) : super.internal();
 
-  final String collectionName;
+  final String collectionId;
 
   @override
   Override overrideWith(
@@ -141,7 +141,7 @@ class DocumentsProvider extends AutoDisposeStreamProvider<CollectionDocument> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        collectionName: collectionName,
+        collectionId: collectionId,
       ),
     );
   }
@@ -153,21 +153,21 @@ class DocumentsProvider extends AutoDisposeStreamProvider<CollectionDocument> {
 
   @override
   bool operator ==(Object other) {
-    return other is DocumentsProvider && other.collectionName == collectionName;
+    return other is DocumentsProvider && other.collectionId == collectionId;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, collectionName.hashCode);
+    hash = _SystemHash.combine(hash, collectionId.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
 mixin DocumentsRef on AutoDisposeStreamProviderRef<CollectionDocument> {
-  /// The parameter `collectionName` of this provider.
-  String get collectionName;
+  /// The parameter `collectionId` of this provider.
+  String get collectionId;
 }
 
 class _DocumentsProviderElement
@@ -176,7 +176,7 @@ class _DocumentsProviderElement
   _DocumentsProviderElement(super.provider);
 
   @override
-  String get collectionName => (origin as DocumentsProvider).collectionName;
+  String get collectionId => (origin as DocumentsProvider).collectionId;
 }
 
 String _$nodeServiceHash() => r'af324a74e1773c096aab386bfb45d2ba0b48e544';

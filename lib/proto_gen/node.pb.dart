@@ -18,13 +18,123 @@ import 'node.pbenum.dart';
 
 export 'node.pbenum.dart';
 
-class GetCollectionDocumentsRequest extends $pb.GeneratedMessage {
-  factory GetCollectionDocumentsRequest({
+class EditCollectionRequest extends $pb.GeneratedMessage {
+  factory EditCollectionRequest({
+    $core.String? collectionId,
     $core.String? collectionName,
+    $core.String? newSchema,
   }) {
     final $result = create();
+    if (collectionId != null) {
+      $result.collectionId = collectionId;
+    }
     if (collectionName != null) {
       $result.collectionName = collectionName;
+    }
+    if (newSchema != null) {
+      $result.newSchema = newSchema;
+    }
+    return $result;
+  }
+  EditCollectionRequest._() : super();
+  factory EditCollectionRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory EditCollectionRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'EditCollectionRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'collectionId')
+    ..aOS(2, _omitFieldNames ? '' : 'collectionName')
+    ..aOS(3, _omitFieldNames ? '' : 'newSchema', protoName: 'newSchema')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  EditCollectionRequest clone() => EditCollectionRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  EditCollectionRequest copyWith(void Function(EditCollectionRequest) updates) => super.copyWith((message) => updates(message as EditCollectionRequest)) as EditCollectionRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static EditCollectionRequest create() => EditCollectionRequest._();
+  EditCollectionRequest createEmptyInstance() => create();
+  static $pb.PbList<EditCollectionRequest> createRepeated() => $pb.PbList<EditCollectionRequest>();
+  @$core.pragma('dart2js:noInline')
+  static EditCollectionRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<EditCollectionRequest>(create);
+  static EditCollectionRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get collectionId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set collectionId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCollectionId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCollectionId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get collectionName => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set collectionName($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasCollectionName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearCollectionName() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get newSchema => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set newSchema($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasNewSchema() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearNewSchema() => clearField(3);
+}
+
+class EditCollectionResponse extends $pb.GeneratedMessage {
+  factory EditCollectionResponse() => create();
+  EditCollectionResponse._() : super();
+  factory EditCollectionResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory EditCollectionResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'EditCollectionResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  EditCollectionResponse clone() => EditCollectionResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  EditCollectionResponse copyWith(void Function(EditCollectionResponse) updates) => super.copyWith((message) => updates(message as EditCollectionResponse)) as EditCollectionResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static EditCollectionResponse create() => EditCollectionResponse._();
+  EditCollectionResponse createEmptyInstance() => create();
+  static $pb.PbList<EditCollectionResponse> createRepeated() => $pb.PbList<EditCollectionResponse>();
+  @$core.pragma('dart2js:noInline')
+  static EditCollectionResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<EditCollectionResponse>(create);
+  static EditCollectionResponse? _defaultInstance;
+}
+
+class GetCollectionDocumentsRequest extends $pb.GeneratedMessage {
+  factory GetCollectionDocumentsRequest({
+    $core.String? collectionId,
+  }) {
+    final $result = create();
+    if (collectionId != null) {
+      $result.collectionId = collectionId;
     }
     return $result;
   }
@@ -33,7 +143,7 @@ class GetCollectionDocumentsRequest extends $pb.GeneratedMessage {
   factory GetCollectionDocumentsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetCollectionDocumentsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'collectionName')
+    ..aOS(1, _omitFieldNames ? '' : 'collectionId')
     ..hasRequiredFields = false
   ;
 
@@ -59,13 +169,13 @@ class GetCollectionDocumentsRequest extends $pb.GeneratedMessage {
   static GetCollectionDocumentsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get collectionName => $_getSZ(0);
+  $core.String get collectionId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set collectionName($core.String v) { $_setString(0, v); }
+  set collectionId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasCollectionName() => $_has(0);
+  $core.bool hasCollectionId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearCollectionName() => clearField(1);
+  void clearCollectionId() => clearField(1);
 }
 
 class DocumentMetaData extends $pb.GeneratedMessage {

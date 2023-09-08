@@ -22,7 +22,7 @@ class DocumentsScreen extends HookConsumerWidget {
     );
 
     ref.listen(
-      documentsProvider(metaData.name),
+      documentsProvider(metaData.id),
       (prev, next) {
         next.when(
           data: (value) async {

@@ -37,6 +37,10 @@ class NodeServiceClient extends $grpc.Client {
       '/node.NodeService/GetCollectionDocuments',
       ($0.GetCollectionDocumentsRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.CollectionDocument.fromBuffer(value));
+  static final _$editCollection = $grpc.ClientMethod<$0.EditCollectionRequest, $0.EditCollectionResponse>(
+      '/node.NodeService/EditCollection',
+      ($0.EditCollectionRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.EditCollectionResponse.fromBuffer(value));
 
   NodeServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -58,6 +62,10 @@ class NodeServiceClient extends $grpc.Client {
 
   $grpc.ResponseStream<$0.CollectionDocument> getCollectionDocuments($0.GetCollectionDocumentsRequest request, {$grpc.CallOptions? options}) {
     return $createStreamingCall(_$getCollectionDocuments, $async.Stream.fromIterable([request]), options: options);
+  }
+
+  $grpc.ResponseFuture<$0.EditCollectionResponse> editCollection($0.EditCollectionRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$editCollection, request, options: options);
   }
 }
 
@@ -94,6 +102,13 @@ abstract class NodeServiceBase extends $grpc.Service {
         true,
         ($core.List<$core.int> value) => $0.GetCollectionDocumentsRequest.fromBuffer(value),
         ($0.CollectionDocument value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.EditCollectionRequest, $0.EditCollectionResponse>(
+        'EditCollection',
+        editCollection_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.EditCollectionRequest.fromBuffer(value),
+        ($0.EditCollectionResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.GetNodeStateResponse> getNodeState_Pre($grpc.ServiceCall call, $async.Future<$0.GetNodeStateRequest> request) async {
@@ -112,8 +127,13 @@ abstract class NodeServiceBase extends $grpc.Service {
     yield* getCollectionDocuments(call, await request);
   }
 
+  $async.Future<$0.EditCollectionResponse> editCollection_Pre($grpc.ServiceCall call, $async.Future<$0.EditCollectionRequest> request) async {
+    return editCollection(call, await request);
+  }
+
   $async.Future<$0.GetNodeStateResponse> getNodeState($grpc.ServiceCall call, $0.GetNodeStateRequest request);
   $async.Future<$0.CollectionMetaData> createCollection($grpc.ServiceCall call, $0.CreateCollectionRequest request);
   $async.Future<$0.GetCollectionsResponse> getCollections($grpc.ServiceCall call, $0.GetCollectionsRequest request);
   $async.Stream<$0.CollectionDocument> getCollectionDocuments($grpc.ServiceCall call, $0.GetCollectionDocumentsRequest request);
+  $async.Future<$0.EditCollectionResponse> editCollection($grpc.ServiceCall call, $0.EditCollectionRequest request);
 }

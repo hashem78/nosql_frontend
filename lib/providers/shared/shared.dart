@@ -13,10 +13,10 @@ Future<GetCollectionsResponse> collections(CollectionsRef ref) async {
 }
 
 @Riverpod(dependencies: [nodeService])
-Stream<CollectionDocument> documents(DocumentsRef ref, String collectionName) {
+Stream<CollectionDocument> documents(DocumentsRef ref, String collectionId) {
   final nodeService = ref.watch(nodeServiceProvider);
   return nodeService.getCollectionDocuments(
-    GetCollectionDocumentsRequest(collectionName: collectionName),
+    GetCollectionDocumentsRequest(collectionId: collectionId),
   );
 }
 

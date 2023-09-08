@@ -27,18 +27,43 @@ const NodeState$json = {
 final $typed_data.Uint8List nodeStateDescriptor = $convert.base64Decode(
     'CglOb2RlU3RhdGUSCwoHSEVBbFRIWRAAEgsKB1dBSVRJTkcQARIJCgVFUlJPUhAC');
 
+@$core.Deprecated('Use editCollectionRequestDescriptor instead')
+const EditCollectionRequest$json = {
+  '1': 'EditCollectionRequest',
+  '2': [
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
+    {'1': 'collection_name', '3': 2, '4': 1, '5': 9, '10': 'collectionName'},
+    {'1': 'newSchema', '3': 3, '4': 1, '5': 9, '10': 'newSchema'},
+  ],
+};
+
+/// Descriptor for `EditCollectionRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List editCollectionRequestDescriptor = $convert.base64Decode(
+    'ChVFZGl0Q29sbGVjdGlvblJlcXVlc3QSIwoNY29sbGVjdGlvbl9pZBgBIAEoCVIMY29sbGVjdG'
+    'lvbklkEicKD2NvbGxlY3Rpb25fbmFtZRgCIAEoCVIOY29sbGVjdGlvbk5hbWUSHAoJbmV3U2No'
+    'ZW1hGAMgASgJUgluZXdTY2hlbWE=');
+
+@$core.Deprecated('Use editCollectionResponseDescriptor instead')
+const EditCollectionResponse$json = {
+  '1': 'EditCollectionResponse',
+};
+
+/// Descriptor for `EditCollectionResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List editCollectionResponseDescriptor = $convert.base64Decode(
+    'ChZFZGl0Q29sbGVjdGlvblJlc3BvbnNl');
+
 @$core.Deprecated('Use getCollectionDocumentsRequestDescriptor instead')
 const GetCollectionDocumentsRequest$json = {
   '1': 'GetCollectionDocumentsRequest',
   '2': [
-    {'1': 'collection_name', '3': 1, '4': 1, '5': 9, '10': 'collectionName'},
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
   ],
 };
 
 /// Descriptor for `GetCollectionDocumentsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getCollectionDocumentsRequestDescriptor = $convert.base64Decode(
-    'Ch1HZXRDb2xsZWN0aW9uRG9jdW1lbnRzUmVxdWVzdBInCg9jb2xsZWN0aW9uX25hbWUYASABKA'
-    'lSDmNvbGxlY3Rpb25OYW1l');
+    'Ch1HZXRDb2xsZWN0aW9uRG9jdW1lbnRzUmVxdWVzdBIjCg1jb2xsZWN0aW9uX2lkGAEgASgJUg'
+    'xjb2xsZWN0aW9uSWQ=');
 
 @$core.Deprecated('Use documentMetaDataDescriptor instead')
 const DocumentMetaData$json = {

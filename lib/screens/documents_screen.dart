@@ -1,8 +1,11 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_json_view/flutter_json_view.dart';
+import 'package:grpc/grpc.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:json_editor_flutter/json_editor_flutter.dart';
+import 'package:nosql_frontend/constants.dart';
 
 import 'package:nosql_frontend/proto_gen/node.pb.dart';
 import 'package:nosql_frontend/providers/shared/shared.dart';
@@ -24,7 +27,7 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
   Widget build(BuildContext context) {
     final stateNotifier = useValueNotifier(
       (
-        documents: <CollectionDocument>[],
+        documents: <CollectionDocument>{},
         isLoading: true,
       ),
     );
@@ -35,14 +38,14 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
         next.when(
           data: (value) async {
             stateNotifier.value = (
-              documents: [...stateNotifier.value.documents, value],
+              documents: {...stateNotifier.value.documents, value},
               isLoading: false,
             );
           },
           error: (error, stackTrace) {},
           loading: () {
             stateNotifier.value = (
-              documents: const [],
+              documents: const {},
               isLoading: true,
             );
           },
@@ -51,6 +54,7 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
     );
 
     final state = useValueListenable(stateNotifier);
+    final nodePort = ref.watch(nodePortProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -65,24 +69,91 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
           );
           if (!mounted) return;
 
-          Navigator.of(context).push(
+          final document = await Navigator.of(context).push<CollectionDocument>(
             MaterialPageRoute(
-              builder: (context) => EditDocumentScreen(
-                initialText: response.documentSample,
+              builder: (context) => ProviderScope(
+                overrides: [
+                  nodePortProvider.overrideWithValue(nodePort),
+                ],
+                child: EditDocumentScreen(
+                  initialText: response.documentSample,
+                  collectionMetaData: widget.metaData,
+                ),
               ),
             ),
           );
+
+          if (document != null) {
+            stateNotifier.value = (
+              documents: {...stateNotifier.value.documents, document},
+              isLoading: false
+            );
+          }
         },
       ),
       body: switch (state.isLoading) {
-        false => ListView.builder(
+        false => ListView.separated(
             itemBuilder: (context, index) {
-              final document = state.documents[index];
-              return ListTile(
-                title: Text(document.data),
+              final document = state.documents.toList()[index];
+              final map = document.toProto3Json() as Map<String, dynamic>;
+              map['data'] = jsonDecode(map['data']);
+
+              return Stack(
+                children: [
+                  JsonView.map(
+                    map,
+                    theme: kJsonViewTheme,
+                  ),
+                  Positioned(
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: PopupMenuButton(
+                        itemBuilder: (context) => [
+                          PopupMenuItem(
+                            child: const Text('Edit'),
+                            onTap: () async {
+                              final editedDocument = await Navigator.of(context)
+                                  .push<CollectionDocument>(
+                                MaterialPageRoute(
+                                  builder: (context) => ProviderScope(
+                                    overrides: [
+                                      nodePortProvider.overrideWithValue(
+                                        nodePort,
+                                      ),
+                                    ],
+                                    child: EditDocumentScreen(
+                                      initialText: document.data,
+                                      documentId: document.metaData.id,
+                                      collectionMetaData: widget.metaData,
+                                    ),
+                                  ),
+                                ),
+                              );
+                              if (editedDocument != null) {
+                                final documentsCopy = {...state.documents};
+                                documentsCopy.remove(document);
+                                documentsCopy.add(editedDocument);
+                                stateNotifier.value = (
+                                  documents: documentsCopy,
+                                  isLoading: false
+                                );
+                              }
+                            },
+                          ),
+                          const PopupMenuItem(
+                            child: Text('Delete'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               );
             },
             itemCount: state.documents.length,
+            separatorBuilder: (context, index) {
+              return const Divider(color: Colors.black);
+            },
           ),
         true => const Center(
             child: CircularProgressIndicator(),
@@ -92,16 +163,25 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
   }
 }
 
-class EditDocumentScreen extends HookConsumerWidget {
+class EditDocumentScreen extends StatefulHookConsumerWidget {
   const EditDocumentScreen({
     super.key,
     required this.initialText,
+    required this.collectionMetaData,
+    this.documentId,
   });
 
+  final CollectionMetaData collectionMetaData;
   final String initialText;
+  final String? documentId;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<EditDocumentScreen> createState() => _EditDocumentScreenState();
+}
+
+class _EditDocumentScreenState extends ConsumerState<EditDocumentScreen> {
+  @override
+  Widget build(BuildContext context) {
     final json = useValueNotifier(<dynamic, dynamic>{});
     return Scaffold(
       appBar: AppBar(
@@ -109,12 +189,43 @@ class EditDocumentScreen extends HookConsumerWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.save),
-        onPressed: () {
-          print(json.value);
+        onPressed: () async {
+          final nodeService = ref.read(nodeServiceProvider);
+          final scaffoldMessenger = ref.read(scaffoldMessengerKeyProvider);
+
+          try {
+            final response = await nodeService.setCollectionDocument(
+              SetCollectionDocumentRequest(
+                collectionId: widget.collectionMetaData.id,
+                documentId: widget.documentId,
+                document: json.value.isEmpty
+                    ? widget.initialText
+                    : jsonEncode(json.value),
+              ),
+            );
+            scaffoldMessenger.currentState?.showSnackBar(
+              SnackBar(
+                content: Text(
+                  'Successfully created document ${response.document.metaData.id}',
+                ),
+              ),
+            );
+            if (mounted) {
+              Navigator.pop<CollectionDocument>(context, response.document);
+            }
+          } on GrpcError catch (e) {
+            scaffoldMessenger.currentState?.showSnackBar(
+              SnackBar(
+                content: Text(
+                  e.message ?? 'Error!',
+                ),
+              ),
+            );
+          }
         },
       ),
       body: JsonEditor(
-        json: initialText,
+        json: widget.initialText,
         onChanged: (val) {
           json.value = val;
         },

@@ -27,6 +27,35 @@ const NodeState$json = {
 final $typed_data.Uint8List nodeStateDescriptor = $convert.base64Decode(
     'CglOb2RlU3RhdGUSCwoHSEVBbFRIWRAAEgsKB1dBSVRJTkcQARIJCgVFUlJPUhAC');
 
+@$core.Deprecated('Use setCollectionDocumentRequestDescriptor instead')
+const SetCollectionDocumentRequest$json = {
+  '1': 'SetCollectionDocumentRequest',
+  '2': [
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
+    {'1': 'document_id', '3': 2, '4': 1, '5': 9, '10': 'documentId'},
+    {'1': 'document', '3': 3, '4': 1, '5': 9, '10': 'document'},
+  ],
+};
+
+/// Descriptor for `SetCollectionDocumentRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List setCollectionDocumentRequestDescriptor = $convert.base64Decode(
+    'ChxTZXRDb2xsZWN0aW9uRG9jdW1lbnRSZXF1ZXN0EiMKDWNvbGxlY3Rpb25faWQYASABKAlSDG'
+    'NvbGxlY3Rpb25JZBIfCgtkb2N1bWVudF9pZBgCIAEoCVIKZG9jdW1lbnRJZBIaCghkb2N1bWVu'
+    'dBgDIAEoCVIIZG9jdW1lbnQ=');
+
+@$core.Deprecated('Use setCollectionDocumentResponseDescriptor instead')
+const SetCollectionDocumentResponse$json = {
+  '1': 'SetCollectionDocumentResponse',
+  '2': [
+    {'1': 'document', '3': 1, '4': 1, '5': 11, '6': '.node.CollectionDocument', '10': 'document'},
+  ],
+};
+
+/// Descriptor for `SetCollectionDocumentResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List setCollectionDocumentResponseDescriptor = $convert.base64Decode(
+    'Ch1TZXRDb2xsZWN0aW9uRG9jdW1lbnRSZXNwb25zZRI0Cghkb2N1bWVudBgBIAEoCzIYLm5vZG'
+    'UuQ29sbGVjdGlvbkRvY3VtZW50Ughkb2N1bWVudA==');
+
 @$core.Deprecated('Use getDocumentSampleRequestDescriptor instead')
 const GetDocumentSampleRequest$json = {
   '1': 'GetDocumentSampleRequest',

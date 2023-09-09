@@ -18,6 +18,136 @@ import 'node.pbenum.dart';
 
 export 'node.pbenum.dart';
 
+class SetCollectionDocumentRequest extends $pb.GeneratedMessage {
+  factory SetCollectionDocumentRequest({
+    $core.String? collectionId,
+    $core.String? documentId,
+    $core.String? document,
+  }) {
+    final $result = create();
+    if (collectionId != null) {
+      $result.collectionId = collectionId;
+    }
+    if (documentId != null) {
+      $result.documentId = documentId;
+    }
+    if (document != null) {
+      $result.document = document;
+    }
+    return $result;
+  }
+  SetCollectionDocumentRequest._() : super();
+  factory SetCollectionDocumentRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory SetCollectionDocumentRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SetCollectionDocumentRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'collectionId')
+    ..aOS(2, _omitFieldNames ? '' : 'documentId')
+    ..aOS(3, _omitFieldNames ? '' : 'document')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  SetCollectionDocumentRequest clone() => SetCollectionDocumentRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  SetCollectionDocumentRequest copyWith(void Function(SetCollectionDocumentRequest) updates) => super.copyWith((message) => updates(message as SetCollectionDocumentRequest)) as SetCollectionDocumentRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SetCollectionDocumentRequest create() => SetCollectionDocumentRequest._();
+  SetCollectionDocumentRequest createEmptyInstance() => create();
+  static $pb.PbList<SetCollectionDocumentRequest> createRepeated() => $pb.PbList<SetCollectionDocumentRequest>();
+  @$core.pragma('dart2js:noInline')
+  static SetCollectionDocumentRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SetCollectionDocumentRequest>(create);
+  static SetCollectionDocumentRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get collectionId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set collectionId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCollectionId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCollectionId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get documentId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set documentId($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasDocumentId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDocumentId() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get document => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set document($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasDocument() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDocument() => clearField(3);
+}
+
+class SetCollectionDocumentResponse extends $pb.GeneratedMessage {
+  factory SetCollectionDocumentResponse({
+    CollectionDocument? document,
+  }) {
+    final $result = create();
+    if (document != null) {
+      $result.document = document;
+    }
+    return $result;
+  }
+  SetCollectionDocumentResponse._() : super();
+  factory SetCollectionDocumentResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory SetCollectionDocumentResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SetCollectionDocumentResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..aOM<CollectionDocument>(1, _omitFieldNames ? '' : 'document', subBuilder: CollectionDocument.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  SetCollectionDocumentResponse clone() => SetCollectionDocumentResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  SetCollectionDocumentResponse copyWith(void Function(SetCollectionDocumentResponse) updates) => super.copyWith((message) => updates(message as SetCollectionDocumentResponse)) as SetCollectionDocumentResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SetCollectionDocumentResponse create() => SetCollectionDocumentResponse._();
+  SetCollectionDocumentResponse createEmptyInstance() => create();
+  static $pb.PbList<SetCollectionDocumentResponse> createRepeated() => $pb.PbList<SetCollectionDocumentResponse>();
+  @$core.pragma('dart2js:noInline')
+  static SetCollectionDocumentResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SetCollectionDocumentResponse>(create);
+  static SetCollectionDocumentResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  CollectionDocument get document => $_getN(0);
+  @$pb.TagNumber(1)
+  set document(CollectionDocument v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasDocument() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDocument() => clearField(1);
+  @$pb.TagNumber(1)
+  CollectionDocument ensureDocument() => $_ensure(0);
+}
+
 class GetDocumentSampleRequest extends $pb.GeneratedMessage {
   factory GetDocumentSampleRequest({
     $core.String? collectionId,

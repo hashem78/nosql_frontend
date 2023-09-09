@@ -14,7 +14,7 @@ Future<GetCollectionsResponse> collections(CollectionsRef ref) async {
 
 @Riverpod(dependencies: [nodeService])
 Stream<CollectionDocument> documents(DocumentsRef ref, String collectionId) {
-  final nodeService = ref.watch(nodeServiceProvider);
+  final nodeService = ref.read(nodeServiceProvider);
   return nodeService.getCollectionDocuments(
     GetCollectionDocumentsRequest(collectionId: collectionId),
   );

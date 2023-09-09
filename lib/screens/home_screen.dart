@@ -48,7 +48,7 @@ class CollectionsScreen extends HookConsumerWidget {
               return ListView.builder(
                 itemBuilder: (context, index) {
                   final metaData = collectionsMetaData[index];
-                  print(metaData);
+
                   return ListTile(
                     title: Text(metaData.name),
                     trailing: PopupMenuButton(
@@ -56,7 +56,6 @@ class CollectionsScreen extends HookConsumerWidget {
                         PopupMenuItem(
                           child: const Text('Edit'),
                           onTap: () async {
-                            print("editing: ${metaData.id}");
                             final scaffoldMessenger = ref.read(
                               scaffoldMessengerKeyProvider,
                             );

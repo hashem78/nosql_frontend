@@ -24,7 +24,7 @@ final collectionsProvider =
 );
 
 typedef CollectionsRef = AutoDisposeFutureProviderRef<GetCollectionsResponse>;
-String _$documentsHash() => r'9a8177a061ccadf45c1742be69587531ac7432ea';
+String _$documentsHash() => r'24358a440a8ee782720322710fd75317fab43d1f';
 
 /// Copied from Dart SDK
 class _SystemHash {

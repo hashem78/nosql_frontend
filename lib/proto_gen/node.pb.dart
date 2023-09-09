@@ -18,6 +18,102 @@ import 'node.pbenum.dart';
 
 export 'node.pbenum.dart';
 
+class DeleteCollectionDocumentRequest extends $pb.GeneratedMessage {
+  factory DeleteCollectionDocumentRequest({
+    $core.String? collectionId,
+    $core.String? documentId,
+  }) {
+    final $result = create();
+    if (collectionId != null) {
+      $result.collectionId = collectionId;
+    }
+    if (documentId != null) {
+      $result.documentId = documentId;
+    }
+    return $result;
+  }
+  DeleteCollectionDocumentRequest._() : super();
+  factory DeleteCollectionDocumentRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DeleteCollectionDocumentRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteCollectionDocumentRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'collectionId')
+    ..aOS(2, _omitFieldNames ? '' : 'documentId')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  DeleteCollectionDocumentRequest clone() => DeleteCollectionDocumentRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  DeleteCollectionDocumentRequest copyWith(void Function(DeleteCollectionDocumentRequest) updates) => super.copyWith((message) => updates(message as DeleteCollectionDocumentRequest)) as DeleteCollectionDocumentRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DeleteCollectionDocumentRequest create() => DeleteCollectionDocumentRequest._();
+  DeleteCollectionDocumentRequest createEmptyInstance() => create();
+  static $pb.PbList<DeleteCollectionDocumentRequest> createRepeated() => $pb.PbList<DeleteCollectionDocumentRequest>();
+  @$core.pragma('dart2js:noInline')
+  static DeleteCollectionDocumentRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeleteCollectionDocumentRequest>(create);
+  static DeleteCollectionDocumentRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get collectionId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set collectionId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCollectionId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCollectionId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get documentId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set documentId($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasDocumentId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDocumentId() => clearField(2);
+}
+
+class DeleteCollectionDocumentResponse extends $pb.GeneratedMessage {
+  factory DeleteCollectionDocumentResponse() => create();
+  DeleteCollectionDocumentResponse._() : super();
+  factory DeleteCollectionDocumentResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DeleteCollectionDocumentResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteCollectionDocumentResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  DeleteCollectionDocumentResponse clone() => DeleteCollectionDocumentResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  DeleteCollectionDocumentResponse copyWith(void Function(DeleteCollectionDocumentResponse) updates) => super.copyWith((message) => updates(message as DeleteCollectionDocumentResponse)) as DeleteCollectionDocumentResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DeleteCollectionDocumentResponse create() => DeleteCollectionDocumentResponse._();
+  DeleteCollectionDocumentResponse createEmptyInstance() => create();
+  static $pb.PbList<DeleteCollectionDocumentResponse> createRepeated() => $pb.PbList<DeleteCollectionDocumentResponse>();
+  @$core.pragma('dart2js:noInline')
+  static DeleteCollectionDocumentResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeleteCollectionDocumentResponse>(create);
+  static DeleteCollectionDocumentResponse? _defaultInstance;
+}
+
 class SetCollectionDocumentRequest extends $pb.GeneratedMessage {
   factory SetCollectionDocumentRequest({
     $core.String? collectionId,
@@ -482,6 +578,7 @@ class DocumentMetaData extends $pb.GeneratedMessage {
     $core.int? affinity,
     $2.Timestamp? createdOn,
     $2.Timestamp? lastEditedOn,
+    $core.bool? deleted,
   }) {
     final $result = create();
     if (id != null) {
@@ -496,6 +593,9 @@ class DocumentMetaData extends $pb.GeneratedMessage {
     if (lastEditedOn != null) {
       $result.lastEditedOn = lastEditedOn;
     }
+    if (deleted != null) {
+      $result.deleted = deleted;
+    }
     return $result;
   }
   DocumentMetaData._() : super();
@@ -507,6 +607,7 @@ class DocumentMetaData extends $pb.GeneratedMessage {
     ..a<$core.int>(2, _omitFieldNames ? '' : 'affinity', $pb.PbFieldType.O3)
     ..aOM<$2.Timestamp>(3, _omitFieldNames ? '' : 'createdOn', subBuilder: $2.Timestamp.create)
     ..aOM<$2.Timestamp>(4, _omitFieldNames ? '' : 'lastEditedOn', subBuilder: $2.Timestamp.create)
+    ..aOB(5, _omitFieldNames ? '' : 'deleted')
     ..hasRequiredFields = false
   ;
 
@@ -570,6 +671,15 @@ class DocumentMetaData extends $pb.GeneratedMessage {
   void clearLastEditedOn() => clearField(4);
   @$pb.TagNumber(4)
   $2.Timestamp ensureLastEditedOn() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  $core.bool get deleted => $_getBF(4);
+  @$pb.TagNumber(5)
+  set deleted($core.bool v) { $_setBool(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasDeleted() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearDeleted() => clearField(5);
 }
 
 class CollectionDocument extends $pb.GeneratedMessage {

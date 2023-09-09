@@ -53,6 +53,10 @@ class NodeServiceClient extends $grpc.Client {
       '/node.NodeService/SetCollectionDocument',
       ($0.SetCollectionDocumentRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.SetCollectionDocumentResponse.fromBuffer(value));
+  static final _$deleteCollectionDocument = $grpc.ClientMethod<$0.DeleteCollectionDocumentRequest, $0.DeleteCollectionDocumentResponse>(
+      '/node.NodeService/DeleteCollectionDocument',
+      ($0.DeleteCollectionDocumentRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.DeleteCollectionDocumentResponse.fromBuffer(value));
 
   NodeServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -90,6 +94,10 @@ class NodeServiceClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$0.SetCollectionDocumentResponse> setCollectionDocument($0.SetCollectionDocumentRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$setCollectionDocument, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.DeleteCollectionDocumentResponse> deleteCollectionDocument($0.DeleteCollectionDocumentRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$deleteCollectionDocument, request, options: options);
   }
 }
 
@@ -154,6 +162,13 @@ abstract class NodeServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.SetCollectionDocumentRequest.fromBuffer(value),
         ($0.SetCollectionDocumentResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.DeleteCollectionDocumentRequest, $0.DeleteCollectionDocumentResponse>(
+        'DeleteCollectionDocument',
+        deleteCollectionDocument_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.DeleteCollectionDocumentRequest.fromBuffer(value),
+        ($0.DeleteCollectionDocumentResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.GetNodeStateResponse> getNodeState_Pre($grpc.ServiceCall call, $async.Future<$0.GetNodeStateRequest> request) async {
@@ -188,6 +203,10 @@ abstract class NodeServiceBase extends $grpc.Service {
     return setCollectionDocument(call, await request);
   }
 
+  $async.Future<$0.DeleteCollectionDocumentResponse> deleteCollectionDocument_Pre($grpc.ServiceCall call, $async.Future<$0.DeleteCollectionDocumentRequest> request) async {
+    return deleteCollectionDocument(call, await request);
+  }
+
   $async.Future<$0.GetNodeStateResponse> getNodeState($grpc.ServiceCall call, $0.GetNodeStateRequest request);
   $async.Future<$0.CollectionMetaData> createCollection($grpc.ServiceCall call, $0.CreateCollectionRequest request);
   $async.Future<$0.GetCollectionsResponse> getCollections($grpc.ServiceCall call, $0.GetCollectionsRequest request);
@@ -196,4 +215,5 @@ abstract class NodeServiceBase extends $grpc.Service {
   $async.Future<$0.DeleteCollectionResponse> deleteCollection($grpc.ServiceCall call, $0.DeleteCollectionRequest request);
   $async.Future<$0.GetDocumentSampleResponse> getDocumentSample($grpc.ServiceCall call, $0.GetDocumentSampleRequest request);
   $async.Future<$0.SetCollectionDocumentResponse> setCollectionDocument($grpc.ServiceCall call, $0.SetCollectionDocumentRequest request);
+  $async.Future<$0.DeleteCollectionDocumentResponse> deleteCollectionDocument($grpc.ServiceCall call, $0.DeleteCollectionDocumentRequest request);
 }

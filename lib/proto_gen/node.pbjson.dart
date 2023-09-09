@@ -27,6 +27,29 @@ const NodeState$json = {
 final $typed_data.Uint8List nodeStateDescriptor = $convert.base64Decode(
     'CglOb2RlU3RhdGUSCwoHSEVBbFRIWRAAEgsKB1dBSVRJTkcQARIJCgVFUlJPUhAC');
 
+@$core.Deprecated('Use deleteCollectionDocumentRequestDescriptor instead')
+const DeleteCollectionDocumentRequest$json = {
+  '1': 'DeleteCollectionDocumentRequest',
+  '2': [
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
+    {'1': 'document_id', '3': 2, '4': 1, '5': 9, '10': 'documentId'},
+  ],
+};
+
+/// Descriptor for `DeleteCollectionDocumentRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List deleteCollectionDocumentRequestDescriptor = $convert.base64Decode(
+    'Ch9EZWxldGVDb2xsZWN0aW9uRG9jdW1lbnRSZXF1ZXN0EiMKDWNvbGxlY3Rpb25faWQYASABKA'
+    'lSDGNvbGxlY3Rpb25JZBIfCgtkb2N1bWVudF9pZBgCIAEoCVIKZG9jdW1lbnRJZA==');
+
+@$core.Deprecated('Use deleteCollectionDocumentResponseDescriptor instead')
+const DeleteCollectionDocumentResponse$json = {
+  '1': 'DeleteCollectionDocumentResponse',
+};
+
+/// Descriptor for `DeleteCollectionDocumentResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List deleteCollectionDocumentResponseDescriptor = $convert.base64Decode(
+    'CiBEZWxldGVDb2xsZWN0aW9uRG9jdW1lbnRSZXNwb25zZQ==');
+
 @$core.Deprecated('Use setCollectionDocumentRequestDescriptor instead')
 const SetCollectionDocumentRequest$json = {
   '1': 'SetCollectionDocumentRequest',
@@ -148,6 +171,7 @@ const DocumentMetaData$json = {
     {'1': 'affinity', '3': 2, '4': 1, '5': 5, '10': 'affinity'},
     {'1': 'created_on', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdOn'},
     {'1': 'last_edited_on', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'lastEditedOn'},
+    {'1': 'deleted', '3': 5, '4': 1, '5': 8, '10': 'deleted'},
   ],
 };
 
@@ -156,7 +180,7 @@ final $typed_data.Uint8List documentMetaDataDescriptor = $convert.base64Decode(
     'ChBEb2N1bWVudE1ldGFEYXRhEg4KAmlkGAEgASgJUgJpZBIaCghhZmZpbml0eRgCIAEoBVIIYW'
     'ZmaW5pdHkSOQoKY3JlYXRlZF9vbhgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBS'
     'CWNyZWF0ZWRPbhJACg5sYXN0X2VkaXRlZF9vbhgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW'
-    '1lc3RhbXBSDGxhc3RFZGl0ZWRPbg==');
+    '1lc3RhbXBSDGxhc3RFZGl0ZWRPbhIYCgdkZWxldGVkGAUgASgIUgdkZWxldGVk');
 
 @$core.Deprecated('Use collectionDocumentDescriptor instead')
 const CollectionDocument$json = {

@@ -78,6 +78,7 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
                 child: EditDocumentScreen(
                   initialText: response.documentSample,
                   collectionMetaData: widget.metaData,
+                  documentId: null,
                 ),
               ),
             ),
@@ -140,8 +141,34 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
                               }
                             },
                           ),
-                          const PopupMenuItem(
-                            child: Text('Delete'),
+                          PopupMenuItem(
+                            child: const Text('Delete'),
+                            onTap: () async {
+                              final nodeService = ref.read(nodeServiceProvider);
+                              final scaffoldMessenger = ref.read(
+                                scaffoldMessengerKeyProvider,
+                              );
+                              await nodeService.deleteCollectionDocument(
+                                DeleteCollectionDocumentRequest(
+                                  collectionId: widget.metaData.id,
+                                  documentId: document.metaData.id,
+                                ),
+                              );
+                              scaffoldMessenger.currentState?.showSnackBar(
+                                SnackBar(
+                                  content:
+                                      Text('Deleted ${document.metaData.id}'),
+                                ),
+                              );
+                              final stateCopy = {
+                                ...stateNotifier.value.documents
+                              };
+                              stateCopy.remove(document);
+                              stateNotifier.value = (
+                                documents: stateCopy,
+                                isLoading: false,
+                              );
+                            },
                           ),
                         ],
                       ),

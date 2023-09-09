@@ -57,6 +57,10 @@ class NodeServiceClient extends $grpc.Client {
       '/node.NodeService/DeleteCollectionDocument',
       ($0.DeleteCollectionDocumentRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.DeleteCollectionDocumentResponse.fromBuffer(value));
+  static final _$clientHello = $grpc.ClientMethod<$0.ClientHelloRequest, $0.ClientHelloResponse>(
+      '/node.NodeService/ClientHello',
+      ($0.ClientHelloRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.ClientHelloResponse.fromBuffer(value));
 
   NodeServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -98,6 +102,10 @@ class NodeServiceClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$0.DeleteCollectionDocumentResponse> deleteCollectionDocument($0.DeleteCollectionDocumentRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$deleteCollectionDocument, request, options: options);
+  }
+
+  $grpc.ResponseStream<$0.ClientHelloResponse> clientHello($async.Stream<$0.ClientHelloRequest> request, {$grpc.CallOptions? options}) {
+    return $createStreamingCall(_$clientHello, request, options: options);
   }
 }
 
@@ -169,6 +177,13 @@ abstract class NodeServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.DeleteCollectionDocumentRequest.fromBuffer(value),
         ($0.DeleteCollectionDocumentResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.ClientHelloRequest, $0.ClientHelloResponse>(
+        'ClientHello',
+        clientHello,
+        true,
+        true,
+        ($core.List<$core.int> value) => $0.ClientHelloRequest.fromBuffer(value),
+        ($0.ClientHelloResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.GetNodeStateResponse> getNodeState_Pre($grpc.ServiceCall call, $async.Future<$0.GetNodeStateRequest> request) async {
@@ -216,4 +231,5 @@ abstract class NodeServiceBase extends $grpc.Service {
   $async.Future<$0.GetDocumentSampleResponse> getDocumentSample($grpc.ServiceCall call, $0.GetDocumentSampleRequest request);
   $async.Future<$0.SetCollectionDocumentResponse> setCollectionDocument($grpc.ServiceCall call, $0.SetCollectionDocumentRequest request);
   $async.Future<$0.DeleteCollectionDocumentResponse> deleteCollectionDocument($grpc.ServiceCall call, $0.DeleteCollectionDocumentRequest request);
+  $async.Stream<$0.ClientHelloResponse> clientHello($grpc.ServiceCall call, $async.Stream<$0.ClientHelloRequest> request);
 }

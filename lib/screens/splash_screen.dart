@@ -19,7 +19,9 @@ class SplashScreen extends HookConsumerWidget {
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
                 builder: (context) => ProviderScope(
-                  overrides: [nodePortProvider.overrideWithValue(port)],
+                  overrides: [
+                    nodePortProvider.overrideWithValue(port),
+                  ],
                   child: const CollectionsScreen(),
                 ),
               ),

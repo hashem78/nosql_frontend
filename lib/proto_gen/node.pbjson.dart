@@ -27,6 +27,24 @@ const NodeState$json = {
 final $typed_data.Uint8List nodeStateDescriptor = $convert.base64Decode(
     'CglOb2RlU3RhdGUSCwoHSEVBbFRIWRAAEgsKB1dBSVRJTkcQARIJCgVFUlJPUhAC');
 
+@$core.Deprecated('Use clientHelloRequestDescriptor instead')
+const ClientHelloRequest$json = {
+  '1': 'ClientHelloRequest',
+};
+
+/// Descriptor for `ClientHelloRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List clientHelloRequestDescriptor = $convert.base64Decode(
+    'ChJDbGllbnRIZWxsb1JlcXVlc3Q=');
+
+@$core.Deprecated('Use clientHelloResponseDescriptor instead')
+const ClientHelloResponse$json = {
+  '1': 'ClientHelloResponse',
+};
+
+/// Descriptor for `ClientHelloResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List clientHelloResponseDescriptor = $convert.base64Decode(
+    'ChNDbGllbnRIZWxsb1Jlc3BvbnNl');
+
 @$core.Deprecated('Use deleteCollectionDocumentRequestDescriptor instead')
 const DeleteCollectionDocumentRequest$json = {
   '1': 'DeleteCollectionDocumentRequest',

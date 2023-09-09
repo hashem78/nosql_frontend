@@ -1,10 +1,24 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:grpc/grpc.dart';
 import 'package:nosql_frontend/proto_gen/node.pbgrpc.dart';
 import 'package:nosql_frontend/proto_gen/signaling.pbgrpc.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:rxdart/rxdart.dart';
 
 part 'shared.g.dart';
+
+@Riverpod(dependencies: [nodeService])
+Stream<ClientHelloResponse> clientHello(ClientHelloRef ref) {
+  final nodeService = ref.watch(nodeServiceProvider);
+  final controller =
+      BehaviorSubject<ClientHelloRequest>.seeded(ClientHelloRequest());
+  ref.onDispose(() {
+    controller.close();
+  });
+  return nodeService.clientHello(controller.stream);
+}
 
 @Riverpod(dependencies: [nodeService])
 Future<GetCollectionsResponse> collections(CollectionsRef ref) async {

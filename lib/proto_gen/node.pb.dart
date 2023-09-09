@@ -18,6 +18,70 @@ import 'node.pbenum.dart';
 
 export 'node.pbenum.dart';
 
+class ClientHelloRequest extends $pb.GeneratedMessage {
+  factory ClientHelloRequest() => create();
+  ClientHelloRequest._() : super();
+  factory ClientHelloRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ClientHelloRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ClientHelloRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ClientHelloRequest clone() => ClientHelloRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ClientHelloRequest copyWith(void Function(ClientHelloRequest) updates) => super.copyWith((message) => updates(message as ClientHelloRequest)) as ClientHelloRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ClientHelloRequest create() => ClientHelloRequest._();
+  ClientHelloRequest createEmptyInstance() => create();
+  static $pb.PbList<ClientHelloRequest> createRepeated() => $pb.PbList<ClientHelloRequest>();
+  @$core.pragma('dart2js:noInline')
+  static ClientHelloRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ClientHelloRequest>(create);
+  static ClientHelloRequest? _defaultInstance;
+}
+
+class ClientHelloResponse extends $pb.GeneratedMessage {
+  factory ClientHelloResponse() => create();
+  ClientHelloResponse._() : super();
+  factory ClientHelloResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ClientHelloResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ClientHelloResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ClientHelloResponse clone() => ClientHelloResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ClientHelloResponse copyWith(void Function(ClientHelloResponse) updates) => super.copyWith((message) => updates(message as ClientHelloResponse)) as ClientHelloResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ClientHelloResponse create() => ClientHelloResponse._();
+  ClientHelloResponse createEmptyInstance() => create();
+  static $pb.PbList<ClientHelloResponse> createRepeated() => $pb.PbList<ClientHelloResponse>();
+  @$core.pragma('dart2js:noInline')
+  static ClientHelloResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ClientHelloResponse>(create);
+  static ClientHelloResponse? _defaultInstance;
+}
+
 class DeleteCollectionDocumentRequest extends $pb.GeneratedMessage {
   factory DeleteCollectionDocumentRequest({
     $core.String? collectionId,

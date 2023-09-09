@@ -6,6 +6,24 @@ part of 'shared.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+String _$clientHelloHash() => r'75529343ed022beb4dba43d654982955ef70d6f0';
+
+/// See also [clientHello].
+@ProviderFor(clientHello)
+final clientHelloProvider =
+    AutoDisposeStreamProvider<ClientHelloResponse>.internal(
+  clientHello,
+  name: r'clientHelloProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$clientHelloHash,
+  dependencies: <ProviderOrFamily>[nodeServiceProvider],
+  allTransitiveDependencies: <ProviderOrFamily>{
+    nodeServiceProvider,
+    ...?nodeServiceProvider.allTransitiveDependencies
+  },
+);
+
+typedef ClientHelloRef = AutoDisposeStreamProviderRef<ClientHelloResponse>;
 String _$collectionsHash() => r'4e1d2617720238bb972b6f0e7208be9d6068fbdc';
 
 /// See also [collections].

@@ -15,6 +15,13 @@ class CollectionsScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final nodePort = ref.watch(nodePortProvider);
 
+    ref.listen(
+      clientHelloProvider,
+      (prev, next) {
+        debugPrint(next.toString());
+      },
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Connected to node on port $nodePort'),

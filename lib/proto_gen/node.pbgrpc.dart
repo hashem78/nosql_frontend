@@ -61,6 +61,26 @@ class NodeServiceClient extends $grpc.Client {
       '/node.NodeService/ClientHello',
       ($0.ClientHelloRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.ClientHelloResponse.fromBuffer(value));
+  static final _$indexCollectionProperty = $grpc.ClientMethod<$0.IndexCollectionPropertyRequest, $0.IndexCollectionPropertyResponse>(
+      '/node.NodeService/IndexCollectionProperty',
+      ($0.IndexCollectionPropertyRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.IndexCollectionPropertyResponse.fromBuffer(value));
+  static final _$equalsQuery = $grpc.ClientMethod<$0.EqualsQueryRequest, $0.EqualsQueryResponse>(
+      '/node.NodeService/EqualsQuery',
+      ($0.EqualsQueryRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.EqualsQueryResponse.fromBuffer(value));
+  static final _$isPropertyIndexed = $grpc.ClientMethod<$0.IsPropertyIndexedRequest, $0.IsPropertyIndexedResponse>(
+      '/node.NodeService/IsPropertyIndexed',
+      ($0.IsPropertyIndexedRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.IsPropertyIndexedResponse.fromBuffer(value));
+  static final _$removeIndexFromCollectionProperty = $grpc.ClientMethod<$0.RemoveIndexFromCollectionPropertyRequest, $0.RemoveIndexFromCollectionPropertyResponse>(
+      '/node.NodeService/RemoveIndexFromCollectionProperty',
+      ($0.RemoveIndexFromCollectionPropertyRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.RemoveIndexFromCollectionPropertyResponse.fromBuffer(value));
+  static final _$getCollectionMetaData = $grpc.ClientMethod<$0.GetCollectionMetaDataRequest, $0.CollectionMetaData>(
+      '/node.NodeService/GetCollectionMetaData',
+      ($0.GetCollectionMetaDataRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.CollectionMetaData.fromBuffer(value));
 
   NodeServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -106,6 +126,26 @@ class NodeServiceClient extends $grpc.Client {
 
   $grpc.ResponseStream<$0.ClientHelloResponse> clientHello($async.Stream<$0.ClientHelloRequest> request, {$grpc.CallOptions? options}) {
     return $createStreamingCall(_$clientHello, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.IndexCollectionPropertyResponse> indexCollectionProperty($0.IndexCollectionPropertyRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$indexCollectionProperty, request, options: options);
+  }
+
+  $grpc.ResponseStream<$0.EqualsQueryResponse> equalsQuery($0.EqualsQueryRequest request, {$grpc.CallOptions? options}) {
+    return $createStreamingCall(_$equalsQuery, $async.Stream.fromIterable([request]), options: options);
+  }
+
+  $grpc.ResponseFuture<$0.IsPropertyIndexedResponse> isPropertyIndexed($0.IsPropertyIndexedRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$isPropertyIndexed, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.RemoveIndexFromCollectionPropertyResponse> removeIndexFromCollectionProperty($0.RemoveIndexFromCollectionPropertyRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$removeIndexFromCollectionProperty, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CollectionMetaData> getCollectionMetaData($0.GetCollectionMetaDataRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getCollectionMetaData, request, options: options);
   }
 }
 
@@ -184,6 +224,41 @@ abstract class NodeServiceBase extends $grpc.Service {
         true,
         ($core.List<$core.int> value) => $0.ClientHelloRequest.fromBuffer(value),
         ($0.ClientHelloResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.IndexCollectionPropertyRequest, $0.IndexCollectionPropertyResponse>(
+        'IndexCollectionProperty',
+        indexCollectionProperty_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.IndexCollectionPropertyRequest.fromBuffer(value),
+        ($0.IndexCollectionPropertyResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.EqualsQueryRequest, $0.EqualsQueryResponse>(
+        'EqualsQuery',
+        equalsQuery_Pre,
+        false,
+        true,
+        ($core.List<$core.int> value) => $0.EqualsQueryRequest.fromBuffer(value),
+        ($0.EqualsQueryResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.IsPropertyIndexedRequest, $0.IsPropertyIndexedResponse>(
+        'IsPropertyIndexed',
+        isPropertyIndexed_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.IsPropertyIndexedRequest.fromBuffer(value),
+        ($0.IsPropertyIndexedResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.RemoveIndexFromCollectionPropertyRequest, $0.RemoveIndexFromCollectionPropertyResponse>(
+        'RemoveIndexFromCollectionProperty',
+        removeIndexFromCollectionProperty_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.RemoveIndexFromCollectionPropertyRequest.fromBuffer(value),
+        ($0.RemoveIndexFromCollectionPropertyResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.GetCollectionMetaDataRequest, $0.CollectionMetaData>(
+        'GetCollectionMetaData',
+        getCollectionMetaData_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.GetCollectionMetaDataRequest.fromBuffer(value),
+        ($0.CollectionMetaData value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.GetNodeStateResponse> getNodeState_Pre($grpc.ServiceCall call, $async.Future<$0.GetNodeStateRequest> request) async {
@@ -222,6 +297,26 @@ abstract class NodeServiceBase extends $grpc.Service {
     return deleteCollectionDocument(call, await request);
   }
 
+  $async.Future<$0.IndexCollectionPropertyResponse> indexCollectionProperty_Pre($grpc.ServiceCall call, $async.Future<$0.IndexCollectionPropertyRequest> request) async {
+    return indexCollectionProperty(call, await request);
+  }
+
+  $async.Stream<$0.EqualsQueryResponse> equalsQuery_Pre($grpc.ServiceCall call, $async.Future<$0.EqualsQueryRequest> request) async* {
+    yield* equalsQuery(call, await request);
+  }
+
+  $async.Future<$0.IsPropertyIndexedResponse> isPropertyIndexed_Pre($grpc.ServiceCall call, $async.Future<$0.IsPropertyIndexedRequest> request) async {
+    return isPropertyIndexed(call, await request);
+  }
+
+  $async.Future<$0.RemoveIndexFromCollectionPropertyResponse> removeIndexFromCollectionProperty_Pre($grpc.ServiceCall call, $async.Future<$0.RemoveIndexFromCollectionPropertyRequest> request) async {
+    return removeIndexFromCollectionProperty(call, await request);
+  }
+
+  $async.Future<$0.CollectionMetaData> getCollectionMetaData_Pre($grpc.ServiceCall call, $async.Future<$0.GetCollectionMetaDataRequest> request) async {
+    return getCollectionMetaData(call, await request);
+  }
+
   $async.Future<$0.GetNodeStateResponse> getNodeState($grpc.ServiceCall call, $0.GetNodeStateRequest request);
   $async.Future<$0.CollectionMetaData> createCollection($grpc.ServiceCall call, $0.CreateCollectionRequest request);
   $async.Future<$0.GetCollectionsResponse> getCollections($grpc.ServiceCall call, $0.GetCollectionsRequest request);
@@ -232,4 +327,9 @@ abstract class NodeServiceBase extends $grpc.Service {
   $async.Future<$0.SetCollectionDocumentResponse> setCollectionDocument($grpc.ServiceCall call, $0.SetCollectionDocumentRequest request);
   $async.Future<$0.DeleteCollectionDocumentResponse> deleteCollectionDocument($grpc.ServiceCall call, $0.DeleteCollectionDocumentRequest request);
   $async.Stream<$0.ClientHelloResponse> clientHello($grpc.ServiceCall call, $async.Stream<$0.ClientHelloRequest> request);
+  $async.Future<$0.IndexCollectionPropertyResponse> indexCollectionProperty($grpc.ServiceCall call, $0.IndexCollectionPropertyRequest request);
+  $async.Stream<$0.EqualsQueryResponse> equalsQuery($grpc.ServiceCall call, $0.EqualsQueryRequest request);
+  $async.Future<$0.IsPropertyIndexedResponse> isPropertyIndexed($grpc.ServiceCall call, $0.IsPropertyIndexedRequest request);
+  $async.Future<$0.RemoveIndexFromCollectionPropertyResponse> removeIndexFromCollectionProperty($grpc.ServiceCall call, $0.RemoveIndexFromCollectionPropertyRequest request);
+  $async.Future<$0.CollectionMetaData> getCollectionMetaData($grpc.ServiceCall call, $0.GetCollectionMetaDataRequest request);
 }

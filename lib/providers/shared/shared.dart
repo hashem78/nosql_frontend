@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:grpc/grpc.dart';
@@ -8,6 +9,32 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:rxdart/rxdart.dart';
 
 part 'shared.g.dart';
+
+@Riverpod(dependencies: [nodeService])
+Future<List<String>> collectionProperties(
+  CollectionPropertiesRef ref,
+  String collectionId,
+) async {
+  final nodeService = ref.watch(nodeServiceProvider);
+  final response = await nodeService.getDocumentSample(
+    GetDocumentSampleRequest(collectionId: collectionId),
+  );
+  final decodedSample = Map<String, dynamic>.from(
+    jsonDecode(response.documentSample),
+  );
+  return decodedSample.keys.toList();
+}
+
+@Riverpod(dependencies: [nodeService])
+Future<CollectionMetaData> collectionMetaData(
+  CollectionMetaDataRef ref,
+  String collectionId,
+) async {
+  final nodeService = ref.watch(nodeServiceProvider);
+  return await nodeService.getCollectionMetaData(
+    GetCollectionMetaDataRequest(collectionId: collectionId),
+  );
+}
 
 @Riverpod(dependencies: [nodeService])
 Stream<ClientHelloResponse> clientHello(ClientHelloRef ref) {

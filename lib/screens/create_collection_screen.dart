@@ -8,7 +8,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:nosql_frontend/proto_gen/node.pbgrpc.dart';
 import 'package:nosql_frontend/providers/shared/shared.dart';
 
-import 'package:nosql_frontend/screens/dialogs/edit_field_dialog.dart';
+import 'package:nosql_frontend/screens/widgets/edit_field_dialog.dart';
 
 typedef DBCollection = (String, dynamic);
 

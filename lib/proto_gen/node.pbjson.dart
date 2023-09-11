@@ -27,6 +27,119 @@ const NodeState$json = {
 final $typed_data.Uint8List nodeStateDescriptor = $convert.base64Decode(
     'CglOb2RlU3RhdGUSCwoHSEVBbFRIWRAAEgsKB1dBSVRJTkcQARIJCgVFUlJPUhAC');
 
+@$core.Deprecated('Use getCollectionMetaDataRequestDescriptor instead')
+const GetCollectionMetaDataRequest$json = {
+  '1': 'GetCollectionMetaDataRequest',
+  '2': [
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
+  ],
+};
+
+/// Descriptor for `GetCollectionMetaDataRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getCollectionMetaDataRequestDescriptor = $convert.base64Decode(
+    'ChxHZXRDb2xsZWN0aW9uTWV0YURhdGFSZXF1ZXN0EiMKDWNvbGxlY3Rpb25faWQYASABKAlSDG'
+    'NvbGxlY3Rpb25JZA==');
+
+@$core.Deprecated('Use removeIndexFromCollectionPropertyRequestDescriptor instead')
+const RemoveIndexFromCollectionPropertyRequest$json = {
+  '1': 'RemoveIndexFromCollectionPropertyRequest',
+  '2': [
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
+    {'1': 'property', '3': 2, '4': 1, '5': 9, '10': 'property'},
+  ],
+};
+
+/// Descriptor for `RemoveIndexFromCollectionPropertyRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List removeIndexFromCollectionPropertyRequestDescriptor = $convert.base64Decode(
+    'CihSZW1vdmVJbmRleEZyb21Db2xsZWN0aW9uUHJvcGVydHlSZXF1ZXN0EiMKDWNvbGxlY3Rpb2'
+    '5faWQYASABKAlSDGNvbGxlY3Rpb25JZBIaCghwcm9wZXJ0eRgCIAEoCVIIcHJvcGVydHk=');
+
+@$core.Deprecated('Use removeIndexFromCollectionPropertyResponseDescriptor instead')
+const RemoveIndexFromCollectionPropertyResponse$json = {
+  '1': 'RemoveIndexFromCollectionPropertyResponse',
+};
+
+/// Descriptor for `RemoveIndexFromCollectionPropertyResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List removeIndexFromCollectionPropertyResponseDescriptor = $convert.base64Decode(
+    'CilSZW1vdmVJbmRleEZyb21Db2xsZWN0aW9uUHJvcGVydHlSZXNwb25zZQ==');
+
+@$core.Deprecated('Use isPropertyIndexedRequestDescriptor instead')
+const IsPropertyIndexedRequest$json = {
+  '1': 'IsPropertyIndexedRequest',
+  '2': [
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
+    {'1': 'property', '3': 2, '4': 1, '5': 9, '10': 'property'},
+  ],
+};
+
+/// Descriptor for `IsPropertyIndexedRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List isPropertyIndexedRequestDescriptor = $convert.base64Decode(
+    'ChhJc1Byb3BlcnR5SW5kZXhlZFJlcXVlc3QSIwoNY29sbGVjdGlvbl9pZBgBIAEoCVIMY29sbG'
+    'VjdGlvbklkEhoKCHByb3BlcnR5GAIgASgJUghwcm9wZXJ0eQ==');
+
+@$core.Deprecated('Use isPropertyIndexedResponseDescriptor instead')
+const IsPropertyIndexedResponse$json = {
+  '1': 'IsPropertyIndexedResponse',
+  '2': [
+    {'1': 'isIndexed', '3': 1, '4': 1, '5': 8, '10': 'isIndexed'},
+  ],
+};
+
+/// Descriptor for `IsPropertyIndexedResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List isPropertyIndexedResponseDescriptor = $convert.base64Decode(
+    'ChlJc1Byb3BlcnR5SW5kZXhlZFJlc3BvbnNlEhwKCWlzSW5kZXhlZBgBIAEoCFIJaXNJbmRleG'
+    'Vk');
+
+@$core.Deprecated('Use equalsQueryRequestDescriptor instead')
+const EqualsQueryRequest$json = {
+  '1': 'EqualsQueryRequest',
+  '2': [
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
+    {'1': 'property', '3': 2, '4': 1, '5': 9, '10': 'property'},
+    {'1': 'value', '3': 3, '4': 1, '5': 9, '10': 'value'},
+  ],
+};
+
+/// Descriptor for `EqualsQueryRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List equalsQueryRequestDescriptor = $convert.base64Decode(
+    'ChJFcXVhbHNRdWVyeVJlcXVlc3QSIwoNY29sbGVjdGlvbl9pZBgBIAEoCVIMY29sbGVjdGlvbk'
+    'lkEhoKCHByb3BlcnR5GAIgASgJUghwcm9wZXJ0eRIUCgV2YWx1ZRgDIAEoCVIFdmFsdWU=');
+
+@$core.Deprecated('Use equalsQueryResponseDescriptor instead')
+const EqualsQueryResponse$json = {
+  '1': 'EqualsQueryResponse',
+  '2': [
+    {'1': 'document_id', '3': 1, '4': 1, '5': 9, '10': 'documentId'},
+  ],
+};
+
+/// Descriptor for `EqualsQueryResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List equalsQueryResponseDescriptor = $convert.base64Decode(
+    'ChNFcXVhbHNRdWVyeVJlc3BvbnNlEh8KC2RvY3VtZW50X2lkGAEgASgJUgpkb2N1bWVudElk');
+
+@$core.Deprecated('Use indexCollectionPropertyRequestDescriptor instead')
+const IndexCollectionPropertyRequest$json = {
+  '1': 'IndexCollectionPropertyRequest',
+  '2': [
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
+    {'1': 'property', '3': 2, '4': 1, '5': 9, '10': 'property'},
+  ],
+};
+
+/// Descriptor for `IndexCollectionPropertyRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List indexCollectionPropertyRequestDescriptor = $convert.base64Decode(
+    'Ch5JbmRleENvbGxlY3Rpb25Qcm9wZXJ0eVJlcXVlc3QSIwoNY29sbGVjdGlvbl9pZBgBIAEoCV'
+    'IMY29sbGVjdGlvbklkEhoKCHByb3BlcnR5GAIgASgJUghwcm9wZXJ0eQ==');
+
+@$core.Deprecated('Use indexCollectionPropertyResponseDescriptor instead')
+const IndexCollectionPropertyResponse$json = {
+  '1': 'IndexCollectionPropertyResponse',
+};
+
+/// Descriptor for `IndexCollectionPropertyResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List indexCollectionPropertyResponseDescriptor = $convert.base64Decode(
+    'Ch9JbmRleENvbGxlY3Rpb25Qcm9wZXJ0eVJlc3BvbnNl');
+
 @$core.Deprecated('Use clientHelloRequestDescriptor instead')
 const ClientHelloRequest$json = {
   '1': 'ClientHelloRequest',
@@ -236,6 +349,7 @@ const CollectionMetaData$json = {
     {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
     {'1': 'created_on', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdOn'},
     {'1': 'deleted', '3': 4, '4': 1, '5': 8, '10': 'deleted'},
+    {'1': 'indexed_properties', '3': 5, '4': 3, '5': 9, '10': 'indexedProperties'},
   ],
 };
 
@@ -243,7 +357,8 @@ const CollectionMetaData$json = {
 final $typed_data.Uint8List collectionMetaDataDescriptor = $convert.base64Decode(
     'ChJDb2xsZWN0aW9uTWV0YURhdGESDgoCaWQYASABKAlSAmlkEhIKBG5hbWUYAiABKAlSBG5hbW'
     'USOQoKY3JlYXRlZF9vbhgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0'
-    'ZWRPbhIYCgdkZWxldGVkGAQgASgIUgdkZWxldGVk');
+    'ZWRPbhIYCgdkZWxldGVkGAQgASgIUgdkZWxldGVkEi0KEmluZGV4ZWRfcHJvcGVydGllcxgFIA'
+    'MoCVIRaW5kZXhlZFByb3BlcnRpZXM=');
 
 @$core.Deprecated('Use getNodeStateRequestDescriptor instead')
 const GetNodeStateRequest$json = {

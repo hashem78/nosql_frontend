@@ -19,6 +19,52 @@ service NodeService {
   rpc SetCollectionDocument(SetCollectionDocumentRequest) returns (SetCollectionDocumentResponse);
   rpc DeleteCollectionDocument(DeleteCollectionDocumentRequest) returns (DeleteCollectionDocumentResponse);
   rpc ClientHello(stream ClientHelloRequest) returns (stream ClientHelloResponse);
+  rpc IndexCollectionProperty(IndexCollectionPropertyRequest) returns (IndexCollectionPropertyResponse);
+  rpc EqualsQuery(EqualsQueryRequest) returns (stream EqualsQueryResponse);
+  rpc IsPropertyIndexed(IsPropertyIndexedRequest) returns (IsPropertyIndexedResponse);
+  rpc RemoveIndexFromCollectionProperty(RemoveIndexFromCollectionPropertyRequest) returns (RemoveIndexFromCollectionPropertyResponse);
+  rpc GetCollectionMetaData(GetCollectionMetaDataRequest) returns (CollectionMetaData);
+}
+
+message GetCollectionMetaDataRequest{
+  string collection_id = 1;
+}
+
+message RemoveIndexFromCollectionPropertyRequest{
+  string collection_id = 1;
+  string property = 2;
+}
+
+message RemoveIndexFromCollectionPropertyResponse{
+
+}
+
+message IsPropertyIndexedRequest {
+  string collection_id = 1;
+  string property = 2;
+}
+
+message IsPropertyIndexedResponse {
+  bool isIndexed = 1;
+}
+
+message EqualsQueryRequest {
+  string collection_id = 1;
+  string property = 2;
+  string value = 3;
+}
+
+message EqualsQueryResponse{
+  string document_id = 1;
+}
+
+message IndexCollectionPropertyRequest {
+  string collection_id = 1;
+  string property = 2;
+}
+
+message IndexCollectionPropertyResponse {
+
 }
 
 message ClientHelloRequest {
@@ -99,6 +145,7 @@ message CollectionMetaData {
   string name = 2;
   google.protobuf.Timestamp created_on = 3;
   bool deleted = 4;
+  repeated string indexed_properties = 5;
 }
 
 message GetNodeStateRequest {

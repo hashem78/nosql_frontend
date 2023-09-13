@@ -178,7 +178,7 @@ class _DocumentProviderElement
   String get documentId => (origin as DocumentProvider).documentId;
 }
 
-String _$queryStreamHash() => r'3f2fb637f5ea40161539b446924a4f17ca24f05a';
+String _$queryStreamHash() => r'4e5b8f2ed8ade5769239fd5675a35d59ff36a436';
 
 /// See also [queryStream].
 @ProviderFor(queryStream)

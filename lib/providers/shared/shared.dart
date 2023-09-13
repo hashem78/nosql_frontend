@@ -42,6 +42,13 @@ Stream<dynamic> queryStream(
   final valueToSend = switch (propertyType) {
     CollectionPropertyType.INTEGER => CustomValue(intValue: int.parse(value)),
     CollectionPropertyType.STRING => CustomValue(stringValue: value),
+    CollectionPropertyType.ARRAY => CustomValue(
+        listValue: CustomList(
+          values: List<dynamic>.of(jsonDecode(value)).map(
+            (e) => CustomValue(stringValue: e),
+          ),
+        ),
+      ),
     _ => null,
   };
 

@@ -19,12 +19,14 @@ const CollectionPropertyType$json = {
   '2': [
     {'1': 'INTEGER', '2': 0},
     {'1': 'STRING', '2': 1},
+    {'1': 'ARRAY', '2': 2},
   ],
 };
 
 /// Descriptor for `CollectionPropertyType`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List collectionPropertyTypeDescriptor = $convert.base64Decode(
-    'ChZDb2xsZWN0aW9uUHJvcGVydHlUeXBlEgsKB0lOVEVHRVIQABIKCgZTVFJJTkcQAQ==');
+    'ChZDb2xsZWN0aW9uUHJvcGVydHlUeXBlEgsKB0lOVEVHRVIQABIKCgZTVFJJTkcQARIJCgVBUl'
+    'JBWRAC');
 
 @$core.Deprecated('Use operatorDescriptor instead')
 const Operator$json = {

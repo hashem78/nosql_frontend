@@ -16,10 +16,12 @@ import 'package:protobuf/protobuf.dart' as $pb;
 class CollectionPropertyType extends $pb.ProtobufEnum {
   static const CollectionPropertyType INTEGER = CollectionPropertyType._(0, _omitEnumNames ? '' : 'INTEGER');
   static const CollectionPropertyType STRING = CollectionPropertyType._(1, _omitEnumNames ? '' : 'STRING');
+  static const CollectionPropertyType ARRAY = CollectionPropertyType._(2, _omitEnumNames ? '' : 'ARRAY');
 
   static const $core.List<CollectionPropertyType> values = <CollectionPropertyType> [
     INTEGER,
     STRING,
+    ARRAY,
   ];
 
   static final $core.Map<$core.int, CollectionPropertyType> _byValue = $pb.ProtobufEnum.initByValue(values);

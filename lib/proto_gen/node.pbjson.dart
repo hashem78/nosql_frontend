@@ -13,6 +13,41 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
+@$core.Deprecated('Use collectionPropertyTypeDescriptor instead')
+const CollectionPropertyType$json = {
+  '1': 'CollectionPropertyType',
+  '2': [
+    {'1': 'INTEGER', '2': 0},
+    {'1': 'STRING', '2': 1},
+  ],
+};
+
+/// Descriptor for `CollectionPropertyType`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List collectionPropertyTypeDescriptor = $convert.base64Decode(
+    'ChZDb2xsZWN0aW9uUHJvcGVydHlUeXBlEgsKB0lOVEVHRVIQABIKCgZTVFJJTkcQAQ==');
+
+@$core.Deprecated('Use operatorDescriptor instead')
+const Operator$json = {
+  '1': 'Operator',
+  '2': [
+    {'1': 'EQUALS', '2': 0},
+    {'1': 'NOT_EQUALS', '2': 1},
+    {'1': 'GREATER_THAN', '2': 2},
+    {'1': 'LESS_THAN', '2': 3},
+    {'1': 'GREATER_THAN_OR_EQUALS', '2': 4},
+    {'1': 'LESS_THAN_OR_EQUALS', '2': 5},
+    {'1': 'STARTS_WITH', '2': 6},
+    {'1': 'IN', '2': 7},
+    {'1': 'NOT_IN', '2': 8},
+  ],
+};
+
+/// Descriptor for `Operator`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List operatorDescriptor = $convert.base64Decode(
+    'CghPcGVyYXRvchIKCgZFUVVBTFMQABIOCgpOT1RfRVFVQUxTEAESEAoMR1JFQVRFUl9USEFOEA'
+    'ISDQoJTEVTU19USEFOEAMSGgoWR1JFQVRFUl9USEFOX09SX0VRVUFMUxAEEhcKE0xFU1NfVEhB'
+    'Tl9PUl9FUVVBTFMQBRIPCgtTVEFSVFNfV0lUSBAGEgYKAklOEAcSCgoGTk9UX0lOEAg=');
+
 @$core.Deprecated('Use nodeStateDescriptor instead')
 const NodeState$json = {
   '1': 'NodeState',
@@ -26,6 +61,63 @@ const NodeState$json = {
 /// Descriptor for `NodeState`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List nodeStateDescriptor = $convert.base64Decode(
     'CglOb2RlU3RhdGUSCwoHSEVBbFRIWRAAEgsKB1dBSVRJTkcQARIJCgVFUlJPUhAC');
+
+@$core.Deprecated('Use getCollectionPropertyTypeRequestDescriptor instead')
+const GetCollectionPropertyTypeRequest$json = {
+  '1': 'GetCollectionPropertyTypeRequest',
+  '2': [
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
+    {'1': 'property', '3': 2, '4': 1, '5': 9, '10': 'property'},
+  ],
+};
+
+/// Descriptor for `GetCollectionPropertyTypeRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getCollectionPropertyTypeRequestDescriptor = $convert.base64Decode(
+    'CiBHZXRDb2xsZWN0aW9uUHJvcGVydHlUeXBlUmVxdWVzdBIjCg1jb2xsZWN0aW9uX2lkGAEgAS'
+    'gJUgxjb2xsZWN0aW9uSWQSGgoIcHJvcGVydHkYAiABKAlSCHByb3BlcnR5');
+
+@$core.Deprecated('Use getCollectionPropertyTypeResponseDescriptor instead')
+const GetCollectionPropertyTypeResponse$json = {
+  '1': 'GetCollectionPropertyTypeResponse',
+  '2': [
+    {'1': 'property_type', '3': 1, '4': 1, '5': 14, '6': '.node.CollectionPropertyType', '10': 'propertyType'},
+  ],
+};
+
+/// Descriptor for `GetCollectionPropertyTypeResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getCollectionPropertyTypeResponseDescriptor = $convert.base64Decode(
+    'CiFHZXRDb2xsZWN0aW9uUHJvcGVydHlUeXBlUmVzcG9uc2USQQoNcHJvcGVydHlfdHlwZRgBIA'
+    'EoDjIcLm5vZGUuQ29sbGVjdGlvblByb3BlcnR5VHlwZVIMcHJvcGVydHlUeXBl');
+
+@$core.Deprecated('Use queryDatabaseRequestDescriptor instead')
+const QueryDatabaseRequest$json = {
+  '1': 'QueryDatabaseRequest',
+  '2': [
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
+    {'1': 'property', '3': 2, '4': 1, '5': 9, '10': 'property'},
+    {'1': 'operator', '3': 3, '4': 1, '5': 14, '6': '.node.Operator', '10': 'operator'},
+    {'1': 'value', '3': 4, '4': 1, '5': 11, '6': '.CustomValue', '10': 'value'},
+  ],
+};
+
+/// Descriptor for `QueryDatabaseRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryDatabaseRequestDescriptor = $convert.base64Decode(
+    'ChRRdWVyeURhdGFiYXNlUmVxdWVzdBIjCg1jb2xsZWN0aW9uX2lkGAEgASgJUgxjb2xsZWN0aW'
+    '9uSWQSGgoIcHJvcGVydHkYAiABKAlSCHByb3BlcnR5EioKCG9wZXJhdG9yGAMgASgOMg4ubm9k'
+    'ZS5PcGVyYXRvclIIb3BlcmF0b3ISIgoFdmFsdWUYBCABKAsyDC5DdXN0b21WYWx1ZVIFdmFsdW'
+    'U=');
+
+@$core.Deprecated('Use queryDatabaseResponseDescriptor instead')
+const QueryDatabaseResponse$json = {
+  '1': 'QueryDatabaseResponse',
+  '2': [
+    {'1': 'data', '3': 1, '4': 1, '5': 9, '10': 'data'},
+  ],
+};
+
+/// Descriptor for `QueryDatabaseResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List queryDatabaseResponseDescriptor = $convert.base64Decode(
+    'ChVRdWVyeURhdGFiYXNlUmVzcG9uc2USEgoEZGF0YRgBIAEoCVIEZGF0YQ==');
 
 @$core.Deprecated('Use getCollectionMetaDataRequestDescriptor instead')
 const GetCollectionMetaDataRequest$json = {
@@ -89,33 +181,6 @@ const IsPropertyIndexedResponse$json = {
 final $typed_data.Uint8List isPropertyIndexedResponseDescriptor = $convert.base64Decode(
     'ChlJc1Byb3BlcnR5SW5kZXhlZFJlc3BvbnNlEhwKCWlzSW5kZXhlZBgBIAEoCFIJaXNJbmRleG'
     'Vk');
-
-@$core.Deprecated('Use equalsQueryRequestDescriptor instead')
-const EqualsQueryRequest$json = {
-  '1': 'EqualsQueryRequest',
-  '2': [
-    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
-    {'1': 'property', '3': 2, '4': 1, '5': 9, '10': 'property'},
-    {'1': 'value', '3': 3, '4': 1, '5': 9, '10': 'value'},
-  ],
-};
-
-/// Descriptor for `EqualsQueryRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List equalsQueryRequestDescriptor = $convert.base64Decode(
-    'ChJFcXVhbHNRdWVyeVJlcXVlc3QSIwoNY29sbGVjdGlvbl9pZBgBIAEoCVIMY29sbGVjdGlvbk'
-    'lkEhoKCHByb3BlcnR5GAIgASgJUghwcm9wZXJ0eRIUCgV2YWx1ZRgDIAEoCVIFdmFsdWU=');
-
-@$core.Deprecated('Use equalsQueryResponseDescriptor instead')
-const EqualsQueryResponse$json = {
-  '1': 'EqualsQueryResponse',
-  '2': [
-    {'1': 'document_id', '3': 1, '4': 1, '5': 9, '10': 'documentId'},
-  ],
-};
-
-/// Descriptor for `EqualsQueryResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List equalsQueryResponseDescriptor = $convert.base64Decode(
-    'ChNFcXVhbHNRdWVyeVJlc3BvbnNlEh8KC2RvY3VtZW50X2lkGAEgASgJUgpkb2N1bWVudElk');
 
 @$core.Deprecated('Use indexCollectionPropertyRequestDescriptor instead')
 const IndexCollectionPropertyRequest$json = {
@@ -293,6 +358,20 @@ const GetCollectionDocumentsRequest$json = {
 final $typed_data.Uint8List getCollectionDocumentsRequestDescriptor = $convert.base64Decode(
     'Ch1HZXRDb2xsZWN0aW9uRG9jdW1lbnRzUmVxdWVzdBIjCg1jb2xsZWN0aW9uX2lkGAEgASgJUg'
     'xjb2xsZWN0aW9uSWQ=');
+
+@$core.Deprecated('Use getCollectionDocumentRequestDescriptor instead')
+const GetCollectionDocumentRequest$json = {
+  '1': 'GetCollectionDocumentRequest',
+  '2': [
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
+    {'1': 'document_id', '3': 2, '4': 1, '5': 9, '10': 'documentId'},
+  ],
+};
+
+/// Descriptor for `GetCollectionDocumentRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getCollectionDocumentRequestDescriptor = $convert.base64Decode(
+    'ChxHZXRDb2xsZWN0aW9uRG9jdW1lbnRSZXF1ZXN0EiMKDWNvbGxlY3Rpb25faWQYASABKAlSDG'
+    'NvbGxlY3Rpb25JZBIfCgtkb2N1bWVudF9pZBgCIAEoCVIKZG9jdW1lbnRJZA==');
 
 @$core.Deprecated('Use documentMetaDataDescriptor instead')
 const DocumentMetaData$json = {

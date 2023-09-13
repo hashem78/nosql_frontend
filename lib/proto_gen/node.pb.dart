@@ -13,10 +13,269 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'google/protobuf/timestamp.pb.dart' as $2;
+import 'customstruct.pb.dart' as $2;
+import 'google/protobuf/timestamp.pb.dart' as $3;
 import 'node.pbenum.dart';
 
 export 'node.pbenum.dart';
+
+class GetCollectionPropertyTypeRequest extends $pb.GeneratedMessage {
+  factory GetCollectionPropertyTypeRequest({
+    $core.String? collectionId,
+    $core.String? property,
+  }) {
+    final $result = create();
+    if (collectionId != null) {
+      $result.collectionId = collectionId;
+    }
+    if (property != null) {
+      $result.property = property;
+    }
+    return $result;
+  }
+  GetCollectionPropertyTypeRequest._() : super();
+  factory GetCollectionPropertyTypeRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetCollectionPropertyTypeRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetCollectionPropertyTypeRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'collectionId')
+    ..aOS(2, _omitFieldNames ? '' : 'property')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetCollectionPropertyTypeRequest clone() => GetCollectionPropertyTypeRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetCollectionPropertyTypeRequest copyWith(void Function(GetCollectionPropertyTypeRequest) updates) => super.copyWith((message) => updates(message as GetCollectionPropertyTypeRequest)) as GetCollectionPropertyTypeRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetCollectionPropertyTypeRequest create() => GetCollectionPropertyTypeRequest._();
+  GetCollectionPropertyTypeRequest createEmptyInstance() => create();
+  static $pb.PbList<GetCollectionPropertyTypeRequest> createRepeated() => $pb.PbList<GetCollectionPropertyTypeRequest>();
+  @$core.pragma('dart2js:noInline')
+  static GetCollectionPropertyTypeRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetCollectionPropertyTypeRequest>(create);
+  static GetCollectionPropertyTypeRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get collectionId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set collectionId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCollectionId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCollectionId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get property => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set property($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasProperty() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearProperty() => clearField(2);
+}
+
+class GetCollectionPropertyTypeResponse extends $pb.GeneratedMessage {
+  factory GetCollectionPropertyTypeResponse({
+    CollectionPropertyType? propertyType,
+  }) {
+    final $result = create();
+    if (propertyType != null) {
+      $result.propertyType = propertyType;
+    }
+    return $result;
+  }
+  GetCollectionPropertyTypeResponse._() : super();
+  factory GetCollectionPropertyTypeResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetCollectionPropertyTypeResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetCollectionPropertyTypeResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..e<CollectionPropertyType>(1, _omitFieldNames ? '' : 'propertyType', $pb.PbFieldType.OE, defaultOrMaker: CollectionPropertyType.INTEGER, valueOf: CollectionPropertyType.valueOf, enumValues: CollectionPropertyType.values)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetCollectionPropertyTypeResponse clone() => GetCollectionPropertyTypeResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetCollectionPropertyTypeResponse copyWith(void Function(GetCollectionPropertyTypeResponse) updates) => super.copyWith((message) => updates(message as GetCollectionPropertyTypeResponse)) as GetCollectionPropertyTypeResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetCollectionPropertyTypeResponse create() => GetCollectionPropertyTypeResponse._();
+  GetCollectionPropertyTypeResponse createEmptyInstance() => create();
+  static $pb.PbList<GetCollectionPropertyTypeResponse> createRepeated() => $pb.PbList<GetCollectionPropertyTypeResponse>();
+  @$core.pragma('dart2js:noInline')
+  static GetCollectionPropertyTypeResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetCollectionPropertyTypeResponse>(create);
+  static GetCollectionPropertyTypeResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  CollectionPropertyType get propertyType => $_getN(0);
+  @$pb.TagNumber(1)
+  set propertyType(CollectionPropertyType v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasPropertyType() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPropertyType() => clearField(1);
+}
+
+class QueryDatabaseRequest extends $pb.GeneratedMessage {
+  factory QueryDatabaseRequest({
+    $core.String? collectionId,
+    $core.String? property,
+    Operator? operator,
+    $2.CustomValue? value,
+  }) {
+    final $result = create();
+    if (collectionId != null) {
+      $result.collectionId = collectionId;
+    }
+    if (property != null) {
+      $result.property = property;
+    }
+    if (operator != null) {
+      $result.operator = operator;
+    }
+    if (value != null) {
+      $result.value = value;
+    }
+    return $result;
+  }
+  QueryDatabaseRequest._() : super();
+  factory QueryDatabaseRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory QueryDatabaseRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'QueryDatabaseRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'collectionId')
+    ..aOS(2, _omitFieldNames ? '' : 'property')
+    ..e<Operator>(3, _omitFieldNames ? '' : 'operator', $pb.PbFieldType.OE, defaultOrMaker: Operator.EQUALS, valueOf: Operator.valueOf, enumValues: Operator.values)
+    ..aOM<$2.CustomValue>(4, _omitFieldNames ? '' : 'value', subBuilder: $2.CustomValue.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  QueryDatabaseRequest clone() => QueryDatabaseRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  QueryDatabaseRequest copyWith(void Function(QueryDatabaseRequest) updates) => super.copyWith((message) => updates(message as QueryDatabaseRequest)) as QueryDatabaseRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryDatabaseRequest create() => QueryDatabaseRequest._();
+  QueryDatabaseRequest createEmptyInstance() => create();
+  static $pb.PbList<QueryDatabaseRequest> createRepeated() => $pb.PbList<QueryDatabaseRequest>();
+  @$core.pragma('dart2js:noInline')
+  static QueryDatabaseRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<QueryDatabaseRequest>(create);
+  static QueryDatabaseRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get collectionId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set collectionId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCollectionId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCollectionId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get property => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set property($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasProperty() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearProperty() => clearField(2);
+
+  @$pb.TagNumber(3)
+  Operator get operator => $_getN(2);
+  @$pb.TagNumber(3)
+  set operator(Operator v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasOperator() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearOperator() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $2.CustomValue get value => $_getN(3);
+  @$pb.TagNumber(4)
+  set value($2.CustomValue v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasValue() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearValue() => clearField(4);
+  @$pb.TagNumber(4)
+  $2.CustomValue ensureValue() => $_ensure(3);
+}
+
+class QueryDatabaseResponse extends $pb.GeneratedMessage {
+  factory QueryDatabaseResponse({
+    $core.String? data,
+  }) {
+    final $result = create();
+    if (data != null) {
+      $result.data = data;
+    }
+    return $result;
+  }
+  QueryDatabaseResponse._() : super();
+  factory QueryDatabaseResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory QueryDatabaseResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'QueryDatabaseResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'data')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  QueryDatabaseResponse clone() => QueryDatabaseResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  QueryDatabaseResponse copyWith(void Function(QueryDatabaseResponse) updates) => super.copyWith((message) => updates(message as QueryDatabaseResponse)) as QueryDatabaseResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static QueryDatabaseResponse create() => QueryDatabaseResponse._();
+  QueryDatabaseResponse createEmptyInstance() => create();
+  static $pb.PbList<QueryDatabaseResponse> createRepeated() => $pb.PbList<QueryDatabaseResponse>();
+  @$core.pragma('dart2js:noInline')
+  static QueryDatabaseResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<QueryDatabaseResponse>(create);
+  static QueryDatabaseResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get data => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set data($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasData() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearData() => clearField(1);
+}
 
 class GetCollectionMetaDataRequest extends $pb.GeneratedMessage {
   factory GetCollectionMetaDataRequest({
@@ -276,134 +535,6 @@ class IsPropertyIndexedResponse extends $pb.GeneratedMessage {
   $core.bool hasIsIndexed() => $_has(0);
   @$pb.TagNumber(1)
   void clearIsIndexed() => clearField(1);
-}
-
-class EqualsQueryRequest extends $pb.GeneratedMessage {
-  factory EqualsQueryRequest({
-    $core.String? collectionId,
-    $core.String? property,
-    $core.String? value,
-  }) {
-    final $result = create();
-    if (collectionId != null) {
-      $result.collectionId = collectionId;
-    }
-    if (property != null) {
-      $result.property = property;
-    }
-    if (value != null) {
-      $result.value = value;
-    }
-    return $result;
-  }
-  EqualsQueryRequest._() : super();
-  factory EqualsQueryRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory EqualsQueryRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'EqualsQueryRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'collectionId')
-    ..aOS(2, _omitFieldNames ? '' : 'property')
-    ..aOS(3, _omitFieldNames ? '' : 'value')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  EqualsQueryRequest clone() => EqualsQueryRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  EqualsQueryRequest copyWith(void Function(EqualsQueryRequest) updates) => super.copyWith((message) => updates(message as EqualsQueryRequest)) as EqualsQueryRequest;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static EqualsQueryRequest create() => EqualsQueryRequest._();
-  EqualsQueryRequest createEmptyInstance() => create();
-  static $pb.PbList<EqualsQueryRequest> createRepeated() => $pb.PbList<EqualsQueryRequest>();
-  @$core.pragma('dart2js:noInline')
-  static EqualsQueryRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<EqualsQueryRequest>(create);
-  static EqualsQueryRequest? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get collectionId => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set collectionId($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasCollectionId() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearCollectionId() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.String get property => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set property($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasProperty() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearProperty() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get value => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set value($core.String v) { $_setString(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasValue() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearValue() => clearField(3);
-}
-
-class EqualsQueryResponse extends $pb.GeneratedMessage {
-  factory EqualsQueryResponse({
-    $core.String? documentId,
-  }) {
-    final $result = create();
-    if (documentId != null) {
-      $result.documentId = documentId;
-    }
-    return $result;
-  }
-  EqualsQueryResponse._() : super();
-  factory EqualsQueryResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory EqualsQueryResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'EqualsQueryResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'documentId')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  EqualsQueryResponse clone() => EqualsQueryResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  EqualsQueryResponse copyWith(void Function(EqualsQueryResponse) updates) => super.copyWith((message) => updates(message as EqualsQueryResponse)) as EqualsQueryResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static EqualsQueryResponse create() => EqualsQueryResponse._();
-  EqualsQueryResponse createEmptyInstance() => create();
-  static $pb.PbList<EqualsQueryResponse> createRepeated() => $pb.PbList<EqualsQueryResponse>();
-  @$core.pragma('dart2js:noInline')
-  static EqualsQueryResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<EqualsQueryResponse>(create);
-  static EqualsQueryResponse? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get documentId => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set documentId($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasDocumentId() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearDocumentId() => clearField(1);
 }
 
 class IndexCollectionPropertyRequest extends $pb.GeneratedMessage {
@@ -1120,12 +1251,76 @@ class GetCollectionDocumentsRequest extends $pb.GeneratedMessage {
   void clearCollectionId() => clearField(1);
 }
 
+class GetCollectionDocumentRequest extends $pb.GeneratedMessage {
+  factory GetCollectionDocumentRequest({
+    $core.String? collectionId,
+    $core.String? documentId,
+  }) {
+    final $result = create();
+    if (collectionId != null) {
+      $result.collectionId = collectionId;
+    }
+    if (documentId != null) {
+      $result.documentId = documentId;
+    }
+    return $result;
+  }
+  GetCollectionDocumentRequest._() : super();
+  factory GetCollectionDocumentRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetCollectionDocumentRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetCollectionDocumentRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'collectionId')
+    ..aOS(2, _omitFieldNames ? '' : 'documentId')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetCollectionDocumentRequest clone() => GetCollectionDocumentRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetCollectionDocumentRequest copyWith(void Function(GetCollectionDocumentRequest) updates) => super.copyWith((message) => updates(message as GetCollectionDocumentRequest)) as GetCollectionDocumentRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetCollectionDocumentRequest create() => GetCollectionDocumentRequest._();
+  GetCollectionDocumentRequest createEmptyInstance() => create();
+  static $pb.PbList<GetCollectionDocumentRequest> createRepeated() => $pb.PbList<GetCollectionDocumentRequest>();
+  @$core.pragma('dart2js:noInline')
+  static GetCollectionDocumentRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetCollectionDocumentRequest>(create);
+  static GetCollectionDocumentRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get collectionId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set collectionId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCollectionId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCollectionId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get documentId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set documentId($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasDocumentId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDocumentId() => clearField(2);
+}
+
 class DocumentMetaData extends $pb.GeneratedMessage {
   factory DocumentMetaData({
     $core.String? id,
     $core.int? affinity,
-    $2.Timestamp? createdOn,
-    $2.Timestamp? lastEditedOn,
+    $3.Timestamp? createdOn,
+    $3.Timestamp? lastEditedOn,
     $core.bool? deleted,
   }) {
     final $result = create();
@@ -1153,8 +1348,8 @@ class DocumentMetaData extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DocumentMetaData', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'id')
     ..a<$core.int>(2, _omitFieldNames ? '' : 'affinity', $pb.PbFieldType.O3)
-    ..aOM<$2.Timestamp>(3, _omitFieldNames ? '' : 'createdOn', subBuilder: $2.Timestamp.create)
-    ..aOM<$2.Timestamp>(4, _omitFieldNames ? '' : 'lastEditedOn', subBuilder: $2.Timestamp.create)
+    ..aOM<$3.Timestamp>(3, _omitFieldNames ? '' : 'createdOn', subBuilder: $3.Timestamp.create)
+    ..aOM<$3.Timestamp>(4, _omitFieldNames ? '' : 'lastEditedOn', subBuilder: $3.Timestamp.create)
     ..aOB(5, _omitFieldNames ? '' : 'deleted')
     ..hasRequiredFields = false
   ;
@@ -1199,26 +1394,26 @@ class DocumentMetaData extends $pb.GeneratedMessage {
   void clearAffinity() => clearField(2);
 
   @$pb.TagNumber(3)
-  $2.Timestamp get createdOn => $_getN(2);
+  $3.Timestamp get createdOn => $_getN(2);
   @$pb.TagNumber(3)
-  set createdOn($2.Timestamp v) { setField(3, v); }
+  set createdOn($3.Timestamp v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasCreatedOn() => $_has(2);
   @$pb.TagNumber(3)
   void clearCreatedOn() => clearField(3);
   @$pb.TagNumber(3)
-  $2.Timestamp ensureCreatedOn() => $_ensure(2);
+  $3.Timestamp ensureCreatedOn() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  $2.Timestamp get lastEditedOn => $_getN(3);
+  $3.Timestamp get lastEditedOn => $_getN(3);
   @$pb.TagNumber(4)
-  set lastEditedOn($2.Timestamp v) { setField(4, v); }
+  set lastEditedOn($3.Timestamp v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasLastEditedOn() => $_has(3);
   @$pb.TagNumber(4)
   void clearLastEditedOn() => clearField(4);
   @$pb.TagNumber(4)
-  $2.Timestamp ensureLastEditedOn() => $_ensure(3);
+  $3.Timestamp ensureLastEditedOn() => $_ensure(3);
 
   @$pb.TagNumber(5)
   $core.bool get deleted => $_getBF(4);
@@ -1364,7 +1559,7 @@ class CollectionMetaData extends $pb.GeneratedMessage {
   factory CollectionMetaData({
     $core.String? id,
     $core.String? name,
-    $2.Timestamp? createdOn,
+    $3.Timestamp? createdOn,
     $core.bool? deleted,
     $core.Iterable<$core.String>? indexedProperties,
   }) {
@@ -1393,7 +1588,7 @@ class CollectionMetaData extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CollectionMetaData', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'id')
     ..aOS(2, _omitFieldNames ? '' : 'name')
-    ..aOM<$2.Timestamp>(3, _omitFieldNames ? '' : 'createdOn', subBuilder: $2.Timestamp.create)
+    ..aOM<$3.Timestamp>(3, _omitFieldNames ? '' : 'createdOn', subBuilder: $3.Timestamp.create)
     ..aOB(4, _omitFieldNames ? '' : 'deleted')
     ..pPS(5, _omitFieldNames ? '' : 'indexedProperties')
     ..hasRequiredFields = false
@@ -1439,15 +1634,15 @@ class CollectionMetaData extends $pb.GeneratedMessage {
   void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $2.Timestamp get createdOn => $_getN(2);
+  $3.Timestamp get createdOn => $_getN(2);
   @$pb.TagNumber(3)
-  set createdOn($2.Timestamp v) { setField(3, v); }
+  set createdOn($3.Timestamp v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasCreatedOn() => $_has(2);
   @$pb.TagNumber(3)
   void clearCreatedOn() => clearField(3);
   @$pb.TagNumber(3)
-  $2.Timestamp ensureCreatedOn() => $_ensure(2);
+  $3.Timestamp ensureCreatedOn() => $_ensure(2);
 
   @$pb.TagNumber(4)
   $core.bool get deleted => $_getBF(3);

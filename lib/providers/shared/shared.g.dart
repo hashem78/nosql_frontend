@@ -6,8 +6,7 @@ part of 'shared.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$collectionPropertiesHash() =>
-    r'5ad85de7da87f5d97085d781fdd70254c9c17085';
+String _$documentHash() => r'c8187e9a4b26ce43cb7b11a4da2567e18777b3de';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,6 +28,341 @@ class _SystemHash {
     return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
   }
 }
+
+/// See also [document].
+@ProviderFor(document)
+const documentProvider = DocumentFamily();
+
+/// See also [document].
+class DocumentFamily extends Family<AsyncValue<CollectionDocument>> {
+  /// See also [document].
+  const DocumentFamily();
+
+  /// See also [document].
+  DocumentProvider call({
+    required String collectionId,
+    required String documentId,
+  }) {
+    return DocumentProvider(
+      collectionId: collectionId,
+      documentId: documentId,
+    );
+  }
+
+  @override
+  DocumentProvider getProviderOverride(
+    covariant DocumentProvider provider,
+  ) {
+    return call(
+      collectionId: provider.collectionId,
+      documentId: provider.documentId,
+    );
+  }
+
+  static final Iterable<ProviderOrFamily> _dependencies = <ProviderOrFamily>[
+    nodeServiceProvider
+  ];
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static final Iterable<ProviderOrFamily> _allTransitiveDependencies =
+      <ProviderOrFamily>{
+    nodeServiceProvider,
+    ...?nodeServiceProvider.allTransitiveDependencies
+  };
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'documentProvider';
+}
+
+/// See also [document].
+class DocumentProvider extends AutoDisposeFutureProvider<CollectionDocument> {
+  /// See also [document].
+  DocumentProvider({
+    required String collectionId,
+    required String documentId,
+  }) : this._internal(
+          (ref) => document(
+            ref as DocumentRef,
+            collectionId: collectionId,
+            documentId: documentId,
+          ),
+          from: documentProvider,
+          name: r'documentProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$documentHash,
+          dependencies: DocumentFamily._dependencies,
+          allTransitiveDependencies: DocumentFamily._allTransitiveDependencies,
+          collectionId: collectionId,
+          documentId: documentId,
+        );
+
+  DocumentProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.collectionId,
+    required this.documentId,
+  }) : super.internal();
+
+  final String collectionId;
+  final String documentId;
+
+  @override
+  Override overrideWith(
+    FutureOr<CollectionDocument> Function(DocumentRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: DocumentProvider._internal(
+        (ref) => create(ref as DocumentRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        collectionId: collectionId,
+        documentId: documentId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<CollectionDocument> createElement() {
+    return _DocumentProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is DocumentProvider &&
+        other.collectionId == collectionId &&
+        other.documentId == documentId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, collectionId.hashCode);
+    hash = _SystemHash.combine(hash, documentId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin DocumentRef on AutoDisposeFutureProviderRef<CollectionDocument> {
+  /// The parameter `collectionId` of this provider.
+  String get collectionId;
+
+  /// The parameter `documentId` of this provider.
+  String get documentId;
+}
+
+class _DocumentProviderElement
+    extends AutoDisposeFutureProviderElement<CollectionDocument>
+    with DocumentRef {
+  _DocumentProviderElement(super.provider);
+
+  @override
+  String get collectionId => (origin as DocumentProvider).collectionId;
+  @override
+  String get documentId => (origin as DocumentProvider).documentId;
+}
+
+String _$queryStreamHash() => r'3f2fb637f5ea40161539b446924a4f17ca24f05a';
+
+/// See also [queryStream].
+@ProviderFor(queryStream)
+const queryStreamProvider = QueryStreamFamily();
+
+/// See also [queryStream].
+class QueryStreamFamily extends Family<AsyncValue<dynamic>> {
+  /// See also [queryStream].
+  const QueryStreamFamily();
+
+  /// See also [queryStream].
+  QueryStreamProvider call({
+    required String collectionId,
+    required String property,
+    required Operator operator,
+    required String value,
+  }) {
+    return QueryStreamProvider(
+      collectionId: collectionId,
+      property: property,
+      operator: operator,
+      value: value,
+    );
+  }
+
+  @override
+  QueryStreamProvider getProviderOverride(
+    covariant QueryStreamProvider provider,
+  ) {
+    return call(
+      collectionId: provider.collectionId,
+      property: provider.property,
+      operator: provider.operator,
+      value: provider.value,
+    );
+  }
+
+  static final Iterable<ProviderOrFamily> _dependencies = <ProviderOrFamily>[
+    nodeServiceProvider
+  ];
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static final Iterable<ProviderOrFamily> _allTransitiveDependencies =
+      <ProviderOrFamily>{
+    nodeServiceProvider,
+    ...?nodeServiceProvider.allTransitiveDependencies
+  };
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'queryStreamProvider';
+}
+
+/// See also [queryStream].
+class QueryStreamProvider extends AutoDisposeStreamProvider<dynamic> {
+  /// See also [queryStream].
+  QueryStreamProvider({
+    required String collectionId,
+    required String property,
+    required Operator operator,
+    required String value,
+  }) : this._internal(
+          (ref) => queryStream(
+            ref as QueryStreamRef,
+            collectionId: collectionId,
+            property: property,
+            operator: operator,
+            value: value,
+          ),
+          from: queryStreamProvider,
+          name: r'queryStreamProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$queryStreamHash,
+          dependencies: QueryStreamFamily._dependencies,
+          allTransitiveDependencies:
+              QueryStreamFamily._allTransitiveDependencies,
+          collectionId: collectionId,
+          property: property,
+          operator: operator,
+          value: value,
+        );
+
+  QueryStreamProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.collectionId,
+    required this.property,
+    required this.operator,
+    required this.value,
+  }) : super.internal();
+
+  final String collectionId;
+  final String property;
+  final Operator operator;
+  final String value;
+
+  @override
+  Override overrideWith(
+    Stream<dynamic> Function(QueryStreamRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: QueryStreamProvider._internal(
+        (ref) => create(ref as QueryStreamRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        collectionId: collectionId,
+        property: property,
+        operator: operator,
+        value: value,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamProviderElement<dynamic> createElement() {
+    return _QueryStreamProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is QueryStreamProvider &&
+        other.collectionId == collectionId &&
+        other.property == property &&
+        other.operator == operator &&
+        other.value == value;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, collectionId.hashCode);
+    hash = _SystemHash.combine(hash, property.hashCode);
+    hash = _SystemHash.combine(hash, operator.hashCode);
+    hash = _SystemHash.combine(hash, value.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin QueryStreamRef on AutoDisposeStreamProviderRef<dynamic> {
+  /// The parameter `collectionId` of this provider.
+  String get collectionId;
+
+  /// The parameter `property` of this provider.
+  String get property;
+
+  /// The parameter `operator` of this provider.
+  Operator get operator;
+
+  /// The parameter `value` of this provider.
+  String get value;
+}
+
+class _QueryStreamProviderElement
+    extends AutoDisposeStreamProviderElement<dynamic> with QueryStreamRef {
+  _QueryStreamProviderElement(super.provider);
+
+  @override
+  String get collectionId => (origin as QueryStreamProvider).collectionId;
+  @override
+  String get property => (origin as QueryStreamProvider).property;
+  @override
+  Operator get operator => (origin as QueryStreamProvider).operator;
+  @override
+  String get value => (origin as QueryStreamProvider).value;
+}
+
+String _$collectionPropertiesHash() =>
+    r'5ad85de7da87f5d97085d781fdd70254c9c17085';
 
 /// See also [collectionProperties].
 @ProviderFor(collectionProperties)

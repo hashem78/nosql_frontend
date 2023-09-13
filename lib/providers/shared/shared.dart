@@ -3,12 +3,61 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:grpc/grpc.dart';
+import 'package:nosql_frontend/proto_gen/customstruct.pb.dart';
 import 'package:nosql_frontend/proto_gen/node.pbgrpc.dart';
 import 'package:nosql_frontend/proto_gen/signaling.pbgrpc.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:rxdart/rxdart.dart';
 
 part 'shared.g.dart';
+
+@Riverpod(dependencies: [nodeService])
+Future<CollectionDocument> document(
+  DocumentRef ref, {
+  required String collectionId,
+  required String documentId,
+}) async {
+  final NodeServiceClient nodeService = ref.watch(nodeServiceProvider);
+  return await nodeService.getCollectionDocument(GetCollectionDocumentRequest(
+      collectionId: collectionId, documentId: documentId));
+}
+
+@Riverpod(dependencies: [nodeService])
+Stream<dynamic> queryStream(
+  QueryStreamRef ref, {
+  required String collectionId,
+  required String property,
+  required Operator operator,
+  required String value,
+}) async* {
+  final NodeServiceClient nodeService = ref.watch(nodeServiceProvider);
+  final propTypeResp = await nodeService.getPropertyType(
+    GetCollectionPropertyTypeRequest(
+      collectionId: collectionId,
+      property: property,
+    ),
+  );
+  final propertyType = propTypeResp.propertyType;
+
+  final valueToSend = switch (propertyType) {
+    CollectionPropertyType.INTEGER => CustomValue(intValue: int.parse(value)),
+    CollectionPropertyType.STRING => CustomValue(stringValue: value),
+    _ => null,
+  };
+
+  final stream = nodeService.queryDatabase(QueryDatabaseRequest(
+    collectionId: collectionId,
+    property: property,
+    operator: operator,
+    value: valueToSend,
+  ));
+  await for (final event in stream) {
+    yield jsonDecode(event.data);
+  }
+  throw QueryEndNotification();
+}
+
+class QueryEndNotification {}
 
 @Riverpod(dependencies: [nodeService])
 Future<List<String>> collectionProperties(

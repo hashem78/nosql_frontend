@@ -5,6 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:nosql_frontend/proto_gen/node.pb.dart';
 import 'package:nosql_frontend/providers/shared/shared.dart';
 import 'package:nosql_frontend/screens/create_collection_screen.dart';
+import 'package:nosql_frontend/screens/queries_screen.dart';
 import 'package:nosql_frontend/screens/widgets/edit_field_dialog.dart';
 import 'package:nosql_frontend/screens/documents_screen.dart';
 import 'package:nosql_frontend/screens/indexes_screen.dart';
@@ -116,6 +117,23 @@ class CollectionsScreen extends HookConsumerWidget {
                                   ],
                                   child:
                                       IndexesScreen(collectionId: metaData.id),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                        PopupMenuItem(
+                          child: const Text('Query'),
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => ProviderScope(
+                                  overrides: [
+                                    nodePortProvider.overrideWithValue(nodePort)
+                                  ],
+                                  child: QueriesScreen(
+                                    collectionId: metaData.id,
+                                  ),
                                 ),
                               ),
                             );

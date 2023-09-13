@@ -12,11 +12,11 @@ class EditDocumentScreen extends StatefulHookConsumerWidget {
   const EditDocumentScreen({
     super.key,
     required this.initialText,
-    required this.collectionMetaData,
+    required this.collectionId,
     this.documentId,
   });
 
-  final CollectionMetaData collectionMetaData;
+  final String collectionId;
   final String initialText;
   final String? documentId;
 
@@ -41,7 +41,7 @@ class _EditDocumentScreenState extends ConsumerState<EditDocumentScreen> {
           try {
             final response = await nodeService.setCollectionDocument(
               SetCollectionDocumentRequest(
-                collectionId: widget.collectionMetaData.id,
+                collectionId: widget.collectionId,
                 documentId: widget.documentId,
                 document: json.value.isEmpty
                     ? widget.initialText
@@ -51,7 +51,7 @@ class _EditDocumentScreenState extends ConsumerState<EditDocumentScreen> {
             scaffoldMessenger.currentState?.showSnackBar(
               SnackBar(
                 content: Text(
-                  'Successfully created document ${response.document.metaData.id}',
+                  'Successfully edited/created document ${response.document.metaData.id}',
                 ),
               ),
             );
@@ -76,7 +76,7 @@ class _EditDocumentScreenState extends ConsumerState<EditDocumentScreen> {
         },
         editors: const [Editors.tree],
         enableKeyEdit: false,
-        enableMoreOptions: false,
+        enableMoreOptions: true,
         themeColor: Colors.transparent,
       ),
     );

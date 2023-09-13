@@ -66,6 +66,7 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
           final response = await nodeService.getDocumentSample(
             GetDocumentSampleRequest(collectionId: widget.metaData.id),
           );
+
           if (!mounted) return;
 
           final document = await Navigator.of(context).push<CollectionDocument>(
@@ -76,7 +77,7 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
                 ],
                 child: EditDocumentScreen(
                   initialText: response.documentSample,
-                  collectionMetaData: widget.metaData,
+                  collectionId: widget.metaData.id,
                   documentId: null,
                 ),
               ),
@@ -124,7 +125,7 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
                                     child: EditDocumentScreen(
                                       initialText: document.data,
                                       documentId: document.metaData.id,
-                                      collectionMetaData: widget.metaData,
+                                      collectionId: widget.metaData.id,
                                     ),
                                   ),
                                 ),

@@ -40,8 +40,30 @@ Stream<dynamic> queryStream(
   final propertyType = propTypeResp.propertyType;
 
   final valueToSend = switch (propertyType) {
-    CollectionPropertyType.INTEGER => CustomValue(intValue: int.parse(value)),
-    CollectionPropertyType.STRING => CustomValue(stringValue: value),
+    CollectionPropertyType.INTEGER => () {
+        if (operator == Operator.IN || operator == Operator.NOT_IN) {
+          return CustomValue(
+            listValue: CustomList(
+              values: List<dynamic>.of(jsonDecode(value)).map(
+                (e) => CustomValue(intValue: e),
+              ),
+            ),
+          );
+        }
+        return CustomValue(intValue: int.parse(value));
+      }(),
+    CollectionPropertyType.STRING => () {
+        if (operator == Operator.IN || operator == Operator.NOT_IN) {
+          return CustomValue(
+            listValue: CustomList(
+              values: List<dynamic>.of(jsonDecode(value)).map(
+                (e) => CustomValue(stringValue: e),
+              ),
+            ),
+          );
+        }
+        return CustomValue(stringValue: value);
+      }(),
     CollectionPropertyType.ARRAY => CustomValue(
         listValue: CustomList(
           values: List<dynamic>.of(jsonDecode(value)).map(

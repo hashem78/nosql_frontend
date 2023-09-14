@@ -6,6 +6,7 @@ import 'package:grpc/grpc.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:json_editor_flutter/json_editor_flutter.dart';
 import 'package:nosql_frontend/proto_gen/node.pb.dart';
+import 'package:nosql_frontend/providers/node_service/node_service.dart';
 import 'package:nosql_frontend/providers/shared/shared.dart';
 
 class EditDocumentScreen extends StatefulHookConsumerWidget {

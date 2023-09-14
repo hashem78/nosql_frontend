@@ -6,6 +6,7 @@ import 'package:flutter_quill/flutter_quill.dart' as q;
 import 'package:grpc/grpc.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:nosql_frontend/proto_gen/node.pbgrpc.dart';
+import 'package:nosql_frontend/providers/node_service/node_service.dart';
 import 'package:nosql_frontend/providers/shared/shared.dart';
 
 import 'package:nosql_frontend/screens/widgets/edit_field_dialog.dart';

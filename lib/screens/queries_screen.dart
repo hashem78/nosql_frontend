@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:nosql_frontend/proto_gen/node.pb.dart';
-import 'package:nosql_frontend/providers/shared/shared.dart';
+import 'package:nosql_frontend/providers/collections/collections.dart';
 import 'package:nosql_frontend/screens/widgets/query_responses_dyanmic_list_widget.dart';
 import 'package:nosql_frontend/screens/widgets/query_responses_static_list_widget.dart';
 

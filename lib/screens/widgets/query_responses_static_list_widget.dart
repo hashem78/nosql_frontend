@@ -5,7 +5,8 @@ import 'package:flutter_json_view/flutter_json_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:nosql_frontend/constants.dart';
 import 'package:nosql_frontend/proto_gen/node.pb.dart';
-import 'package:nosql_frontend/providers/shared/shared.dart';
+import 'package:nosql_frontend/providers/documents/documents.dart';
+import 'package:nosql_frontend/providers/node_port/node_port.dart';
 import 'package:nosql_frontend/screens/edit_document_screen.dart';
 
 class QueryResponsesStaticListWidget extends ConsumerWidget {

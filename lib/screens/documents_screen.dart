@@ -6,6 +6,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:nosql_frontend/constants.dart';
 
 import 'package:nosql_frontend/proto_gen/node.pb.dart';
+import 'package:nosql_frontend/providers/documents/documents.dart';
+import 'package:nosql_frontend/providers/node_port/node_port.dart';
+import 'package:nosql_frontend/providers/node_service/node_service.dart';
 import 'package:nosql_frontend/providers/shared/shared.dart';
 import 'package:nosql_frontend/screens/edit_document_screen.dart';
 

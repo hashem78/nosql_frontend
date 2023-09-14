@@ -13,3 +13,5 @@ analyzer:
 custom_lint:
   rules:
     - missing_provider_scope: false
+    - provider_dependencies: false
+ 

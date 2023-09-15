@@ -29,6 +29,7 @@ class SplashScreen extends HookConsumerWidget {
             );
           },
           error: (_, __) {
+            
             ref.read(scaffoldMessengerKeyProvider).currentState!.showSnackBar(
                   const SnackBar(
                     content: Text('Failed to get hold of a node to connect to'),

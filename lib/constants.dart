@@ -25,3 +25,6 @@ const kJsonViewTheme = JsonViewTheme(
     ),
   ),
 );
+
+const kUseSSL = bool.fromEnvironment("USE_SSL", defaultValue: false);
+const kCertificateAuthorityPath = String.fromEnvironment("CA_PATH", defaultValue: "");

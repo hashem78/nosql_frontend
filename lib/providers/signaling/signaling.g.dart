@@ -6,7 +6,7 @@ part of 'signaling.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$signalingHash() => r'cf41fcd765099565fbe8102580c1b93c33e4f2a0';
+String _$signalingHash() => r'23122d44d62a49e661447bb1e4b11e6a936a765f';
 
 /// See also [signaling].
 @ProviderFor(signaling)

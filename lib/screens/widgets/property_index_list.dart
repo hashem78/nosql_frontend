@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:nosql_frontend/proto_gen/common.pb.dart';
 import 'package:nosql_frontend/proto_gen/node.pb.dart';
 import 'package:nosql_frontend/providers/collections/collections.dart';
 import 'package:nosql_frontend/providers/node_service/node_service.dart';

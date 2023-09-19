@@ -13,6 +13,28 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
+@$core.Deprecated('Use getAvailableNodesRequestDescriptor instead')
+const GetAvailableNodesRequest$json = {
+  '1': 'GetAvailableNodesRequest',
+};
+
+/// Descriptor for `GetAvailableNodesRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getAvailableNodesRequestDescriptor = $convert.base64Decode(
+    'ChhHZXRBdmFpbGFibGVOb2Rlc1JlcXVlc3Q=');
+
+@$core.Deprecated('Use getAvailableNodesResponseDescriptor instead')
+const GetAvailableNodesResponse$json = {
+  '1': 'GetAvailableNodesResponse',
+  '2': [
+    {'1': 'nodePorts', '3': 1, '4': 3, '5': 5, '10': 'nodePorts'},
+  ],
+};
+
+/// Descriptor for `GetAvailableNodesResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getAvailableNodesResponseDescriptor = $convert.base64Decode(
+    'ChlHZXRBdmFpbGFibGVOb2Rlc1Jlc3BvbnNlEhwKCW5vZGVQb3J0cxgBIAMoBVIJbm9kZVBvcn'
+    'Rz');
+
 @$core.Deprecated('Use portContainingMessageDescriptor instead')
 const PortContainingMessage$json = {
   '1': 'PortContainingMessage',

@@ -36,3 +36,10 @@ SignalingServiceClient signaling(SignalingRef ref) {
   );
   return SignalingServiceClient(channel);
 }
+
+@Riverpod(dependencies: [signaling])
+Future<List<int>> availableNodes(AvailableNodesRef ref) async {
+  final client = ref.watch(signalingProvider);
+  final response = await client.getAvailableNodes(GetAvailableNodesRequest());
+  return response.nodePorts;
+}

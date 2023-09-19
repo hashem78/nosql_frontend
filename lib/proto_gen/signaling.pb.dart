@@ -13,6 +13,82 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+class GetAvailableNodesRequest extends $pb.GeneratedMessage {
+  factory GetAvailableNodesRequest() => create();
+  GetAvailableNodesRequest._() : super();
+  factory GetAvailableNodesRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetAvailableNodesRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetAvailableNodesRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'bootstrap'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetAvailableNodesRequest clone() => GetAvailableNodesRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetAvailableNodesRequest copyWith(void Function(GetAvailableNodesRequest) updates) => super.copyWith((message) => updates(message as GetAvailableNodesRequest)) as GetAvailableNodesRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetAvailableNodesRequest create() => GetAvailableNodesRequest._();
+  GetAvailableNodesRequest createEmptyInstance() => create();
+  static $pb.PbList<GetAvailableNodesRequest> createRepeated() => $pb.PbList<GetAvailableNodesRequest>();
+  @$core.pragma('dart2js:noInline')
+  static GetAvailableNodesRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetAvailableNodesRequest>(create);
+  static GetAvailableNodesRequest? _defaultInstance;
+}
+
+class GetAvailableNodesResponse extends $pb.GeneratedMessage {
+  factory GetAvailableNodesResponse({
+    $core.Iterable<$core.int>? nodePorts,
+  }) {
+    final $result = create();
+    if (nodePorts != null) {
+      $result.nodePorts.addAll(nodePorts);
+    }
+    return $result;
+  }
+  GetAvailableNodesResponse._() : super();
+  factory GetAvailableNodesResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetAvailableNodesResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetAvailableNodesResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'bootstrap'), createEmptyInstance: create)
+    ..p<$core.int>(1, _omitFieldNames ? '' : 'nodePorts', $pb.PbFieldType.K3, protoName: 'nodePorts')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetAvailableNodesResponse clone() => GetAvailableNodesResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetAvailableNodesResponse copyWith(void Function(GetAvailableNodesResponse) updates) => super.copyWith((message) => updates(message as GetAvailableNodesResponse)) as GetAvailableNodesResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetAvailableNodesResponse create() => GetAvailableNodesResponse._();
+  GetAvailableNodesResponse createEmptyInstance() => create();
+  static $pb.PbList<GetAvailableNodesResponse> createRepeated() => $pb.PbList<GetAvailableNodesResponse>();
+  @$core.pragma('dart2js:noInline')
+  static GetAvailableNodesResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetAvailableNodesResponse>(create);
+  static GetAvailableNodesResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$core.int> get nodePorts => $_getList(0);
+}
+
 class PortContainingMessage extends $pb.GeneratedMessage {
   factory PortContainingMessage({
     $core.int? port,

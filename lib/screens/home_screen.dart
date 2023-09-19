@@ -12,6 +12,7 @@ import 'package:nosql_frontend/screens/queries_screen.dart';
 import 'package:nosql_frontend/screens/widgets/edit_field_dialog.dart';
 import 'package:nosql_frontend/screens/documents_screen.dart';
 import 'package:nosql_frontend/screens/indexes_screen.dart';
+import 'package:nosql_frontend/screens/widgets/switch_node_dialog.dart';
 
 class CollectionsScreen extends HookConsumerWidget {
   const CollectionsScreen({super.key});
@@ -31,12 +32,28 @@ class CollectionsScreen extends HookConsumerWidget {
       appBar: AppBar(
         title: Text('Connected to node on port $nodePort'),
         actions: [
-          IconButton(
-            onPressed: () {
-              ref.invalidate(collectionsProvider);
-            },
-            icon: const Icon(Icons.refresh),
-          )
+          PopupMenuButton(
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                child: const Text('Refresh'),
+                onTap: () {
+                  ref.invalidate(collectionsProvider);
+                },
+              ),
+              PopupMenuItem(
+                child: const Text('Switch Node'),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => ProviderScope(
+                      overrides: [nodePortProvider.overrideWithValue(nodePort)],
+                      child: const SwitchNodeDialog(),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(

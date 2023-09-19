@@ -4,6 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_json_view/flutter_json_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:nosql_frontend/constants.dart';
+import 'package:nosql_frontend/proto_gen/common.pb.dart';
 
 import 'package:nosql_frontend/proto_gen/node.pb.dart';
 import 'package:nosql_frontend/providers/documents/documents.dart';

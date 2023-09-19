@@ -7,7 +7,7 @@
         "type": "dart",
         "program": "lib/main.dart",
         "args": [
-          "--dart-define=USE_SSL=true",
+          "--dart-define=USE_SSL=false",
           "--dart-define=CA_PATH=ca.crt"
         ]
       }

@@ -1,3 +1,4 @@
+import 'package:nosql_frontend/proto_gen/common.pb.dart';
 import 'package:nosql_frontend/proto_gen/node.pbgrpc.dart';
 import 'package:nosql_frontend/providers/node_service/node_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';

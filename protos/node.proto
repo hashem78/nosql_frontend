@@ -6,6 +6,7 @@ option java_outer_classname = "NodeProto";
 
 import "google/protobuf/timestamp.proto";
 import "customstruct.proto";
+import "common.proto";
 
 package node;
 
@@ -115,16 +116,6 @@ message DeleteCollectionDocumentRequest {
 message DeleteCollectionDocumentResponse{
 }
 
-message SetCollectionDocumentRequest {
-  string collection_id = 1;
-  string document_id = 2;
-  string document = 3;
-}
-
-message SetCollectionDocumentResponse {
-  CollectionDocument document = 1;
-}
-
 message GetDocumentSampleRequest{
   string collection_id = 1;
 }
@@ -159,30 +150,9 @@ message GetCollectionDocumentRequest {
   string document_id = 2;
 }
 
-message DocumentMetaData {
-  string id = 1;
-  int32 affinity = 2;
-  google.protobuf.Timestamp created_on = 3;
-  google.protobuf.Timestamp last_edited_on = 4;
-  bool deleted = 5;
-}
-
-message CollectionDocument {
-  DocumentMetaData meta_data = 1;
-  string data = 2;
-}
-
 message CreateCollectionRequest {
   string name = 1;
   string schema = 2;
-}
-
-message CollectionMetaData {
-  string id = 1;
-  string name = 2;
-  google.protobuf.Timestamp created_on = 3;
-  bool deleted = 4;
-  repeated string indexed_properties = 5;
 }
 
 message GetNodeStateRequest {

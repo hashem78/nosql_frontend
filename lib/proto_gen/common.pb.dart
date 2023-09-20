@@ -371,13 +371,55 @@ class CollectionDocument extends $pb.GeneratedMessage {
   void clearData() => clearField(2);
 }
 
+class RetrySetCollectionResponse extends $pb.GeneratedMessage {
+  factory RetrySetCollectionResponse() => create();
+  RetrySetCollectionResponse._() : super();
+  factory RetrySetCollectionResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RetrySetCollectionResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RetrySetCollectionResponse', createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  RetrySetCollectionResponse clone() => RetrySetCollectionResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  RetrySetCollectionResponse copyWith(void Function(RetrySetCollectionResponse) updates) => super.copyWith((message) => updates(message as RetrySetCollectionResponse)) as RetrySetCollectionResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static RetrySetCollectionResponse create() => RetrySetCollectionResponse._();
+  RetrySetCollectionResponse createEmptyInstance() => create();
+  static $pb.PbList<RetrySetCollectionResponse> createRepeated() => $pb.PbList<RetrySetCollectionResponse>();
+  @$core.pragma('dart2js:noInline')
+  static RetrySetCollectionResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RetrySetCollectionResponse>(create);
+  static RetrySetCollectionResponse? _defaultInstance;
+}
+
+enum SetCollectionDocumentResponse_Response {
+  document, 
+  retrySetCollection, 
+  notSet
+}
+
 class SetCollectionDocumentResponse extends $pb.GeneratedMessage {
   factory SetCollectionDocumentResponse({
     CollectionDocument? document,
+    RetrySetCollectionResponse? retrySetCollection,
   }) {
     final $result = create();
     if (document != null) {
       $result.document = document;
+    }
+    if (retrySetCollection != null) {
+      $result.retrySetCollection = retrySetCollection;
     }
     return $result;
   }
@@ -385,8 +427,15 @@ class SetCollectionDocumentResponse extends $pb.GeneratedMessage {
   factory SetCollectionDocumentResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory SetCollectionDocumentResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
+  static const $core.Map<$core.int, SetCollectionDocumentResponse_Response> _SetCollectionDocumentResponse_ResponseByTag = {
+    1 : SetCollectionDocumentResponse_Response.document,
+    2 : SetCollectionDocumentResponse_Response.retrySetCollection,
+    0 : SetCollectionDocumentResponse_Response.notSet
+  };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SetCollectionDocumentResponse', createEmptyInstance: create)
+    ..oo(0, [1, 2])
     ..aOM<CollectionDocument>(1, _omitFieldNames ? '' : 'document', subBuilder: CollectionDocument.create)
+    ..aOM<RetrySetCollectionResponse>(2, _omitFieldNames ? '' : 'retrySetCollection', subBuilder: RetrySetCollectionResponse.create)
     ..hasRequiredFields = false
   ;
 
@@ -411,6 +460,9 @@ class SetCollectionDocumentResponse extends $pb.GeneratedMessage {
   static SetCollectionDocumentResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SetCollectionDocumentResponse>(create);
   static SetCollectionDocumentResponse? _defaultInstance;
 
+  SetCollectionDocumentResponse_Response whichResponse() => _SetCollectionDocumentResponse_ResponseByTag[$_whichOneof(0)]!;
+  void clearResponse() => clearField($_whichOneof(0));
+
   @$pb.TagNumber(1)
   CollectionDocument get document => $_getN(0);
   @$pb.TagNumber(1)
@@ -421,6 +473,17 @@ class SetCollectionDocumentResponse extends $pb.GeneratedMessage {
   void clearDocument() => clearField(1);
   @$pb.TagNumber(1)
   CollectionDocument ensureDocument() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  RetrySetCollectionResponse get retrySetCollection => $_getN(1);
+  @$pb.TagNumber(2)
+  set retrySetCollection(RetrySetCollectionResponse v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRetrySetCollection() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRetrySetCollection() => clearField(2);
+  @$pb.TagNumber(2)
+  RetrySetCollectionResponse ensureRetrySetCollection() => $_ensure(1);
 }
 
 

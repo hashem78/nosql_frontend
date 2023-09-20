@@ -81,16 +81,31 @@ final $typed_data.Uint8List collectionDocumentDescriptor = $convert.base64Decode
     'ChJDb2xsZWN0aW9uRG9jdW1lbnQSLgoJbWV0YV9kYXRhGAEgASgLMhEuRG9jdW1lbnRNZXRhRG'
     'F0YVIIbWV0YURhdGESEgoEZGF0YRgCIAEoCVIEZGF0YQ==');
 
+@$core.Deprecated('Use retrySetCollectionResponseDescriptor instead')
+const RetrySetCollectionResponse$json = {
+  '1': 'RetrySetCollectionResponse',
+};
+
+/// Descriptor for `RetrySetCollectionResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List retrySetCollectionResponseDescriptor = $convert.base64Decode(
+    'ChpSZXRyeVNldENvbGxlY3Rpb25SZXNwb25zZQ==');
+
 @$core.Deprecated('Use setCollectionDocumentResponseDescriptor instead')
 const SetCollectionDocumentResponse$json = {
   '1': 'SetCollectionDocumentResponse',
   '2': [
-    {'1': 'document', '3': 1, '4': 1, '5': 11, '6': '.CollectionDocument', '10': 'document'},
+    {'1': 'document', '3': 1, '4': 1, '5': 11, '6': '.CollectionDocument', '9': 0, '10': 'document'},
+    {'1': 'retry_set_collection', '3': 2, '4': 1, '5': 11, '6': '.RetrySetCollectionResponse', '9': 0, '10': 'retrySetCollection'},
+  ],
+  '8': [
+    {'1': 'response'},
   ],
 };
 
 /// Descriptor for `SetCollectionDocumentResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List setCollectionDocumentResponseDescriptor = $convert.base64Decode(
-    'Ch1TZXRDb2xsZWN0aW9uRG9jdW1lbnRSZXNwb25zZRIvCghkb2N1bWVudBgBIAEoCzITLkNvbG'
-    'xlY3Rpb25Eb2N1bWVudFIIZG9jdW1lbnQ=');
+    'Ch1TZXRDb2xsZWN0aW9uRG9jdW1lbnRSZXNwb25zZRIxCghkb2N1bWVudBgBIAEoCzITLkNvbG'
+    'xlY3Rpb25Eb2N1bWVudEgAUghkb2N1bWVudBJPChRyZXRyeV9zZXRfY29sbGVjdGlvbhgCIAEo'
+    'CzIbLlJldHJ5U2V0Q29sbGVjdGlvblJlc3BvbnNlSABSEnJldHJ5U2V0Q29sbGVjdGlvbkIKCg'
+    'hyZXNwb25zZQ==');
 

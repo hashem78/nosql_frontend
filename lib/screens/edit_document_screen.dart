@@ -40,24 +40,50 @@ class _EditDocumentScreenState extends ConsumerState<EditDocumentScreen> {
           final scaffoldMessenger = ref.read(scaffoldMessengerKeyProvider);
 
           try {
-            final response = await nodeService.setCollectionDocument(
-              SetCollectionDocumentRequest(
-                collectionId: widget.collectionId,
-                documentId: widget.documentId,
-                document: json.value.isEmpty
-                    ? widget.initialText
-                    : jsonEncode(json.value),
-              ),
-            );
-            scaffoldMessenger.currentState?.showSnackBar(
-              SnackBar(
-                content: Text(
-                  'Successfully edited/created document ${response.document.metaData.id}',
+            bool flag = false;
+            CollectionDocument? document;
+            int retries = 0;
+            while (!flag) {
+              if (retries > 3) {
+                break;
+              }
+              debugPrint("Retrying document set!");
+              final response = await nodeService.setCollectionDocument(
+                SetCollectionDocumentRequest(
+                  collectionId: widget.collectionId,
+                  documentId: widget.documentId,
+                  document: json.value.isEmpty
+                      ? widget.initialText
+                      : jsonEncode(json.value),
                 ),
-              ),
-            );
-            if (mounted) {
-              Navigator.pop<CollectionDocument>(context, response.document);
+              );
+              if (response.hasDocument()) {
+                flag = true;
+                document = response.document;
+              }
+              retries++;
+            }
+
+            if (document != null) {
+              scaffoldMessenger.currentState?.showSnackBar(
+                SnackBar(
+                  content: Text(
+                    'Successfully edited/created document ${document.metaData.id}',
+                  ),
+                ),
+              );
+              if (mounted) {
+                Navigator.pop<CollectionDocument>(context, document);
+              }
+            } else {
+              scaffoldMessenger.currentState?.showSnackBar(
+                const SnackBar(
+                  content: Text(
+                    'Failed to set document after 3 retries!',
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+              );
             }
           } on GrpcError catch (e) {
             scaffoldMessenger.currentState?.showSnackBar(

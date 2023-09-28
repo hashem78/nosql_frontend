@@ -7,6 +7,7 @@ import 'package:nosql_frontend/constants.dart';
 import 'package:nosql_frontend/proto_gen/common.pb.dart';
 
 import 'package:nosql_frontend/proto_gen/node.pb.dart';
+import 'package:nosql_frontend/providers/auth/auth.dart';
 import 'package:nosql_frontend/providers/documents/documents.dart';
 import 'package:nosql_frontend/providers/node_port/node_port.dart';
 import 'package:nosql_frontend/providers/node_service/node_service.dart';
@@ -58,6 +59,7 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
 
     final state = useValueListenable(stateNotifier);
     final nodePort = ref.watch(nodePortProvider);
+    final token = ref.watch(jwtTokenProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -78,6 +80,7 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
               builder: (context) => ProviderScope(
                 overrides: [
                   nodePortProvider.overrideWithValue(nodePort),
+                  jwtTokenProvider.overrideWithValue(token),
                 ],
                 child: EditDocumentScreen(
                   initialText: response.documentSample,

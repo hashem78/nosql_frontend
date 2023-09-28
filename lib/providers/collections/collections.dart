@@ -2,18 +2,19 @@ import 'dart:convert';
 
 import 'package:nosql_frontend/proto_gen/common.pb.dart';
 import 'package:nosql_frontend/proto_gen/node.pb.dart';
+import 'package:nosql_frontend/providers/auth/auth.dart';
 import 'package:nosql_frontend/providers/node_service/node_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'collections.g.dart';
 
-@Riverpod(dependencies: [nodeService])
+@Riverpod(dependencies: [nodeService, jwtToken])
 Future<GetCollectionsResponse> collections(CollectionsRef ref) async {
   final nodeService = ref.watch(nodeServiceProvider);
   return await nodeService.getCollections(GetCollectionsRequest());
 }
 
-@Riverpod(dependencies: [nodeService])
+@Riverpod(dependencies: [nodeService, jwtToken])
 Future<List<String>> collectionProperties(
   CollectionPropertiesRef ref,
   String collectionId,
@@ -28,7 +29,7 @@ Future<List<String>> collectionProperties(
   return decodedSample.keys.toList();
 }
 
-@Riverpod(dependencies: [nodeService])
+@Riverpod(dependencies: [nodeService, jwtToken])
 Future<CollectionMetaData> collectionMetaData(
   CollectionMetaDataRef ref,
   String collectionId,

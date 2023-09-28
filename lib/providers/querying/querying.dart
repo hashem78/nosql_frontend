@@ -2,12 +2,13 @@ import 'dart:convert';
 
 import 'package:nosql_frontend/proto_gen/customstruct.pb.dart';
 import 'package:nosql_frontend/proto_gen/node.pbgrpc.dart';
+import 'package:nosql_frontend/providers/auth/auth.dart';
 import 'package:nosql_frontend/providers/node_service/node_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'querying.g.dart';
 
-@Riverpod(dependencies: [nodeService])
+@Riverpod(dependencies: [nodeService, jwtToken])
 Stream<dynamic> queryStream(
   QueryStreamRef ref, {
   required String collectionId,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:nosql_frontend/providers/auth/auth.dart';
 import 'package:nosql_frontend/providers/node_port/node_port.dart';
 import 'package:nosql_frontend/providers/signaling/signaling.dart';
 import 'package:nosql_frontend/screens/home_screen.dart';
@@ -12,6 +13,7 @@ class SwitchNodeDialog extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final availableNodesFuture = ref.watch(availableNodesProvider);
     final currentPort = ref.watch(nodePortProvider);
+    final jwtToken = ref.watch(jwtTokenProvider);
     final state = useValueNotifier(currentPort);
     return AlertDialog(
       title: const Text('Switch Node'),
@@ -43,6 +45,7 @@ class SwitchNodeDialog extends HookConsumerWidget {
                   return ProviderScope(
                     overrides: [
                       nodePortProvider.overrideWithValue(state.value),
+                      jwtTokenProvider.overrideWithValue(jwtToken)
                     ],
                     child: const CollectionsScreen(),
                   );

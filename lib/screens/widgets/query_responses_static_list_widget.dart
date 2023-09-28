@@ -5,6 +5,7 @@ import 'package:flutter_json_view/flutter_json_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:nosql_frontend/constants.dart';
 import 'package:nosql_frontend/proto_gen/common.pb.dart';
+import 'package:nosql_frontend/providers/auth/auth.dart';
 import 'package:nosql_frontend/providers/documents/documents.dart';
 import 'package:nosql_frontend/providers/node_port/node_port.dart';
 import 'package:nosql_frontend/screens/edit_document_screen.dart';
@@ -34,6 +35,7 @@ class QueryResponsesStaticListWidget extends ConsumerWidget {
               documentId: documentId,
             );
             final documentVal = ref.watch(docProvider);
+            final jwtToken = ref.watch(jwtTokenProvider);
 
             return documentVal.when(
               data: (document) {
@@ -60,6 +62,7 @@ class QueryResponsesStaticListWidget extends ConsumerWidget {
                                       overrides: [
                                         nodePortProvider
                                             .overrideWithValue(nodePort),
+                                            jwtTokenProvider.overrideWithValue(jwtToken)
                                       ],
                                       child: EditDocumentScreen(
                                         initialText: jsonEncode(map['data']),

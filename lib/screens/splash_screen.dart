@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:nosql_frontend/providers/node_port/node_port.dart';
 import 'package:nosql_frontend/providers/shared/shared.dart';
-import 'package:nosql_frontend/screens/home_screen.dart';
+import 'package:nosql_frontend/screens/auth_screen.dart';
 
 class SplashScreen extends HookConsumerWidget {
   const SplashScreen({super.key});
@@ -23,7 +23,7 @@ class SplashScreen extends HookConsumerWidget {
                   overrides: [
                     nodePortProvider.overrideWithValue(port),
                   ],
-                  child: const CollectionsScreen(),
+                  child: const AuthScreen(),
                 ),
               ),
             );

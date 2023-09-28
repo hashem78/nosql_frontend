@@ -13,11 +13,283 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'common.pb.dart' as $1;
-import 'customstruct.pb.dart' as $4;
+import 'common.pb.dart' as $2;
+import 'customstruct.pb.dart' as $5;
 import 'node.pbenum.dart';
 
 export 'node.pbenum.dart';
+
+class RemoveCompoundIndexResponse extends $pb.GeneratedMessage {
+  factory RemoveCompoundIndexResponse() => create();
+  RemoveCompoundIndexResponse._() : super();
+  factory RemoveCompoundIndexResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RemoveCompoundIndexResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RemoveCompoundIndexResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  RemoveCompoundIndexResponse clone() => RemoveCompoundIndexResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  RemoveCompoundIndexResponse copyWith(void Function(RemoveCompoundIndexResponse) updates) => super.copyWith((message) => updates(message as RemoveCompoundIndexResponse)) as RemoveCompoundIndexResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static RemoveCompoundIndexResponse create() => RemoveCompoundIndexResponse._();
+  RemoveCompoundIndexResponse createEmptyInstance() => create();
+  static $pb.PbList<RemoveCompoundIndexResponse> createRepeated() => $pb.PbList<RemoveCompoundIndexResponse>();
+  @$core.pragma('dart2js:noInline')
+  static RemoveCompoundIndexResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RemoveCompoundIndexResponse>(create);
+  static RemoveCompoundIndexResponse? _defaultInstance;
+}
+
+class RemoveCompoundIndexRequest extends $pb.GeneratedMessage {
+  factory RemoveCompoundIndexRequest({
+    $core.String? collectionId,
+    $core.Iterable<$core.String>? properties,
+  }) {
+    final $result = create();
+    if (collectionId != null) {
+      $result.collectionId = collectionId;
+    }
+    if (properties != null) {
+      $result.properties.addAll(properties);
+    }
+    return $result;
+  }
+  RemoveCompoundIndexRequest._() : super();
+  factory RemoveCompoundIndexRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RemoveCompoundIndexRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RemoveCompoundIndexRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'collectionId')
+    ..pPS(2, _omitFieldNames ? '' : 'properties')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  RemoveCompoundIndexRequest clone() => RemoveCompoundIndexRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  RemoveCompoundIndexRequest copyWith(void Function(RemoveCompoundIndexRequest) updates) => super.copyWith((message) => updates(message as RemoveCompoundIndexRequest)) as RemoveCompoundIndexRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static RemoveCompoundIndexRequest create() => RemoveCompoundIndexRequest._();
+  RemoveCompoundIndexRequest createEmptyInstance() => create();
+  static $pb.PbList<RemoveCompoundIndexRequest> createRepeated() => $pb.PbList<RemoveCompoundIndexRequest>();
+  @$core.pragma('dart2js:noInline')
+  static RemoveCompoundIndexRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RemoveCompoundIndexRequest>(create);
+  static RemoveCompoundIndexRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get collectionId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set collectionId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCollectionId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCollectionId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.List<$core.String> get properties => $_getList(1);
+}
+
+class CompoundIndexQueryResponse extends $pb.GeneratedMessage {
+  factory CompoundIndexQueryResponse({
+    $core.Iterable<$core.String>? documentIds,
+  }) {
+    final $result = create();
+    if (documentIds != null) {
+      $result.documentIds.addAll(documentIds);
+    }
+    return $result;
+  }
+  CompoundIndexQueryResponse._() : super();
+  factory CompoundIndexQueryResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CompoundIndexQueryResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CompoundIndexQueryResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'documentIds')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CompoundIndexQueryResponse clone() => CompoundIndexQueryResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CompoundIndexQueryResponse copyWith(void Function(CompoundIndexQueryResponse) updates) => super.copyWith((message) => updates(message as CompoundIndexQueryResponse)) as CompoundIndexQueryResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CompoundIndexQueryResponse create() => CompoundIndexQueryResponse._();
+  CompoundIndexQueryResponse createEmptyInstance() => create();
+  static $pb.PbList<CompoundIndexQueryResponse> createRepeated() => $pb.PbList<CompoundIndexQueryResponse>();
+  @$core.pragma('dart2js:noInline')
+  static CompoundIndexQueryResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompoundIndexQueryResponse>(create);
+  static CompoundIndexQueryResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$core.String> get documentIds => $_getList(0);
+}
+
+class CompoundIndexQueryRequest extends $pb.GeneratedMessage {
+  factory CompoundIndexQueryRequest({
+    $core.String? collectionId,
+    Operator? operator,
+    $5.CustomStruct? query,
+  }) {
+    final $result = create();
+    if (collectionId != null) {
+      $result.collectionId = collectionId;
+    }
+    if (operator != null) {
+      $result.operator = operator;
+    }
+    if (query != null) {
+      $result.query = query;
+    }
+    return $result;
+  }
+  CompoundIndexQueryRequest._() : super();
+  factory CompoundIndexQueryRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CompoundIndexQueryRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CompoundIndexQueryRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'collectionId')
+    ..e<Operator>(2, _omitFieldNames ? '' : 'operator', $pb.PbFieldType.OE, defaultOrMaker: Operator.EQUALS, valueOf: Operator.valueOf, enumValues: Operator.values)
+    ..aOM<$5.CustomStruct>(3, _omitFieldNames ? '' : 'query', subBuilder: $5.CustomStruct.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CompoundIndexQueryRequest clone() => CompoundIndexQueryRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CompoundIndexQueryRequest copyWith(void Function(CompoundIndexQueryRequest) updates) => super.copyWith((message) => updates(message as CompoundIndexQueryRequest)) as CompoundIndexQueryRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CompoundIndexQueryRequest create() => CompoundIndexQueryRequest._();
+  CompoundIndexQueryRequest createEmptyInstance() => create();
+  static $pb.PbList<CompoundIndexQueryRequest> createRepeated() => $pb.PbList<CompoundIndexQueryRequest>();
+  @$core.pragma('dart2js:noInline')
+  static CompoundIndexQueryRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompoundIndexQueryRequest>(create);
+  static CompoundIndexQueryRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get collectionId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set collectionId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCollectionId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCollectionId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  Operator get operator => $_getN(1);
+  @$pb.TagNumber(2)
+  set operator(Operator v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasOperator() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearOperator() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $5.CustomStruct get query => $_getN(2);
+  @$pb.TagNumber(3)
+  set query($5.CustomStruct v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasQuery() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearQuery() => clearField(3);
+  @$pb.TagNumber(3)
+  $5.CustomStruct ensureQuery() => $_ensure(2);
+}
+
+class CompoundIndexRequest extends $pb.GeneratedMessage {
+  factory CompoundIndexRequest({
+    $core.String? collectionId,
+    $core.Iterable<$core.String>? properties,
+  }) {
+    final $result = create();
+    if (collectionId != null) {
+      $result.collectionId = collectionId;
+    }
+    if (properties != null) {
+      $result.properties.addAll(properties);
+    }
+    return $result;
+  }
+  CompoundIndexRequest._() : super();
+  factory CompoundIndexRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CompoundIndexRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CompoundIndexRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'collectionId')
+    ..pPS(2, _omitFieldNames ? '' : 'properties')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CompoundIndexRequest clone() => CompoundIndexRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CompoundIndexRequest copyWith(void Function(CompoundIndexRequest) updates) => super.copyWith((message) => updates(message as CompoundIndexRequest)) as CompoundIndexRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CompoundIndexRequest create() => CompoundIndexRequest._();
+  CompoundIndexRequest createEmptyInstance() => create();
+  static $pb.PbList<CompoundIndexRequest> createRepeated() => $pb.PbList<CompoundIndexRequest>();
+  @$core.pragma('dart2js:noInline')
+  static CompoundIndexRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompoundIndexRequest>(create);
+  static CompoundIndexRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get collectionId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set collectionId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCollectionId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCollectionId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.List<$core.String> get properties => $_getList(1);
+}
 
 class GetCollectionPropertyTypeRequest extends $pb.GeneratedMessage {
   factory GetCollectionPropertyTypeRequest({
@@ -138,7 +410,7 @@ class QueryDatabaseRequest extends $pb.GeneratedMessage {
     $core.String? collectionId,
     $core.String? property,
     Operator? operator,
-    $4.CustomValue? value,
+    $5.CustomValue? value,
   }) {
     final $result = create();
     if (collectionId != null) {
@@ -163,7 +435,7 @@ class QueryDatabaseRequest extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'collectionId')
     ..aOS(2, _omitFieldNames ? '' : 'property')
     ..e<Operator>(3, _omitFieldNames ? '' : 'operator', $pb.PbFieldType.OE, defaultOrMaker: Operator.EQUALS, valueOf: Operator.valueOf, enumValues: Operator.values)
-    ..aOM<$4.CustomValue>(4, _omitFieldNames ? '' : 'value', subBuilder: $4.CustomValue.create)
+    ..aOM<$5.CustomValue>(4, _omitFieldNames ? '' : 'value', subBuilder: $5.CustomValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -216,15 +488,15 @@ class QueryDatabaseRequest extends $pb.GeneratedMessage {
   void clearOperator() => clearField(3);
 
   @$pb.TagNumber(4)
-  $4.CustomValue get value => $_getN(3);
+  $5.CustomValue get value => $_getN(3);
   @$pb.TagNumber(4)
-  set value($4.CustomValue v) { setField(4, v); }
+  set value($5.CustomValue v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasValue() => $_has(3);
   @$pb.TagNumber(4)
   void clearValue() => clearField(4);
   @$pb.TagNumber(4)
-  $4.CustomValue ensureValue() => $_ensure(3);
+  $5.CustomValue ensureValue() => $_ensure(3);
 }
 
 class QueryDatabaseResponse extends $pb.GeneratedMessage {
@@ -1397,7 +1669,7 @@ class GetCollectionsRequest extends $pb.GeneratedMessage {
 
 class GetCollectionsResponse extends $pb.GeneratedMessage {
   factory GetCollectionsResponse({
-    $core.Iterable<$1.CollectionMetaData>? collectionsMetaData,
+    $core.Iterable<$2.CollectionMetaData>? collectionsMetaData,
   }) {
     final $result = create();
     if (collectionsMetaData != null) {
@@ -1410,7 +1682,7 @@ class GetCollectionsResponse extends $pb.GeneratedMessage {
   factory GetCollectionsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetCollectionsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'node'), createEmptyInstance: create)
-    ..pc<$1.CollectionMetaData>(1, _omitFieldNames ? '' : 'collectionsMetaData', $pb.PbFieldType.PM, subBuilder: $1.CollectionMetaData.create)
+    ..pc<$2.CollectionMetaData>(1, _omitFieldNames ? '' : 'collectionsMetaData', $pb.PbFieldType.PM, subBuilder: $2.CollectionMetaData.create)
     ..hasRequiredFields = false
   ;
 
@@ -1436,7 +1708,7 @@ class GetCollectionsResponse extends $pb.GeneratedMessage {
   static GetCollectionsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<$1.CollectionMetaData> get collectionsMetaData => $_getList(0);
+  $core.List<$2.CollectionMetaData> get collectionsMetaData => $_getList(0);
 }
 
 

@@ -1,19 +1,37 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:grpc/grpc.dart';
 import 'package:nosql_frontend/constants.dart';
-import 'package:nosql_frontend/proto_gen/node.pbgrpc.dart';
-import 'package:nosql_frontend/providers/auth/auth.dart';
 import 'package:nosql_frontend/providers/node_port/node_port.dart';
-import 'package:nosql_frontend/providers/node_service/jwt_interceptor.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:nosql_frontend/proto_gen/auth.pbgrpc.dart';
 
-part 'node_service.g.dart';
+part 'auth.g.dart';
 
-@Riverpod(dependencies: [nodePort, jwtToken])
-NodeServiceClient nodeService(NodeServiceRef ref) {
-  final token = ref.watch(jwtTokenProvider);
+@Riverpod(dependencies: [])
+(String, String) localCredentials(LocalCredentialsRef ref) {
+  throw UnimplementedError();
+}
+
+@riverpod
+Future<String?> localJwtToken(LocalJwtTokenRef ref) async {
+  const storage = FlutterSecureStorage();
+  if (!(await storage.containsKey(key: "jwt_token"))) {
+    storage.write(key: "jwt_token", value: null);
+    return null;
+  }
+  return await storage.read(key: "jwt_token");
+}
+
+@Riverpod(dependencies: [])
+String jwtToken(JwtTokenRef ref) {
+  throw UnimplementedError();
+}
+
+@Riverpod(dependencies: [nodePort])
+AuthServiceClient authService(AuthServiceRef ref) {
   late final ChannelOptions options;
 
   if (kUseSSL) {
@@ -40,10 +58,5 @@ NodeServiceClient nodeService(NodeServiceRef ref) {
     options: options,
   );
 
-  return NodeServiceClient(
-    channel,
-    interceptors: [
-      JwtAuthInterceptor(token)
-    ],
-  );
+  return AuthServiceClient(channel);
 }

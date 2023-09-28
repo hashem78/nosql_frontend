@@ -64,6 +64,72 @@ const NodeState$json = {
 final $typed_data.Uint8List nodeStateDescriptor = $convert.base64Decode(
     'CglOb2RlU3RhdGUSCwoHSEVBbFRIWRAAEgsKB1dBSVRJTkcQARIJCgVFUlJPUhAC');
 
+@$core.Deprecated('Use removeCompoundIndexResponseDescriptor instead')
+const RemoveCompoundIndexResponse$json = {
+  '1': 'RemoveCompoundIndexResponse',
+};
+
+/// Descriptor for `RemoveCompoundIndexResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List removeCompoundIndexResponseDescriptor = $convert.base64Decode(
+    'ChtSZW1vdmVDb21wb3VuZEluZGV4UmVzcG9uc2U=');
+
+@$core.Deprecated('Use removeCompoundIndexRequestDescriptor instead')
+const RemoveCompoundIndexRequest$json = {
+  '1': 'RemoveCompoundIndexRequest',
+  '2': [
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
+    {'1': 'properties', '3': 2, '4': 3, '5': 9, '10': 'properties'},
+  ],
+};
+
+/// Descriptor for `RemoveCompoundIndexRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List removeCompoundIndexRequestDescriptor = $convert.base64Decode(
+    'ChpSZW1vdmVDb21wb3VuZEluZGV4UmVxdWVzdBIjCg1jb2xsZWN0aW9uX2lkGAEgASgJUgxjb2'
+    'xsZWN0aW9uSWQSHgoKcHJvcGVydGllcxgCIAMoCVIKcHJvcGVydGllcw==');
+
+@$core.Deprecated('Use compoundIndexQueryResponseDescriptor instead')
+const CompoundIndexQueryResponse$json = {
+  '1': 'CompoundIndexQueryResponse',
+  '2': [
+    {'1': 'document_ids', '3': 1, '4': 3, '5': 9, '10': 'documentIds'},
+  ],
+};
+
+/// Descriptor for `CompoundIndexQueryResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List compoundIndexQueryResponseDescriptor = $convert.base64Decode(
+    'ChpDb21wb3VuZEluZGV4UXVlcnlSZXNwb25zZRIhCgxkb2N1bWVudF9pZHMYASADKAlSC2RvY3'
+    'VtZW50SWRz');
+
+@$core.Deprecated('Use compoundIndexQueryRequestDescriptor instead')
+const CompoundIndexQueryRequest$json = {
+  '1': 'CompoundIndexQueryRequest',
+  '2': [
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
+    {'1': 'operator', '3': 2, '4': 1, '5': 14, '6': '.node.Operator', '10': 'operator'},
+    {'1': 'query', '3': 3, '4': 1, '5': 11, '6': '.CustomStruct', '10': 'query'},
+  ],
+};
+
+/// Descriptor for `CompoundIndexQueryRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List compoundIndexQueryRequestDescriptor = $convert.base64Decode(
+    'ChlDb21wb3VuZEluZGV4UXVlcnlSZXF1ZXN0EiMKDWNvbGxlY3Rpb25faWQYASABKAlSDGNvbG'
+    'xlY3Rpb25JZBIqCghvcGVyYXRvchgCIAEoDjIOLm5vZGUuT3BlcmF0b3JSCG9wZXJhdG9yEiMK'
+    'BXF1ZXJ5GAMgASgLMg0uQ3VzdG9tU3RydWN0UgVxdWVyeQ==');
+
+@$core.Deprecated('Use compoundIndexRequestDescriptor instead')
+const CompoundIndexRequest$json = {
+  '1': 'CompoundIndexRequest',
+  '2': [
+    {'1': 'collection_id', '3': 1, '4': 1, '5': 9, '10': 'collectionId'},
+    {'1': 'properties', '3': 2, '4': 3, '5': 9, '10': 'properties'},
+  ],
+};
+
+/// Descriptor for `CompoundIndexRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List compoundIndexRequestDescriptor = $convert.base64Decode(
+    'ChRDb21wb3VuZEluZGV4UmVxdWVzdBIjCg1jb2xsZWN0aW9uX2lkGAEgASgJUgxjb2xsZWN0aW'
+    '9uSWQSHgoKcHJvcGVydGllcxgCIAMoCVIKcHJvcGVydGllcw==');
+
 @$core.Deprecated('Use getCollectionPropertyTypeRequestDescriptor instead')
 const GetCollectionPropertyTypeRequest$json = {
   '1': 'GetCollectionPropertyTypeRequest',

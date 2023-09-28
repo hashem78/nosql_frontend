@@ -6,7 +6,7 @@ part of 'querying.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$queryStreamHash() => r'a24aff0c45b38c383825e3b01960dbc09f92359e';
+String _$queryStreamHash() => r'2386cf5aaeadac2e002f219af60ca150b3122dab';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -66,7 +66,8 @@ class QueryStreamFamily extends Family<AsyncValue<dynamic>> {
   }
 
   static final Iterable<ProviderOrFamily> _dependencies = <ProviderOrFamily>[
-    nodeServiceProvider
+    nodeServiceProvider,
+    jwtTokenProvider
   ];
 
   @override
@@ -75,7 +76,9 @@ class QueryStreamFamily extends Family<AsyncValue<dynamic>> {
   static final Iterable<ProviderOrFamily> _allTransitiveDependencies =
       <ProviderOrFamily>{
     nodeServiceProvider,
-    ...?nodeServiceProvider.allTransitiveDependencies
+    ...?nodeServiceProvider.allTransitiveDependencies,
+    jwtTokenProvider,
+    ...?jwtTokenProvider.allTransitiveDependencies
   };
 
   @override

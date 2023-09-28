@@ -6,7 +6,7 @@ part of 'collections.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$collectionsHash() => r'4e1d2617720238bb972b6f0e7208be9d6068fbdc';
+String _$collectionsHash() => r'a0f12bdd64f9196d7fc3862386f9a3f201c84fc7';
 
 /// See also [collections].
 @ProviderFor(collections)
@@ -16,16 +16,18 @@ final collectionsProvider =
   name: r'collectionsProvider',
   debugGetCreateSourceHash:
       const bool.fromEnvironment('dart.vm.product') ? null : _$collectionsHash,
-  dependencies: <ProviderOrFamily>[nodeServiceProvider],
+  dependencies: <ProviderOrFamily>[nodeServiceProvider, jwtTokenProvider],
   allTransitiveDependencies: <ProviderOrFamily>{
     nodeServiceProvider,
-    ...?nodeServiceProvider.allTransitiveDependencies
+    ...?nodeServiceProvider.allTransitiveDependencies,
+    jwtTokenProvider,
+    ...?jwtTokenProvider.allTransitiveDependencies
   },
 );
 
 typedef CollectionsRef = AutoDisposeFutureProviderRef<GetCollectionsResponse>;
 String _$collectionPropertiesHash() =>
-    r'5ad85de7da87f5d97085d781fdd70254c9c17085';
+    r'924761f7bc04b829d1c934eda75e15e783da618d';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -76,7 +78,8 @@ class CollectionPropertiesFamily extends Family<AsyncValue<List<String>>> {
   }
 
   static final Iterable<ProviderOrFamily> _dependencies = <ProviderOrFamily>[
-    nodeServiceProvider
+    nodeServiceProvider,
+    jwtTokenProvider
   ];
 
   @override
@@ -85,7 +88,9 @@ class CollectionPropertiesFamily extends Family<AsyncValue<List<String>>> {
   static final Iterable<ProviderOrFamily> _allTransitiveDependencies =
       <ProviderOrFamily>{
     nodeServiceProvider,
-    ...?nodeServiceProvider.allTransitiveDependencies
+    ...?nodeServiceProvider.allTransitiveDependencies,
+    jwtTokenProvider,
+    ...?jwtTokenProvider.allTransitiveDependencies
   };
 
   @override
@@ -185,7 +190,7 @@ class _CollectionPropertiesProviderElement
 }
 
 String _$collectionMetaDataHash() =>
-    r'2894f40827242668b9c3c746488107fc6c4e7a4b';
+    r'89d1392d713aa9d2dfdc09c786a1bda440ea6919';
 
 /// See also [collectionMetaData].
 @ProviderFor(collectionMetaData)
@@ -215,7 +220,8 @@ class CollectionMetaDataFamily extends Family<AsyncValue<CollectionMetaData>> {
   }
 
   static final Iterable<ProviderOrFamily> _dependencies = <ProviderOrFamily>[
-    nodeServiceProvider
+    nodeServiceProvider,
+    jwtTokenProvider
   ];
 
   @override
@@ -224,7 +230,9 @@ class CollectionMetaDataFamily extends Family<AsyncValue<CollectionMetaData>> {
   static final Iterable<ProviderOrFamily> _allTransitiveDependencies =
       <ProviderOrFamily>{
     nodeServiceProvider,
-    ...?nodeServiceProvider.allTransitiveDependencies
+    ...?nodeServiceProvider.allTransitiveDependencies,
+    jwtTokenProvider,
+    ...?jwtTokenProvider.allTransitiveDependencies
   };
 
   @override

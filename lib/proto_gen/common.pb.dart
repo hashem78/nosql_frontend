@@ -13,15 +13,16 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'google/protobuf/timestamp.pb.dart' as $3;
+import 'google/protobuf/timestamp.pb.dart' as $4;
 
 class CollectionMetaData extends $pb.GeneratedMessage {
   factory CollectionMetaData({
     $core.String? id,
     $core.String? name,
-    $3.Timestamp? createdOn,
+    $4.Timestamp? createdOn,
     $core.bool? deleted,
     $core.Iterable<$core.String>? indexedProperties,
+    $core.Iterable<$core.String>? indexedCompoundProperties,
   }) {
     final $result = create();
     if (id != null) {
@@ -39,6 +40,9 @@ class CollectionMetaData extends $pb.GeneratedMessage {
     if (indexedProperties != null) {
       $result.indexedProperties.addAll(indexedProperties);
     }
+    if (indexedCompoundProperties != null) {
+      $result.indexedCompoundProperties.addAll(indexedCompoundProperties);
+    }
     return $result;
   }
   CollectionMetaData._() : super();
@@ -48,9 +52,10 @@ class CollectionMetaData extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CollectionMetaData', createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'id')
     ..aOS(2, _omitFieldNames ? '' : 'name')
-    ..aOM<$3.Timestamp>(3, _omitFieldNames ? '' : 'createdOn', subBuilder: $3.Timestamp.create)
+    ..aOM<$4.Timestamp>(3, _omitFieldNames ? '' : 'createdOn', subBuilder: $4.Timestamp.create)
     ..aOB(4, _omitFieldNames ? '' : 'deleted')
     ..pPS(5, _omitFieldNames ? '' : 'indexedProperties')
+    ..pPS(6, _omitFieldNames ? '' : 'indexedCompoundProperties')
     ..hasRequiredFields = false
   ;
 
@@ -94,15 +99,15 @@ class CollectionMetaData extends $pb.GeneratedMessage {
   void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $3.Timestamp get createdOn => $_getN(2);
+  $4.Timestamp get createdOn => $_getN(2);
   @$pb.TagNumber(3)
-  set createdOn($3.Timestamp v) { setField(3, v); }
+  set createdOn($4.Timestamp v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasCreatedOn() => $_has(2);
   @$pb.TagNumber(3)
   void clearCreatedOn() => clearField(3);
   @$pb.TagNumber(3)
-  $3.Timestamp ensureCreatedOn() => $_ensure(2);
+  $4.Timestamp ensureCreatedOn() => $_ensure(2);
 
   @$pb.TagNumber(4)
   $core.bool get deleted => $_getBF(3);
@@ -115,6 +120,9 @@ class CollectionMetaData extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(5)
   $core.List<$core.String> get indexedProperties => $_getList(4);
+
+  @$pb.TagNumber(6)
+  $core.List<$core.String> get indexedCompoundProperties => $_getList(5);
 }
 
 class SetCollectionDocumentRequest extends $pb.GeneratedMessage {
@@ -199,8 +207,8 @@ class DocumentMetaData extends $pb.GeneratedMessage {
   factory DocumentMetaData({
     $core.String? id,
     $core.int? affinity,
-    $3.Timestamp? createdOn,
-    $3.Timestamp? lastEditedOn,
+    $4.Timestamp? createdOn,
+    $4.Timestamp? lastEditedOn,
     $core.bool? deleted,
   }) {
     final $result = create();
@@ -228,8 +236,8 @@ class DocumentMetaData extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DocumentMetaData', createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'id')
     ..a<$core.int>(2, _omitFieldNames ? '' : 'affinity', $pb.PbFieldType.O3)
-    ..aOM<$3.Timestamp>(3, _omitFieldNames ? '' : 'createdOn', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(4, _omitFieldNames ? '' : 'lastEditedOn', subBuilder: $3.Timestamp.create)
+    ..aOM<$4.Timestamp>(3, _omitFieldNames ? '' : 'createdOn', subBuilder: $4.Timestamp.create)
+    ..aOM<$4.Timestamp>(4, _omitFieldNames ? '' : 'lastEditedOn', subBuilder: $4.Timestamp.create)
     ..aOB(5, _omitFieldNames ? '' : 'deleted')
     ..hasRequiredFields = false
   ;
@@ -274,26 +282,26 @@ class DocumentMetaData extends $pb.GeneratedMessage {
   void clearAffinity() => clearField(2);
 
   @$pb.TagNumber(3)
-  $3.Timestamp get createdOn => $_getN(2);
+  $4.Timestamp get createdOn => $_getN(2);
   @$pb.TagNumber(3)
-  set createdOn($3.Timestamp v) { setField(3, v); }
+  set createdOn($4.Timestamp v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasCreatedOn() => $_has(2);
   @$pb.TagNumber(3)
   void clearCreatedOn() => clearField(3);
   @$pb.TagNumber(3)
-  $3.Timestamp ensureCreatedOn() => $_ensure(2);
+  $4.Timestamp ensureCreatedOn() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  $3.Timestamp get lastEditedOn => $_getN(3);
+  $4.Timestamp get lastEditedOn => $_getN(3);
   @$pb.TagNumber(4)
-  set lastEditedOn($3.Timestamp v) { setField(4, v); }
+  set lastEditedOn($4.Timestamp v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasLastEditedOn() => $_has(3);
   @$pb.TagNumber(4)
   void clearLastEditedOn() => clearField(4);
   @$pb.TagNumber(4)
-  $3.Timestamp ensureLastEditedOn() => $_ensure(3);
+  $4.Timestamp ensureLastEditedOn() => $_ensure(3);
 
   @$pb.TagNumber(5)
   $core.bool get deleted => $_getBF(4);

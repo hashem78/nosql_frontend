@@ -6,7 +6,7 @@ part of 'node_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$nodeServiceHash() => r'ee731659ad3f8aea009d436aad7eca5e24ff1190';
+String _$nodeServiceHash() => r'3e8a5ee25b04025c20344a4f4f87e3f7bb9744d7';
 
 /// See also [nodeService].
 @ProviderFor(nodeService)
@@ -15,10 +15,12 @@ final nodeServiceProvider = AutoDisposeProvider<NodeServiceClient>.internal(
   name: r'nodeServiceProvider',
   debugGetCreateSourceHash:
       const bool.fromEnvironment('dart.vm.product') ? null : _$nodeServiceHash,
-  dependencies: <ProviderOrFamily>[nodePortProvider],
+  dependencies: <ProviderOrFamily>[nodePortProvider, jwtTokenProvider],
   allTransitiveDependencies: <ProviderOrFamily>{
     nodePortProvider,
-    ...?nodePortProvider.allTransitiveDependencies
+    ...?nodePortProvider.allTransitiveDependencies,
+    jwtTokenProvider,
+    ...?jwtTokenProvider.allTransitiveDependencies
   },
 );
 

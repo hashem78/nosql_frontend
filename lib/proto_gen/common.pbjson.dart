@@ -22,6 +22,7 @@ const CollectionMetaData$json = {
     {'1': 'created_on', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdOn'},
     {'1': 'deleted', '3': 4, '4': 1, '5': 8, '10': 'deleted'},
     {'1': 'indexed_properties', '3': 5, '4': 3, '5': 9, '10': 'indexedProperties'},
+    {'1': 'indexed_compound_properties', '3': 6, '4': 3, '5': 9, '10': 'indexedCompoundProperties'},
   ],
 };
 
@@ -30,7 +31,8 @@ final $typed_data.Uint8List collectionMetaDataDescriptor = $convert.base64Decode
     'ChJDb2xsZWN0aW9uTWV0YURhdGESDgoCaWQYASABKAlSAmlkEhIKBG5hbWUYAiABKAlSBG5hbW'
     'USOQoKY3JlYXRlZF9vbhgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0'
     'ZWRPbhIYCgdkZWxldGVkGAQgASgIUgdkZWxldGVkEi0KEmluZGV4ZWRfcHJvcGVydGllcxgFIA'
-    'MoCVIRaW5kZXhlZFByb3BlcnRpZXM=');
+    'MoCVIRaW5kZXhlZFByb3BlcnRpZXMSPgobaW5kZXhlZF9jb21wb3VuZF9wcm9wZXJ0aWVzGAYg'
+    'AygJUhlpbmRleGVkQ29tcG91bmRQcm9wZXJ0aWVz');
 
 @$core.Deprecated('Use setCollectionDocumentRequestDescriptor instead')
 const SetCollectionDocumentRequest$json = {

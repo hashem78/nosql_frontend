@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:grpc/grpc.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:nosql_frontend/proto_gen/node.pb.dart';
+import 'package:nosql_frontend/providers/auth/auth.dart';
 import 'package:nosql_frontend/providers/collections/collections.dart';
 import 'package:nosql_frontend/providers/node_port/node_port.dart';
 import 'package:nosql_frontend/providers/node_service/node_service.dart';
 import 'package:nosql_frontend/providers/shared/shared.dart';
+import 'package:nosql_frontend/screens/auth_screen.dart';
 import 'package:nosql_frontend/screens/create_collection_screen.dart';
 import 'package:nosql_frontend/screens/queries_screen.dart';
 import 'package:nosql_frontend/screens/widgets/edit_field_dialog.dart';
@@ -20,6 +24,8 @@ class CollectionsScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final nodePort = ref.watch(nodePortProvider);
+    final token = ref.watch(jwtTokenProvider);
+    final isMounted = useIsMounted();
 
     ref.listen(
       clientHelloProvider,
@@ -46,8 +52,31 @@ class CollectionsScreen extends HookConsumerWidget {
                   showDialog(
                     context: context,
                     builder: (context) => ProviderScope(
-                      overrides: [nodePortProvider.overrideWithValue(nodePort)],
+                      overrides: [
+                        nodePortProvider.overrideWithValue(nodePort),
+                        jwtTokenProvider.overrideWithValue(token)
+                      ],
                       child: const SwitchNodeDialog(),
+                    ),
+                  );
+                },
+              ),
+              PopupMenuItem(
+                child: const Text('Signout'),
+                onTap: () async {
+                  const storage = FlutterSecureStorage();
+                  await storage.write(key: "jwt_token", value: null);
+                  if(!isMounted()) return;
+                  
+                  // ignore: use_build_context_synchronously
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => ProviderScope(
+                        overrides: [
+                          nodePortProvider.overrideWithValue(nodePort),
+                        ],
+                        child: const AuthScreen(),
+                      ),
                     ),
                   );
                 },
@@ -63,6 +92,7 @@ class CollectionsScreen extends HookConsumerWidget {
               builder: (context) => ProviderScope(
                 overrides: [
                   nodePortProvider.overrideWithValue(nodePort),
+                  jwtTokenProvider.overrideWithValue(token)
                 ],
                 child: const CreateCollectionScreen(),
               ),
@@ -133,7 +163,9 @@ class CollectionsScreen extends HookConsumerWidget {
                               MaterialPageRoute(
                                 builder: (context) => ProviderScope(
                                   overrides: [
-                                    nodePortProvider.overrideWithValue(nodePort)
+                                    nodePortProvider
+                                        .overrideWithValue(nodePort),
+                                    jwtTokenProvider.overrideWithValue(token)
                                   ],
                                   child:
                                       IndexesScreen(collectionId: metaData.id),
@@ -149,7 +181,9 @@ class CollectionsScreen extends HookConsumerWidget {
                               MaterialPageRoute(
                                 builder: (context) => ProviderScope(
                                   overrides: [
-                                    nodePortProvider.overrideWithValue(nodePort)
+                                    nodePortProvider
+                                        .overrideWithValue(nodePort),
+                                    jwtTokenProvider.overrideWithValue(token)
                                   ],
                                   child: QueriesScreen(
                                     collectionId: metaData.id,
@@ -200,7 +234,8 @@ class CollectionsScreen extends HookConsumerWidget {
                         MaterialPageRoute(
                           builder: (context) => ProviderScope(
                             overrides: [
-                              nodePortProvider.overrideWithValue(nodePort)
+                              nodePortProvider.overrideWithValue(nodePort),
+                              jwtTokenProvider.overrideWithValue(token)
                             ],
                             child: DocumentsScreen(
                               metaData: metaData,

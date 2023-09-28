@@ -6,7 +6,7 @@ part of 'documents.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$documentHash() => r'c8187e9a4b26ce43cb7b11a4da2567e18777b3de';
+String _$documentHash() => r'7ed410ee32c95e947b7628084f4d66277198c44b';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -60,7 +60,8 @@ class DocumentFamily extends Family<AsyncValue<CollectionDocument>> {
   }
 
   static final Iterable<ProviderOrFamily> _dependencies = <ProviderOrFamily>[
-    nodeServiceProvider
+    nodeServiceProvider,
+    jwtTokenProvider
   ];
 
   @override
@@ -69,7 +70,9 @@ class DocumentFamily extends Family<AsyncValue<CollectionDocument>> {
   static final Iterable<ProviderOrFamily> _allTransitiveDependencies =
       <ProviderOrFamily>{
     nodeServiceProvider,
-    ...?nodeServiceProvider.allTransitiveDependencies
+    ...?nodeServiceProvider.allTransitiveDependencies,
+    jwtTokenProvider,
+    ...?jwtTokenProvider.allTransitiveDependencies
   };
 
   @override
@@ -178,7 +181,7 @@ class _DocumentProviderElement
   String get documentId => (origin as DocumentProvider).documentId;
 }
 
-String _$documentsHash() => r'9a8177a061ccadf45c1742be69587531ac7432ea';
+String _$documentsHash() => r'83007370392e3587579b7180d19a0aa9bebf112b';
 
 /// See also [documents].
 @ProviderFor(documents)
@@ -208,7 +211,8 @@ class DocumentsFamily extends Family<AsyncValue<CollectionDocument>> {
   }
 
   static final Iterable<ProviderOrFamily> _dependencies = <ProviderOrFamily>[
-    nodeServiceProvider
+    nodeServiceProvider,
+    jwtTokenProvider
   ];
 
   @override
@@ -217,7 +221,9 @@ class DocumentsFamily extends Family<AsyncValue<CollectionDocument>> {
   static final Iterable<ProviderOrFamily> _allTransitiveDependencies =
       <ProviderOrFamily>{
     nodeServiceProvider,
-    ...?nodeServiceProvider.allTransitiveDependencies
+    ...?nodeServiceProvider.allTransitiveDependencies,
+    jwtTokenProvider,
+    ...?jwtTokenProvider.allTransitiveDependencies
   };
 
   @override

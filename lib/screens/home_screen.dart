@@ -11,6 +11,7 @@ import 'package:nosql_frontend/providers/node_port/node_port.dart';
 import 'package:nosql_frontend/providers/node_service/node_service.dart';
 import 'package:nosql_frontend/providers/shared/shared.dart';
 import 'package:nosql_frontend/screens/auth_screen.dart';
+import 'package:nosql_frontend/screens/compound_indexes_screen.dart';
 import 'package:nosql_frontend/screens/create_collection_screen.dart';
 import 'package:nosql_frontend/screens/queries_screen.dart';
 import 'package:nosql_frontend/screens/widgets/edit_field_dialog.dart';
@@ -66,8 +67,8 @@ class CollectionsScreen extends HookConsumerWidget {
                 onTap: () async {
                   const storage = FlutterSecureStorage();
                   await storage.write(key: "jwt_token", value: null);
-                  if(!isMounted()) return;
-                  
+                  if (!isMounted()) return;
+
                   // ignore: use_build_context_synchronously
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
@@ -169,6 +170,26 @@ class CollectionsScreen extends HookConsumerWidget {
                                   ],
                                   child:
                                       IndexesScreen(collectionId: metaData.id),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                        PopupMenuItem(
+                          child: const Text('Compound Indexes'),
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => ProviderScope(
+                                  overrides: [
+                                    nodePortProvider.overrideWithValue(
+                                      nodePort,
+                                    ),
+                                    jwtTokenProvider.overrideWithValue(token)
+                                  ],
+                                  child: CompoundIndexesScreen(
+                                    collectionId: metaData.id,
+                                  ),
                                 ),
                               ),
                             );

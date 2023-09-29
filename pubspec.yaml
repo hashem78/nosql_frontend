@@ -24,8 +24,18 @@ dependencies:
   json_editor_flutter: ^1.0.1
   flutter_json_view: ^1.1.3
   rxdart: ^0.27.7
-  flutter_secure_storage: ^9.0.0
   flutter_login: ^4.2.1
+  flutter_secure_storage:
+    git:
+      url: https://github.com/tomekit/flutter_secure_storage.git
+      ref: develop
+      path: flutter_secure_storage
+dependency_overrides:
+  flutter_secure_storage_linux:
+    git:
+      url: https://github.com/tomekit/flutter_secure_storage.git
+      ref: develop
+      path: flutter_secure_storage_linux
 
 dev_dependencies:
   flutter_test:

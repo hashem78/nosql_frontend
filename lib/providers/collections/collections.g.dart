@@ -332,5 +332,144 @@ class _CollectionMetaDataProviderElement
   String get collectionId =>
       (origin as CollectionMetaDataProvider).collectionId;
 }
+
+String _$compoundIndexesHash() => r'ed42dffade94b42a990425f6dadc3fda17dce5cb';
+
+/// See also [compoundIndexes].
+@ProviderFor(compoundIndexes)
+const compoundIndexesProvider = CompoundIndexesFamily();
+
+/// See also [compoundIndexes].
+class CompoundIndexesFamily extends Family<AsyncValue<List<String>>> {
+  /// See also [compoundIndexes].
+  const CompoundIndexesFamily();
+
+  /// See also [compoundIndexes].
+  CompoundIndexesProvider call(
+    String collectionId,
+  ) {
+    return CompoundIndexesProvider(
+      collectionId,
+    );
+  }
+
+  @override
+  CompoundIndexesProvider getProviderOverride(
+    covariant CompoundIndexesProvider provider,
+  ) {
+    return call(
+      provider.collectionId,
+    );
+  }
+
+  static final Iterable<ProviderOrFamily> _dependencies = <ProviderOrFamily>[
+    nodeServiceProvider,
+    jwtTokenProvider
+  ];
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static final Iterable<ProviderOrFamily> _allTransitiveDependencies =
+      <ProviderOrFamily>{
+    nodeServiceProvider,
+    ...?nodeServiceProvider.allTransitiveDependencies,
+    jwtTokenProvider,
+    ...?jwtTokenProvider.allTransitiveDependencies
+  };
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'compoundIndexesProvider';
+}
+
+/// See also [compoundIndexes].
+class CompoundIndexesProvider extends AutoDisposeFutureProvider<List<String>> {
+  /// See also [compoundIndexes].
+  CompoundIndexesProvider(
+    String collectionId,
+  ) : this._internal(
+          (ref) => compoundIndexes(
+            ref as CompoundIndexesRef,
+            collectionId,
+          ),
+          from: compoundIndexesProvider,
+          name: r'compoundIndexesProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$compoundIndexesHash,
+          dependencies: CompoundIndexesFamily._dependencies,
+          allTransitiveDependencies:
+              CompoundIndexesFamily._allTransitiveDependencies,
+          collectionId: collectionId,
+        );
+
+  CompoundIndexesProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.collectionId,
+  }) : super.internal();
+
+  final String collectionId;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<String>> Function(CompoundIndexesRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: CompoundIndexesProvider._internal(
+        (ref) => create(ref as CompoundIndexesRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        collectionId: collectionId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<String>> createElement() {
+    return _CompoundIndexesProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is CompoundIndexesProvider &&
+        other.collectionId == collectionId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, collectionId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin CompoundIndexesRef on AutoDisposeFutureProviderRef<List<String>> {
+  /// The parameter `collectionId` of this provider.
+  String get collectionId;
+}
+
+class _CompoundIndexesProviderElement
+    extends AutoDisposeFutureProviderElement<List<String>>
+    with CompoundIndexesRef {
+  _CompoundIndexesProviderElement(super.provider);
+
+  @override
+  String get collectionId => (origin as CompoundIndexesProvider).collectionId;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

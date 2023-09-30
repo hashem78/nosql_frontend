@@ -15,76 +15,49 @@ class CompoundIndexesScreen extends HookConsumerWidget {
   final String collectionId;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final metaDataVal = ref.watch(collectionMetaDataProvider(collectionId));
     final nodePort = ref.watch(nodePortProvider);
     final token = ref.watch(jwtTokenProvider);
-    return metaDataVal.when(
-      data: (metaData) {
-        return Scaffold(
-          appBar: AppBar(
-            title: Text('${metaData.name} Compound Indexes'),
-            actions: [
-              IconButton(
-                onPressed: () {
-                  ref.invalidate(collectionMetaDataProvider(collectionId));
-                },
-                icon: const Icon(Icons.refresh),
-              )
-            ],
-          ),
-          floatingActionButton: FloatingActionButton(
-            child: const Icon(Icons.add),
-            onPressed: () async {
-              await Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) {
-                    return ProviderScope(
-                      overrides: [
-                        nodePortProvider.overrideWithValue(
-                          nodePort,
-                        ),
-                        jwtTokenProvider.overrideWithValue(token)
-                      ],
-                      child: CreateCompoundIndexScreen(
-                        collectionId: collectionId,
-                      ),
-                    );
-                  },
-                ),
-              );
-              ref.invalidate(collectionMetaDataProvider(metaData.id));
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Compound Indexes'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              ref.invalidate(compoundIndexesProvider(collectionId));
             },
-          ),
-          body: CustomScrollView(
-            slivers: [
-              CompoundPropertyIndexList(
-                metaData: metaData,
-              )
-            ],
-          ),
-        );
-      },
-      error: (error, stackTrace) => Scaffold(
-        appBar: AppBar(title: const Text('Indexes')),
-        body: Center(
-          child: Column(
-            children: [
-              const Text('Error'),
-              ElevatedButton(
-                onPressed: () {
-                  ref.invalidate(collectionMetaDataProvider(collectionId));
-                },
-                child: const Text('Retry'),
-              )
-            ],
-          ),
-        ),
+            icon: const Icon(Icons.refresh),
+          )
+        ],
       ),
-      loading: () => Scaffold(
-        appBar: AppBar(
-          title: const Text('Indexes'),
-        ),
-        body: const Center(child: CircularProgressIndicator()),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () async {
+          await Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return ProviderScope(
+                  overrides: [
+                    nodePortProvider.overrideWithValue(
+                      nodePort,
+                    ),
+                    jwtTokenProvider.overrideWithValue(token)
+                  ],
+                  child: CreateCompoundIndexScreen(
+                    collectionId: collectionId,
+                  ),
+                );
+              },
+            ),
+          );
+          ref.invalidate(compoundIndexesProvider(collectionId));
+        },
+      ),
+      body: CustomScrollView(
+        slivers: [
+          CompoundPropertyIndexList(
+            collectionId: collectionId,
+          )
+        ],
       ),
     );
   }

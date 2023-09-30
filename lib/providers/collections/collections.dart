@@ -39,3 +39,15 @@ Future<CollectionMetaData> collectionMetaData(
     GetCollectionMetaDataRequest(collectionId: collectionId),
   );
 }
+
+@Riverpod(dependencies: [nodeService, jwtToken])
+Future<List<String>> compoundIndexes(
+  CompoundIndexesRef ref,
+  String collectionId,
+) async {
+  final nodeService = ref.watch(nodeServiceProvider);
+  final metaData = await nodeService.getCollectionMetaData(
+    GetCollectionMetaDataRequest(collectionId: collectionId),
+  );
+  return metaData.indexedCompoundProperties;
+}

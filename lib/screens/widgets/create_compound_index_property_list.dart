@@ -23,32 +23,28 @@ class CreateCompoundIndexPropertyList extends HookConsumerWidget {
       data: (allProperties) {
         return HookBuilder(
           builder: (context) {
-            final stateNotifier = useValueNotifier(
-              metaData.indexedProperties.toSet(),
-            );
+            final stateMap = <String, bool>{};
+            for (final property in allProperties) {
+              stateMap[property] = false;
+            }
+
+            final stateNotifier = useValueNotifier({...stateMap});
 
             return SliverList.list(
               children: allProperties
                   .map(
                     (property) => CheckboxListTile(
                       title: Text(property),
-                      value: useValueListenable(stateNotifier).contains(
-                        property,
-                      ),
+                      value: useValueListenable(stateNotifier)[property],
                       onChanged: (val) async {
                         if (val == null) return;
 
-                        if (val) {
-                          stateNotifier.value = {
-                            ...stateNotifier.value,
-                            property
-                          };
-                        } else {
-                          final stateCopy = {...stateNotifier.value};
-                          stateCopy.remove(property);
-                          stateNotifier.value = stateCopy;
-                        }
-                        onChanged(stateNotifier.value);
+                        stateNotifier.value = {...stateNotifier.value}
+                          ..update(property, (value) => val);
+
+                        onChanged(stateNotifier.value.keys
+                            .where((element) => stateNotifier.value[element]!)
+                            .toSet());
                       },
                     ),
                   )

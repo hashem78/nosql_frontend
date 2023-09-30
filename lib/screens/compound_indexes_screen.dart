@@ -23,6 +23,14 @@ class CompoundIndexesScreen extends HookConsumerWidget {
         return Scaffold(
           appBar: AppBar(
             title: Text('${metaData.name} Compound Indexes'),
+            actions: [
+              IconButton(
+                onPressed: () {
+                  ref.invalidate(collectionMetaDataProvider(collectionId));
+                },
+                icon: const Icon(Icons.refresh),
+              )
+            ],
           ),
           floatingActionButton: FloatingActionButton(
             child: const Icon(Icons.add),

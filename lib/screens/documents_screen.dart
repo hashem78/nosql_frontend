@@ -128,6 +128,7 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
                                       nodePortProvider.overrideWithValue(
                                         nodePort,
                                       ),
+                                      jwtTokenProvider.overrideWithValue(token),
                                     ],
                                     child: EditDocumentScreen(
                                       initialText: document.data,
